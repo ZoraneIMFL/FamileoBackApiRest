@@ -1,19 +1,24 @@
 stages:
-  - build
+  - build 
   - test
+
 build:
   stage: build
-  image: "gradle:7.2.0-jdk17"
+  image: "openjdk:17-jdk-slim"
   script:
-    - "mvn clean install -P qualification"
+    - apt-get update
+    - apt-get install -y maven
+    - mvn clean install -P qualification
   tags:
     - docker2
   allow_failure: true
 
 test:
   stage: test
-  image: "gradle:7.2.0-jdk17"
+  image: "openjdk:17-jdk-slim"
   script:
+    - apt-get update
+    - apt-get install -y maven
     - mvn -B test
   tags:
     - docker2
