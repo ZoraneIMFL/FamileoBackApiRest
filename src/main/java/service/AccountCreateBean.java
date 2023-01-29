@@ -5,6 +5,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.core.MediaType;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Stateless
 @Path("/Register")
@@ -12,9 +14,10 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.TEXT_PLAIN)
 
 public class AccountCreateBean {
+    private static final Logger LOGGER = Logger.getLogger(AccountCreateBean.class.getName());
     @POST
     public String register(String formData){
-        System.out.println("Registered successfully");
+        LOGGER.log(Level.FINE, "Registered successfully");
         return "Registered successfully";
     }
 }

@@ -2,6 +2,7 @@ package service;
 
 import persistable.Account;
 
+
 public interface AccountManager {
 
     Account createAccount(String name, String email, String password, int status);

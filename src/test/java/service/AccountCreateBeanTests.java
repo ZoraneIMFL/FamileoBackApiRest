@@ -24,8 +24,6 @@ public class AccountCreateBeanTests extends TestCase {
     @Classes(AccountCreateBean.class)
     public WebApp app() {
         return new WebApp().contextRoot("test");
-
-
     }
 
     @Test

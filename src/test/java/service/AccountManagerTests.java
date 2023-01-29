@@ -39,8 +39,6 @@ public class AccountManagerTests extends TestCase {
         Assert.assertEquals("DupontFamily", acc.getName());
         System.out.println("RECHERCHE D'UN ACCOUNT");
         acc = accountManager.findByPrimaryKey(1);
-        Assert.assertEquals(acc.getEmail(), "dupont@gmail.com");
-
-
+        Assert.assertEquals("dupont@gmail.com", acc.getEmail());
     }
-    }
+}
