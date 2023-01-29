@@ -21,19 +21,15 @@ public class AccountManagerBean implements AccountManager{
     @PersistenceContext
     EntityManager em;
 
-    //private Account acc = null;
-
-
     @Override
     public Account createAccount(String name, String email, String password, int status) {
         if (PasswordValidator.isValid(password) && EmailValidator.isValid(email) ){
-            Account acc = new Account(name, email, password, status);
+            var acc = new Account(name, email, password, status);
             em.persist(acc);
             return acc;
         }
         else{
             LOGGER.log(Level.WARNING, "INVALID FIELDS");
-            //System.out.println("INVALID FIELDS");
         }
 
         return null;
