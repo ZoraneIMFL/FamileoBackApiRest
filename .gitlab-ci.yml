@@ -1,3 +1,5 @@
+PROXY: "-Dhttp.proxyHost=cache-etu.univ-artois.fr -Dhttp.proxyPort=3128 -Dhttps.proxyHost=cache-etu.univ-artois.fr -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts=localhost"
+
 stages:
   - build 
   - test
@@ -6,9 +8,9 @@ build:
   stage: build
   image: "openjdk:17-jdk-slim"
   script:
-    - apt-get update
-    - apt-get install -y maven
-    - mvn clean install -P qualification
+    - apt-get $PROXY update
+    - apt-get $PROXY install -y maven
+    - mvn clean $PROXY install -P qualification
   tags:
     - docker2
   allow_failure: true
