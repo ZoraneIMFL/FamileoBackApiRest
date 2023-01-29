@@ -31,7 +31,7 @@ test:
     - docker2
 
 sonarqube:
-  stage: CODE-QUALITY
+  stage: code-quality
   image: maven:3.8.5-openjdk-17
   allow_failure: true
   variables:
