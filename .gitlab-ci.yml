@@ -9,8 +9,8 @@ build:
   stage: build
   image: "openjdk:17-jdk-slim"
   script:
-    - apt-get $PROXY update
-    - apt-get $PROXY install -y maven
+    - http-proxy=cache-etu.univ-artois.fr:3128 apt-get update
+    - http-proxy=cache-etu.univ-artois.fr:3128 apt-get install -y maven
     - mvn clean $PROXY install -P qualification
   tags:
     - docker2
