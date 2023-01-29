@@ -1,6 +1,6 @@
 variables:
   PROXY: "-Dhttp.proxyHost=cache-etu.univ-artois.fr -Dhttp.proxyPort=3128 -Dhttps.proxyHost=cache-etu.univ-artois.fr -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts=localhost"
-  SONAR: "-Dsonar.projectKey=FamileoBack -Dsonar.host.url=https://sonarqube.univ-artois.fr -Dsonar.login=cea909e20a60359dead0bd78b290818901f9f505"
+  SONAR: "-Dsonar.projectKey=FamileoBack -Dsonar.host.url=https://sonarqube.univ-artois.fr -Dsonar.login=cea909e20a60359dead0bd78b290818901f9f505 -Dsonar.scm.provider=git"
 
 stages:
   - build 
@@ -29,6 +29,13 @@ test:
     - mvn -B test
   tags:
     - docker2
+  artifacts:
+    when: always
+    reports:
+      junit: build/test-results/test/TEST-*.xml
+    paths:
+        - build/reports/*
+
 
 sonarqube:
   stage: code-quality
