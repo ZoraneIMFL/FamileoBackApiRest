@@ -1,9 +1,11 @@
 variables:
   PROXY: "-Dhttp.proxyHost=cache-etu.univ-artois.fr -Dhttp.proxyPort=3128 -Dhttps.proxyHost=cache-etu.univ-artois.fr -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts=localhost"
+  SONAR: "-Dsonar.projectKey=FamileoBack -Dsonar.host.url=https://sonarqube.univ-artois.fr -Dsonar.login=cea909e20a60359dead0bd78b290818901f9f505"
 
 stages:
   - build 
   - test
+  - code-quality
 
 build:
   stage: build
@@ -25,5 +27,21 @@ test:
     #- apt-get update
     #- apt-get install -y maven
     - mvn -B test
+  tags:
+    - docker2
+
+sonarqube:
+  stage: CODE-QUALITY
+  image: maven:3.8.5-openjdk-17
+  allow_failure: true
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
+    GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script:
+    - mvn sonar:sonar $SONAR
   tags:
     - docker2
