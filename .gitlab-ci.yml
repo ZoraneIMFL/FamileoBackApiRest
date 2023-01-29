@@ -19,10 +19,11 @@ build:
 
 test:
   stage: test
-  image: "openjdk:17-jdk-slim"
+  image: maven:3.8.5-openjdk-17
+  #image: "openjdk:17-jdk-slim"
   script:
-    - apt-get update
-    - apt-get install -y maven
+    #- apt-get update
+    #- apt-get install -y maven
     - mvn -B test
   tags:
     - docker2
