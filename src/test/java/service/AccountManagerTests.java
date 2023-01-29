@@ -1,5 +1,6 @@
-import Persistable.Account;
-import Service.AccountManager;
+package service;
+
+import persistable.Account;
 import junit.framework.TestCase;
 import org.junit.*;
 

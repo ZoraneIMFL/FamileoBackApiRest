@@ -1,6 +1,4 @@
-package Persistable;
-
-import org.hibernate.annotations.Table;
+package persistable;
 
 import javax.persistence.*;
 

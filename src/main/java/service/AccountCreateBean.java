@@ -1,4 +1,4 @@
-package Service;
+package service;
 import javax.ejb.Stateless;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;

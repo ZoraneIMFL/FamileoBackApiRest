@@ -1,8 +1,8 @@
-package Service;
+package service;
 
-import Persistable.Account;
-import Validator.EmailValidator;
-import Validator.PasswordValidator;
+import persistable.Account;
+import validator.EmailValidator;
+import validator.PasswordValidator;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
