@@ -7,7 +7,8 @@ stages:
 
 build:
   stage: build
-  image: "openjdk:17-jdk-slim"
+  image: maven:3.8.5-openjdk-17
+  #image: "openjdk:17-jdk-slim"
   script:
     #- http-proxy=cache-etu.univ-artois.fr:3128 apt-get update
     #- http-proxy=cache-etu.univ-artois.fr:3128 apt-get install -y maven
