@@ -42,6 +42,6 @@ sonarqube:
     paths:
       - .sonar/cache
   script:
-    - mvn clean package sonar:sonar $SONAR
+    - mvn verify sonar:sonar $SONAR
   tags:
     - docker2
