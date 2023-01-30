@@ -20,6 +20,9 @@ public class Account {
 
     private int status;
 
+    //@ManyToOne
+
+
     public Account(){
 
     }
