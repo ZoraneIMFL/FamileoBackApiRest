@@ -15,6 +15,7 @@ build:
     #- http-proxy=cache-etu.univ-artois.fr:3128 apt-get update
     #- http-proxy=cache-etu.univ-artois.fr:3128 apt-get install -y maven
     - mvn clean install -P qualification
+    - cat targer/site/jacoco/jacoco.xml
   tags:
     - docker2
   allow_failure: true
@@ -32,7 +33,7 @@ test:
   artifacts:
     when: always
     paths:
-      - target/site/jacoco/
+      - target/site/jacoco/jacoco.xml
     expire_in: 30 days
 
 
