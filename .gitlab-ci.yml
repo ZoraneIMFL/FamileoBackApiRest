@@ -15,7 +15,7 @@ build:
     #- http-proxy=cache-etu.univ-artois.fr:3128 apt-get update
     #- http-proxy=cache-etu.univ-artois.fr:3128 apt-get install -y maven
     - mvn clean install -P qualification
-    - cat target/site/jacoco/jacoco.xml
+    - cat ./target/site/jacoco/jacoco.xml
   tags:
     - docker2
   allow_failure: true
