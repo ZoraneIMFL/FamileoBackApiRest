@@ -31,7 +31,7 @@ test:
     - docker2
   artifacts:
     paths:
-      - /target/site/jacoco/
+      - target/site/jacoco/
 
 
 sonarqube:
@@ -46,7 +46,7 @@ sonarqube:
     paths:
       - .sonar/cache
   script:
-    - mvn verify sonar:sonar $SONAR -Dsonar.qualitygate.wait=true -Dsonar.coverage.jacoco.xmlReportPaths=/target/site/jacoco/jacoco.xml
+    - mvn verify sonar:sonar $SONAR -Dsonar.qualitygate.wait=true -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
   tags:
     - docker2
   rules:
