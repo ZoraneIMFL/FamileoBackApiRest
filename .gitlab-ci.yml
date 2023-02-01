@@ -49,6 +49,8 @@ sonarqube:
     paths:
       - .sonar/cache
   script:
-    - mvn clean verify sonar:sonar $SONAR
+    - mvn verify sonar:sonar $SONAR -Dsonar.qualitygate.wait=true
   tags:
     - docker2
+  rules:
+    - if: $CI_COMMIT_REF_NAME == 'main' || $CI_PIPELINE_SOURCE == 'merge_request_event'
