@@ -30,11 +30,8 @@ test:
   tags:
     - docker2
   artifacts:
-    when: always
-    reports:
-      junit: build/test-results/test/TEST-*.xml
     paths:
-        - build/reports/*
+      - target/site/jacoco/jacoco.xml
 
 
 sonarqube:
