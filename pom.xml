@@ -19,7 +19,7 @@
         <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
         <sonar.language>java</sonar.language>
     </properties>
-
+    <profiles>
     <profile>
     <id>coverage</id>
     <build>
@@ -46,6 +46,7 @@
     </plugins>
     </build>
     </profile>
+    </profiles>
 
     <dependencies>
         <dependency>
