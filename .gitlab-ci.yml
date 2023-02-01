@@ -30,8 +30,10 @@ test:
   tags:
     - docker2
   artifacts:
+    when: always
     paths:
       - target/site/jacoco/
+    expire_in: 30 days
 
 
 sonarqube:
