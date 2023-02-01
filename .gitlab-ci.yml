@@ -46,7 +46,7 @@ sonarqube:
     paths:
       - .sonar/cache
   script:
-    - mvn verify sonar:sonar $SONAR -Dsonar.qualitygate.wait=true -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/*
+    - mvn verify sonar:sonar $SONAR -Dsonar.qualitygate.wait=true -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/*.xml
   tags:
     - docker2
   rules:
