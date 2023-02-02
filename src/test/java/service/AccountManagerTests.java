@@ -1,5 +1,6 @@
-import Persistable.Account;
-import Service.AccountManager;
+package service;
+
+import persistable.Account;
 import junit.framework.TestCase;
 import org.junit.*;
 
@@ -27,19 +28,25 @@ public class AccountManagerTests extends TestCase {
     }
 
     public void test(){
-        System.out.println("CREATION D'UN ACCOUNT VALIDE");
+        System.out.println("------CREATION D'UN ACCOUNT VALIDE------");
         Account acc = accountManager.createAccount("DupontFamily", "dupont@gmail.com", "S*fdflip59", 0);
         Assert.assertNotNull(acc);
-        System.out.println("CREATION D'UN ACCOUNT INVALIDE DONC PAS D'INSERT");
+        Assert.assertEquals(1, acc.getId());
+        Assert.assertEquals("DupontFamily", acc.getName());
+
+
+        System.out.println("-------CREATION D'UN ACCOUNT INVALIDE DONC PAS D'INSERT------");
         Account acc1 =accountManager.createAccount("DupontFamily", "dupontgmail.com", "Sfdflip59", 0);
         Assert.assertNull(acc1);
 
-        Assert.assertEquals(1, acc.getId());
-        Assert.assertEquals("DupontFamily", acc.getName());
-        System.out.println("RECHERCHE D'UN ACCOUNT");
+
+        System.out.println("------RECHERCHE D'UN ACCOUNT------");
         acc = accountManager.findByPrimaryKey(1);
-        Assert.assertEquals(acc.getEmail(), "dupont@gmail.com");
+        Assert.assertEquals("dupont@gmail.com", acc.getEmail());
 
-
+        System.out.println("------UPDATE STATUS------");
+        accountManager.updateStatus(1, 1);
+        acc = accountManager.findByPrimaryKey(1);
+        Assert.assertEquals(1, acc.getId());
     }
-    }
+}

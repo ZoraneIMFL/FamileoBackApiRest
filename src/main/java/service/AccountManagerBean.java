@@ -1,33 +1,35 @@
-package Service;
+package service;
 
-import Persistable.Account;
-import Validator.EmailValidator;
-import Validator.PasswordValidator;
+import persistable.Account;
+import validator.EmailValidator;
+import validator.PasswordValidator;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.logging.Logger;
+import java.util.logging.Level;
 
-
+/**
+ * This Bean manage the accounts system of the application
+ */
 @Stateless
 public class AccountManagerBean implements AccountManager{
+
+    private static final Logger LOGGER = Logger.getLogger(AccountManagerBean.class.getName());
 
     @PersistenceContext
     EntityManager em;
 
-    private Account acc = null;
-
-
     @Override
     public Account createAccount(String name, String email, String password, int status) {
         if (PasswordValidator.isValid(password) && EmailValidator.isValid(email) ){
-
-            acc = new Account(name, email, password, status);
+            var acc = new Account(name, email, password, status);
             em.persist(acc);
             return acc;
         }
         else{
-            System.out.println("INVALID FIELDS");
+            LOGGER.log(Level.WARNING, "INVALID FIELDS");
         }
 
         return null;

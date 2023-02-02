@@ -1,9 +1,10 @@
-package Persistable;
-
-import org.hibernate.annotations.Table;
+package persistable;
 
 import javax.persistence.*;
 
+/**
+ * This class represents an account that can be created on the application.
+ */
 @Entity(name = "Account")
 @TableGenerator(name="AccountGen", table = "SEQ_TABLE", allocationSize = 1000)
 public class Account {
@@ -69,8 +70,4 @@ public class Account {
     public void setStatus(int status) {
         this.status = status;
     }
-
-
-
-
 }
