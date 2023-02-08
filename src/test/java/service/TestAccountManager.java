@@ -16,7 +16,7 @@ public class TestAccountManager extends TestCase {
 
     public void setUp() throws Exception {
         Properties p = new Properties();
-        p.put("projet", "new://Resource?type=DataSource");
+        p.put("testDB", "new://Resource?type=DataSource");
         ejbContainer = EJBContainer.createEJBContainer(p);
         ejbContainer.getContext().bind("inject", this);
     }
