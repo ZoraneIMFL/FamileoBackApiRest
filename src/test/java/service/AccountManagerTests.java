@@ -16,7 +16,7 @@ public class AccountManagerTests extends TestCase {
 
     public void setUp() throws Exception {
         Properties p = new Properties();
-        p.put("testDB", "new://Resource?type=DataSource");
+        p.put("projet", "new://Resource?type=DataSource");
         ejbContainer = EJBContainer.createEJBContainer(p);
         ejbContainer.getContext().bind("inject", this);
     }
@@ -39,6 +39,7 @@ public class AccountManagerTests extends TestCase {
         Assert.assertEquals("DupontFamily", acc.getName());
         System.out.println("RECHERCHE D'UN ACCOUNT");
         acc = accountManager.findByPrimaryKey(1);
+        System.out.println(acc);
         Assert.assertEquals("dupont@gmail.com", acc.getEmail());
     }
 }

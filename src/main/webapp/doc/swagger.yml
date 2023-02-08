@@ -1,0 +1,22 @@
+openapi: 3.0.0
+info:
+title: "Api Basic Demo"
+description: "Demo"
+version: "1.0.0"
+termsOfService: ""
+license:
+name: "Apache 2.0"
+url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+
+security:
+- bearerAuth: []
+
+servers:
+- url: "http://{host-port}/ili/"
+variables:
+host-port:
+enum:
+- localhost:8080
+- staging:8000
+- preprod
+default: localhost:8080
