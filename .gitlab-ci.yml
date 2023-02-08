@@ -29,7 +29,6 @@ test:
   script:
     #- apt-get update
     #- apt-get install -y maven
-    - yum
     - docker-compose up -d
     - mvn -B test
     
