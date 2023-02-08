@@ -27,6 +27,7 @@ public class AccountManagerTests extends TestCase {
         }
     }
 
+    @Test
     public void test(){
         System.out.println("CREATION D'UN ACCOUNT VALIDE");
         Account acc = accountManager.createAccount("DupontFamily", "dupont@gmail.com", "S*fdflip59", 0);
