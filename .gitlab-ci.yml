@@ -14,7 +14,7 @@ build:
   script:
     #- http-proxy=cache-etu.univ-artois.fr:3128 apt-get update
     #- http-proxy=cache-etu.univ-artois.fr:3128 apt-get install -y maven
-    - mvn clean install -P qualification
+    - mvn clean install -P qualification -Dmaven.test.skip
   tags:
     - docker2
   allow_failure: true
@@ -26,7 +26,10 @@ test:
   script:
     #- apt-get update
     #- apt-get install -y maven
+    - yum
+    - docker-compose up -d
     - mvn -B test
+    
   tags:
     - docker2
   artifacts:
