@@ -8,7 +8,7 @@ import javax.ejb.EJB;
 import javax.ejb.embeddable.EJBContainer;
 import java.util.Properties;
 
-public class AccountManagerTests extends TestCase {
+public class TestAccountManager extends TestCase {
     @EJB(name = "AccountManager")
     private AccountManager accountManager;
 
@@ -28,7 +28,7 @@ public class AccountManagerTests extends TestCase {
     }
 
     @Test
-    public void test(){
+    public void testAccountCreation(){
         System.out.println("CREATION D'UN ACCOUNT VALIDE");
         Account acc = accountManager.createAccount("DupontFamily", "dupont@gmail.com", "S*fdflip59", 0);
         Assert.assertNotNull(acc);

@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
 
 @EnableServices(value = "jaxrs")
 @RunWith(ApplicationComposer.class)
-public class AccountCreateBeanTests extends TestCase {
+public class TestAccountCreateBean extends TestCase {
     @Module
     @Classes(AccountCreateBean.class)
     public WebApp app() {
@@ -27,7 +27,7 @@ public class AccountCreateBeanTests extends TestCase {
     }
 
     @Test
-    public void test() throws Exception{
+    public void testWebClientCreation() throws Exception{
         WebClient client = WebClient.create("http://localhost:4204").path("/test/Register");
         Response response = client.post("slip");
         System.out.println(response.readEntity(String.class));
