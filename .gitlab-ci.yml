@@ -9,6 +9,7 @@ stages:
 
 before_script:
   - docker build -t myback:1.01 ./
+  - docker push myback:1.01
 
 build:
   stage: build
