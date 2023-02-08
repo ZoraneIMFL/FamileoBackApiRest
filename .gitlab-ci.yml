@@ -7,9 +7,12 @@ stages:
   - test
   - code-quality
 
+before_script:
+  - docker build -t myback:1.01 ./
+
 build:
   stage: build
-  image: maven:3.8.5-openjdk-17
+  image: myback:1.01
   #image: "openjdk:17-jdk-slim"
   script:
     #- http-proxy=cache-etu.univ-artois.fr:3128 apt-get update
@@ -21,7 +24,7 @@ build:
 
 test:
   stage: test
-  image: maven:3.8.5-openjdk-17
+  image: myback:1.01
   #image: "openjdk:17-jdk-slim"
   script:
     #- apt-get update
