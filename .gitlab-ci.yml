@@ -26,8 +26,9 @@ test:
   script:
     #- apt-get update
     #- apt-get install -y maven
-    - mvn -B test
     - docker-compose up -d
+    - mvn -B test
+    
   tags:
     - docker2
   artifacts:
