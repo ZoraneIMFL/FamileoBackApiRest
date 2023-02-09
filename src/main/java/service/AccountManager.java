@@ -1,7 +1,6 @@
-package service;
+package Service;
 
-import persistable.Account;
-
+import Persistable.Account;
 
 public interface AccountManager {
 
