@@ -1,17 +1,13 @@
-package Persistable;
-
-import org.hibernate.annotations.Table;
+package entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity(name = "Account")
 @TableGenerator(name="AccountGen", table = "SEQ_TABLE", allocationSize = 1000)
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "AccountGen")
-    private int id;
+    private long id;
 
     private String name;
 
@@ -32,11 +28,11 @@ public class Account {
 
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

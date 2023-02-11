@@ -1,46 +1,54 @@
-package Service;
+package service;
 
-import Persistable.Account;
-import Validator.EmailValidator;
-import Validator.PasswordValidator;
+import entity.Account;
+import dao.AccountDao;
 
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
+import javax.inject.Inject;
+import java.util.List;
 
 @Stateless
 public class AccountManagerBean implements AccountManager{
 
-    @PersistenceContext
-    EntityManager em;
-
-    private Account acc = null;
-
+    @Inject
+    private AccountDao dao;
 
     @Override
-    public Account createAccount(String name, String email, String password, int status) {
-        if (PasswordValidator.isValid(password) && EmailValidator.isValid(email) ){
+    public List<Account> getAllAccount() {
+        return dao.findAllAccount();
+    }
+    @Override
+    public Account createAccount(final Account newAccount) {
+        return dao.create(newAccount);
+    }
 
-            acc = new Account(name, email, password, status);
-            em.persist(acc);
-            return acc;
+    @Override
+    public Account findAccount(final long id) {
+        return dao.read(Account.class, id);
+    }
+
+    @Override
+    public Account updateAccount(final Account account) {
+        final Account oldAccount = findAccount(account.getId());
+        if (oldAccount == null) {
+            return null;
         }
-        else{
-            System.out.println("INVALID FIELDS");
-        }
-
-        return null;
+        account.setId(oldAccount.getId());
+        return dao.update(account);
     }
 
     @Override
-    public void updateStatus(int idAccount, int status) {
-        Account managedAcc = em.find(Account.class, idAccount);
-        managedAcc.setStatus(status);
+    public void deleteAccount(final Long id) {
+        dao.delete(Account.class, id);
     }
 
-    @Override
-    public Account findByPrimaryKey(int idAccount) {
-        return em.find(Account.class, idAccount);
-    }
+
+
+
+
+
+
+
+
+
 }

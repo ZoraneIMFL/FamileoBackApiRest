@@ -1,19 +1,61 @@
+variables:
+  PROXY: "-Dhttp.proxyHost=cache-etu.univ-artois.fr -Dhttp.proxyPort=3128 -Dhttps.proxyHost=cache-etu.univ-artois.fr -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts=localhost"
+  SONAR: "-Dsonar.projectKey=FamileoBack -Dsonar.host.url=https://sonarqube.univ-artois.fr -Dsonar.login=cea909e20a60359dead0bd78b290818901f9f505 -Dsonar.scm.provider=git"
+
 stages:
   - build
   - test
+  - code-quality
+
+before_script:
+  - docker build -t myback:1.01 ./
+  - docker push myback:1.01
+
 build:
   stage: build
-  image: "gradle:7.2.0-jdk17"
+  image: myback:1.01
+  #image: "openjdk:17-jdk-slim"
   script:
-    - "mvn clean install -P qualification"
+    #- http-proxy=cache-etu.univ-artois.fr:3128 apt-get update
+    #- http-proxy=cache-etu.univ-artois.fr:3128 apt-get install -y maven
+    - mvn clean install -P qualification -Dmaven.test.skip
   tags:
     - docker2
   allow_failure: true
 
 test:
   stage: test
-  image: "gradle:7.2.0-jdk17"
+  image: myback:1.01
+  #image: "openjdk:17-jdk-slim"
   script:
+    #- apt-get update
+    #- apt-get install -y maven
+    - docker-compose up -d
     - mvn -B test
+
   tags:
     - docker2
+  artifacts:
+    when: always
+    paths:
+      - target/site/jacoco/
+    expire_in: 30 days
+
+
+sonarqube:
+  stage: code-quality
+  image: maven:3.8.5-openjdk-17
+  allow_failure: true
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
+    GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script:
+    - mvn verify sonar:sonar $SONAR -Dsonar.qualitygate.wait=true -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/*.xml
+  tags:
+    - docker2
+  rules:
+    - if: $CI_COMMIT_REF_NAME == 'main' || $CI_PIPELINE_SOURCE == 'merge_request_event'

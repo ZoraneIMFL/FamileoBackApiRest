@@ -1,0 +1,173 @@
+openapi: 3.0.0
+info:
+  title: "Api Basic Demo"
+  description: "Demo"
+  version: "1.0.0"
+  termsOfService: ""
+  license:
+    name: "Apache 2.0"
+    url: "https://www.apache.org/licenses/LICENSE-2.0.html"
+
+security:
+  - bearerAuth: []
+
+servers:
+  - url: "http://{host-port}/Famileo/"
+    variables:
+      host-port:
+        enum:
+          - localhost:8080
+          - staging:8000
+          - preprod
+        default: localhost:8080
+
+tags:
+  - name: Account
+    description: Everything about Accounts
+
+paths:
+  /accounts:
+    get:
+      summary: Get all accounts
+      tags:
+        - Account
+      responses:
+        200:
+          description: List of all accounts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Account'
+                example:
+                  - name: alice
+                    email: alice@gmail.com
+                    password: Sli56@p
+                    status: 0
+                  - name: bob
+                    email: Bob@outlook.fr
+                    password: Sli56@ppp
+                    status: 0
+    post:
+      summary: Create a account
+      tags:
+        - Account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+            example:
+              name: alice
+              email: alice@gmail.com
+              password: Sli56@ppp
+              status: 0
+      responses:
+        200:
+          description: The account newly created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        500:
+          description: The server is unable to create the account
+  /accounts/{id}:
+    get:
+      summary: Get the account with the given id
+      tags:
+        - Account
+      responses:
+        200:
+          description: The account with the given id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        404:
+          $ref: '#/components/responses/EntityNotFound'
+    put:
+      summary: Update the account with the given id
+      tags:
+        - Account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+            example:
+              name: alice
+              email: alice@gmail.com
+              password: Sli56@ppp
+              status: payant
+      responses:
+        200:
+          description: The updated account
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+              example:
+                name: alice
+                email: alice@gmail.com
+                password: Sli56@ppp
+                status: payant
+        400:
+          description: Provided account is invalid
+        403:
+          $ref: '#/components/responses/NotAllowed'
+        500:
+          description: The server is unable to update the account
+    delete:
+      summary: Delete the account with the given id
+      tags:
+        - Account
+      responses:
+        204:
+          description: Account successfully deleted
+        403:
+          $ref: '#/components/responses/NotAllowed'
+        500:
+          description: The server is unable to delete the account
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: integer
+        description: login of account to use
+        required: true
+        # example: bob
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Account:
+      type: object
+      required:
+        - name
+        - email
+        - password
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        status:
+          type: integer
+      example:
+        name: alice
+        email: alice@gmail.com
+        password: Sli56@ppp
+        status: 0
+
+  responses:
+    EntityNotFound:
+      description: Requested entity not found
+    NotAllowed:
+      description: You are not allowed to perform this action

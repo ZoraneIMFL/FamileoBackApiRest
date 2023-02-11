@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  postgres2:
+    command: [ "postgres" ]
+    container_name: 'postgres_ili2'
+    image: 'postgres:latest'
+    ports:
+      - "5499:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: Famileo
+
+  swagger2:
+    container_name: 'swagger2'
+    image: 'swaggerapi/swagger-ui'
+    ports:
+      - "8000:8080"
+    volumes:
+      - ./src/main/webapp/doc:/docs
+    environment:
+      SWAGGER_JSON: /docs/swagger.yml
