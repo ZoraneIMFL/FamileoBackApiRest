@@ -4,7 +4,7 @@ import entity.Account;
 
 import java.util.List;
 
-public interface AccountManager {
+public interface AccountManager  {
 
     Account createAccount(final Account newAccount);
 

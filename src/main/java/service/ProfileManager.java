@@ -3,11 +3,16 @@ package service;
 import entity.Account;
 import entity.Profile;
 
+import java.util.List;
+
 public interface ProfileManager {
 
-    Profile createProfile (Account acc, String name, String password, int type, byte[] profileImage);
+    Profile createProfile(final Profile newProfile);
 
-    void updateType(int idProfile, int type);
+    Profile updateProfile(final Profile profile);
 
-    Profile findByPrimaryKey(int idProfile);
+    Profile findProfile(final long id);
+
+
+    void deleteProfile(final Long id);
 }

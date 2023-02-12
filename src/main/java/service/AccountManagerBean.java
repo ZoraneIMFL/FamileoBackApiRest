@@ -2,6 +2,9 @@ package service;
 
 import entity.Account;
 import dao.AccountDao;
+import security.PasswordEncryption;
+import validator.EmailValidator;
+import validator.PasswordValidator;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -19,7 +22,13 @@ public class AccountManagerBean implements AccountManager{
     }
     @Override
     public Account createAccount(final Account newAccount) {
-        return dao.create(newAccount);
+
+        if (PasswordValidator.isValid(newAccount.getPassword()) && EmailValidator.isValid(newAccount.getEmail())){
+            newAccount.setSalt(PasswordEncryption.generateSalt());
+            newAccount.setPassword(PasswordEncryption.encryptPassword(newAccount.getPassword(), newAccount.getSalt()));
+            return dao.create(newAccount);
+        }
+        return null;
     }
 
     @Override
@@ -41,13 +50,6 @@ public class AccountManagerBean implements AccountManager{
     public void deleteAccount(final Long id) {
         dao.delete(Account.class, id);
     }
-
-
-
-
-
-
-
 
 
 

@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Profile {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE,generator = "AccountGen")
-    private  int id;
+    private long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Account acc;
@@ -39,11 +39,11 @@ public class Profile {
         this.acc = acc;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

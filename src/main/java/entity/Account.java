@@ -17,6 +17,10 @@ public class Account {
 
     private int status;
 
+
+
+    private byte[] salt;
+
     public Account(){
 
     }
@@ -27,7 +31,13 @@ public class Account {
         this.status = status;
 
     }
+    public byte[] getSalt() {
+        return salt;
+    }
 
+    public void setSalt(byte[] salt) {
+        this.salt = salt;
+    }
     public long getId() {
         return id;
     }

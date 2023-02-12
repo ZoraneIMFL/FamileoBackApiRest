@@ -36,7 +36,6 @@ public class TestAccountManager extends TestCase {
         System.out.println("CREATION D'UN ACCOUNT INVALIDE DONC PAS D'INSERT");
         Account acc1 = accountManager.createAccount(this.invalidAcc);
         //Assert.assertNull(acc1);
-
         Assert.assertEquals(1, acc.getId());
         Assert.assertEquals("DupontFamily", acc.getName());
         System.out.println("RECHERCHE D'UN ACCOUNT");

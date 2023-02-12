@@ -1,13 +1,18 @@
 <?xml version="1.0"  encoding="UTF-8"?>
 
-<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+<persistence version="2.0"
+             xmlns="http://java.sun.com/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
-        http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
-    <persistence-unit name="AccountManagerTests" >
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                       http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+
+
+
+
+    <persistence-unit name="service.AccountManagerTests" >
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>testDB</jta-data-source>
-        <class>Persistable.Account</class>
 
         <properties>
             <!-- property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
@@ -20,4 +25,27 @@
             <property name="hibernate.hbm2ddl.auto" value="create"/>
         </properties>
     </persistence-unit>
+
+
+    <persistence-unit name="projet">
+        <description>Persitence Unit du projet</description>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <jta-data-source>jdbc/projet</jta-data-source>
+
+        <properties>
+            <property name="tomee.jpa.factory.lazy" value="true" />
+
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL95Dialect" />
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+
+            <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
+        </properties>
+    </persistence-unit>
+
+
+
+
+
+
 </persistence>
