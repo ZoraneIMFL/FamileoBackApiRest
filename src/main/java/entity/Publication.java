@@ -2,6 +2,8 @@ package entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 @Entity(name = "Publication")
 @TableGenerator(name = "PublicationGen",table = "SEQ_TABLE",allocationSize = 1000)
@@ -27,6 +29,17 @@ public class Publication {
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Account account;
+
+
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "publication_photo",
+            joinColumns = @JoinColumn(name = "publication_id"),
+            inverseJoinColumns = @JoinColumn(name = "photo_id")
+    )
+    private List<Photo> photos;
 
 
     public Publication(){}

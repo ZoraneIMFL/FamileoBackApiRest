@@ -22,8 +22,6 @@ public class AccountController {
     @POST
     @Path("/")
     public Response createAccount(Account account){
-        //Validator ici ou bien dans la méthode createAccount
-        //Salage ici ou bien dans la méthode createAccount
         return Response.ok(accountManager.createAccount(account)).build();
     }
 
