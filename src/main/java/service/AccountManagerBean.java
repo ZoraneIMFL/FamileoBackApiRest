@@ -1,48 +1,57 @@
 package service;
 
-import persistable.Account;
+import dao.AccountDao;
+import entity.Account;
+import security.PasswordEncryption;
 import validator.EmailValidator;
 import validator.PasswordValidator;
 
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.inject.Inject;
+import java.util.List;
 import java.util.logging.Logger;
-import java.util.logging.Level;
 
 /**
  * This Bean manage the accounts system of the application
  */
 @Stateless
 public class AccountManagerBean implements AccountManager{
-
     private static final Logger LOGGER = Logger.getLogger(AccountManagerBean.class.getName());
 
-    @PersistenceContext
-    EntityManager em;
+    @Inject
+    private AccountDao dao;
 
     @Override
-    public Account createAccount(String name, String email, String password, int status) {
-        if (PasswordValidator.isValid(password) && EmailValidator.isValid(email) ){
-            var acc = new Account(name, email, password, status);
-            em.persist(acc);
-            return acc;
+    public List<Account> getAllAccount() {
+        return dao.findAllAccount();
+    }
+    @Override
+    public Account createAccount(final Account newAccount) {
+        if (PasswordValidator.isValid(newAccount.getPassword()) && EmailValidator.isValid(newAccount.getEmail())){
+            newAccount.setSalt(PasswordEncryption.generateSalt());
+            newAccount.setPassword(PasswordEncryption.encryptPassword(newAccount.getPassword(), newAccount.getSalt()));
+            return dao.create(newAccount);
         }
-        else{
-            LOGGER.log(Level.WARNING, "INVALID FIELDS");
-        }
-
         return null;
     }
 
     @Override
-    public void updateStatus(int idAccount, int status) {
-        Account managedAcc = em.find(Account.class, idAccount);
-        managedAcc.setStatus(status);
+    public Account findAccount(final long id) {
+        return dao.read(Account.class, id);
     }
 
     @Override
-    public Account findByPrimaryKey(int idAccount) {
-        return em.find(Account.class, idAccount);
+    public Account updateAccount(final Account account) {
+        final Account oldAccount = findAccount(account.getId());
+        if (oldAccount == null) {
+            return null;
+        }
+        account.setId(oldAccount.getId());
+        return dao.update(account);
+    }
+
+    @Override
+    public void deleteAccount(final Long id) {
+        dao.delete(Account.class, id);
     }
 }

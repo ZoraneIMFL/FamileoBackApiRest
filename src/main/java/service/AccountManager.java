@@ -1,13 +1,18 @@
 package service;
 
-import persistable.Account;
+import entity.Account;
+
+import java.util.List;
 
 
 public interface AccountManager {
+    Account createAccount(Account newAccount);
 
-    Account createAccount(String name, String email, String password, int status);
+    Account findAccount(long id);
 
-    void updateStatus(int idAccount, int status);
+    Account updateAccount(final Account account);
 
-    Account findByPrimaryKey(int idAccount);
+    List<Account> getAllAccount();
+
+    void deleteAccount(final Long id);
 }

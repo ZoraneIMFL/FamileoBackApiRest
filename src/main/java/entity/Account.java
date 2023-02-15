@@ -1,4 +1,4 @@
-package persistable;
+package entity;
 
 import javax.persistence.*;
 
@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "AccountGen")
-    private int id;
+    private long id;
 
     private String name;
 
@@ -19,6 +19,8 @@ public class Account {
     private String password;
 
     private int status;
+
+    private byte[] salt;
 
     public Account(){
 
@@ -31,11 +33,11 @@ public class Account {
 
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -69,6 +71,14 @@ public class Account {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public byte[] getSalt() {
+        return salt;
+    }
+
+    public void setSalt(byte[] salt) {
+        this.salt = salt;
     }
 
     @Override

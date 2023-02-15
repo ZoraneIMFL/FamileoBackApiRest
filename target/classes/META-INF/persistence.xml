@@ -19,4 +19,22 @@
             <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
         </properties>
     </persistence-unit>
+
+    <persistence-unit name="testDB">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <jta-data-source>testDB</jta-data-source>
+        <class>persistable.Account</class>
+
+        <properties>
+            <!-- property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:file:./h2/db;DB_CLOSE_DELAY=-1"/ -->
+
+            <property name="tomee.jpa.factory.lazy" value="true"/>
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+        </properties>
+    </persistence-unit>
+
 </persistence>
