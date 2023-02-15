@@ -124,7 +124,7 @@
         </dependency>
     </dependencies>
 
-    <!--<build>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -147,7 +147,7 @@
                 </executions>
             </plugin>
         </plugins>
-    </build>-->
+    </build>
 
 
 
