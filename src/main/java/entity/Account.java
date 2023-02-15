@@ -5,12 +5,13 @@ import javax.persistence.*;
 /**
  * This class represents an account that can be created on the application.
  */
-@Entity(name = "Account")
-@TableGenerator(name="AccountGen", table = "SEQ_TABLE", allocationSize = 1000)
+@Entity
+//@TableGenerator(name="AccountGen", table = "SEQ_TABLE", allocationSize = 1000)
+@Table(name="Account")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "AccountGen")
-    private long id;
+    private long id = 0L;
 
     private String name;
 

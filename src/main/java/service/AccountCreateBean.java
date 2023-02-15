@@ -1,5 +1,8 @@
 package service;
+import dao.AccountDao;
+
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -14,6 +17,9 @@ import java.util.logging.Logger;
 @Consumes(MediaType.TEXT_PLAIN)
 
 public class AccountCreateBean {
+
+    //@Inject
+    private AccountDao dao;
     private static final Logger LOGGER = Logger.getLogger(AccountCreateBean.class.getName());
     @POST
     public String register(String formData){

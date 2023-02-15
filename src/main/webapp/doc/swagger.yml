@@ -1,22 +1,107 @@
 openapi: 3.0.0
 info:
-title: "Api Basic Demo"
-description: "Demo"
-version: "1.0.0"
-termsOfService: ""
-license:
-name: "Apache 2.0"
-url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+  title: "Api Basic Demo"
+  description: "Demo"
+  version: "1.0.0"
+  termsOfService: ""
+  license:
+    name: "Apache 2.0"
+    url: "https://www.apache.org/licenses/LICENSE-2.0.html"
 
 security:
-- bearerAuth: []
+  - bearerAuth: []
 
 servers:
-- url: "http://{host-port}/ili/"
-variables:
-host-port:
-enum:
-- localhost:8080
-- staging:8000
-- preprod
-default: localhost:8080
+  - url: "http://{host-port}/Famileo/"
+    variables:
+      host-port:
+        enum:
+          - localhost:8000
+          - staging:8000
+          - preprod
+        default: localhost:8000
+
+tags:
+  - name: Account
+    description: Everything about Accounts
+
+paths:
+  /accounts:
+    get:
+      summary: Get all accounts
+      tags:
+        - Account
+      responses:
+        200:
+          description: List of all accounts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Account'
+                example:
+                  - name: alice
+                    email: alice@gmail.com
+                    password: Sli56@p
+                    status: 0
+                  - name: bob
+                    email: Bob@outlook.fr
+                    password: Sli56@ppp
+                    status: 0
+    post:
+      summary: Create a account
+      tags:
+        - Account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+            example:
+              name: alice
+              email: alice@gmail.com
+              password: Sli56@ppp
+              status: 0
+      responses:
+        200:
+          description: The account newly created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        500:
+          description: The server is unable to create the account
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Account:
+      type: object
+      required:
+        - name
+        - email
+        - password
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        status:
+          type: integer
+      example:
+        name: alice
+        email: alice@gmail.com
+        password: Sli56@ppp
+        status: 0
+
+  responses:
+    EntityNotFound:
+      description: Requested entity not found
+    NotAllowed:
+      description: You are not allowed to perform this action

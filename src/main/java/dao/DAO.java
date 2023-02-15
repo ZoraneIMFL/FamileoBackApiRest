@@ -12,10 +12,8 @@ import java.util.List;
  */
 @Lock(LockType.READ)
 public abstract class DAO<E> implements CRUD<E> {
-    @PersistenceContext(unitName = "testDB")
+    @PersistenceContext(unitName = "projet")
     protected EntityManager em;
-
-
 
     @Override
     public E create(final E e) {

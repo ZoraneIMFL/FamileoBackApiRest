@@ -9,8 +9,8 @@ import javax.ejb.embeddable.EJBContainer;
 import java.util.Properties;
 
 public class TestAccountManager extends TestCase {
-    @EJB(name = "AccountManager")
-    private AccountManager accountManager;
+    @EJB(name = "AccountManagerBean")
+    private AccountManagerBean accountManager;
 
     private Account validAcc = new Account("DupontFamily", "dupont@gmail.com", "S*fdflip59", 0);
     private Account invalidAcc =new Account("DupontFamily", "dupontgmail.com", "mdpTropSimple", 0);
@@ -19,7 +19,7 @@ public class TestAccountManager extends TestCase {
 
     public void setUp() throws Exception {
         Properties p = new Properties();
-        p.put("testDB", "new://Resource?type=DataSource");
+        p.put("projet", "new://Resource?type=DataSource");
         ejbContainer = EJBContainer.createEJBContainer(p);
         ejbContainer.getContext().bind("inject", this);
     }
