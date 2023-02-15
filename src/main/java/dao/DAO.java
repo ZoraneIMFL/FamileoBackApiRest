@@ -1,9 +1,9 @@
 package dao;
 
-import javax.ejb.Lock;
-import javax.ejb.LockType;
+import jakarta.ejb.Lock;
+import jakarta.ejb.LockType;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.List;
 
 /**

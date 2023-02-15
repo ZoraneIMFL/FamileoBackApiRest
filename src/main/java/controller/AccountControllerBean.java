@@ -1,18 +1,17 @@
 package controller;
 import entity.Account;
+import jakarta.ejb.Stateless;
 import service.AccountService;
 
-import javax.ejb.EJB;
-import javax.ejb.Stateless;
-import javax.enterprise.inject.Any;
-import javax.inject.Inject;
-import javax.inject.Qualifier;
-import javax.ws.rs.*;
-import javax.ws.rs.core.Response;
 
-//@Stateless
+import jakarta.inject.Inject;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Response;
+
+@Stateless
 @Path("/accounts")
 @Produces({"application/json"})
+@Consumes({"application/json"})
 public class AccountControllerBean {
 
     @Inject

@@ -1,5 +1,6 @@
 package service;
 
+import jakarta.ws.rs.core.Response;
 import junit.framework.TestCase;
 import org.apache.cxf.jaxrs.client.WebClient;
 import org.apache.openejb.jee.WebApp;
@@ -10,8 +11,6 @@ import org.apache.openejb.testing.Module;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-
-import javax.ws.rs.core.Response;
 
 
 import static org.junit.Assert.assertEquals;

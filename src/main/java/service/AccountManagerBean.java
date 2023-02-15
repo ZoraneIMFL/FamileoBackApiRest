@@ -6,8 +6,8 @@ import security.PasswordEncryption;
 import validator.EmailValidator;
 import validator.PasswordValidator;
 
-import javax.ejb.Stateless;
-import javax.inject.Inject;
+import jakarta.ejb.Stateless;
+import jakarta.inject.Inject;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

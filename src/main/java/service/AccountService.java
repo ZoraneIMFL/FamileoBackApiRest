@@ -6,11 +6,11 @@ import security.PasswordEncryption;
 import validator.EmailValidator;
 import validator.PasswordValidator;
 
-import javax.ejb.EJB;
-import javax.ejb.Stateless;
-import javax.enterprise.inject.Any;
-import javax.enterprise.inject.Default;
-import javax.inject.Inject;
+import jakarta.ejb.EJB;
+import jakarta.ejb.Stateless;
+import jakarta.enterprise.inject.Any;
+import jakarta.enterprise.inject.Default;
+import jakarta.inject.Inject;
 import java.util.List;
 
 @Stateless

@@ -16,10 +16,10 @@ servers:
     variables:
       host-port:
         enum:
-          - localhost:8000
-          - staging:8000
+          - localhost:8080
+          - staging:8080
           - preprod
-        default: localhost:8000
+        default: localhost:8080
 
 tags:
   - name: Account
