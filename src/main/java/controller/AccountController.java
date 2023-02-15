@@ -3,6 +3,7 @@ package controller;
 import entity.Account;
 import service.AccountManager;
 import service.AccountManagerBean;
+import service.ProfileManager;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -18,6 +19,8 @@ public class AccountController {
 
     @Inject
     private AccountManager accountManager;
+    @Inject
+    private ProfileManager profileManager;
 
     @POST
     @Path("/")
@@ -68,6 +71,18 @@ public class AccountController {
         }
         accountManager.deleteAccount(id);
         return Response.noContent().build();
+    }
+
+    /// Pour chercher des profiles lié à un account !!
+    @Path("/{id}/profiles")
+    @GET
+    public Response getProfileAccount(@PathParam("id") Long id,Account account){
+        if (id < 0) {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+        return Response.ok(profileManager.getProfileByAccount(account)).build();
+
+
     }
 
 }

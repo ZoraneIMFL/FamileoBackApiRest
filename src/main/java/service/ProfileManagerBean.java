@@ -9,6 +9,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 @Stateless
 public class ProfileManagerBean  implements ProfileManager{
@@ -35,6 +36,16 @@ public class ProfileManagerBean  implements ProfileManager{
     @Override
     public Profile findProfile(long id) {
         return dao.read(Profile.class, id);
+    }
+
+    @Override
+    public List<Profile> getAllProfile() {
+        return dao.findAllProfile();
+    }
+
+    @Override
+    public List<Profile> getProfileByAccount(Account account) {
+        return dao.findProfileAccount(account);
     }
 
     @Override

@@ -12,7 +12,8 @@ public interface ProfileManager {
     Profile updateProfile(final Profile profile);
 
     Profile findProfile(final long id);
-
+    List<Profile> getAllProfile();
+    List<Profile> getProfileByAccount(Account account);
 
     void deleteProfile(final Long id);
 }
