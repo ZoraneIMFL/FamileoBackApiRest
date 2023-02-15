@@ -14,7 +14,7 @@ stages:
 build:
   stage: build
   #image: myback:1.01
-  image: "openjdk:17-jdk-slim"
+  image: maven:3.8.5-openjdk-17
   script:
     #- http-proxy=cache-etu.univ-artois.fr:3128 apt-get update
     #- http-proxy=cache-etu.univ-artois.fr:3128 apt-get install -y maven
@@ -26,7 +26,7 @@ build:
 test:
   stage: test
   #image: myback:1.01
-  image: "openjdk:17-jdk-slim"
+  image: maven:3.8.5-openjdk-17
   script:
     #- apt-get update
     #- apt-get install -y maven
