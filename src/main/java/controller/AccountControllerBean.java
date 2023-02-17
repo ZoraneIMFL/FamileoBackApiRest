@@ -3,10 +3,10 @@ import entity.Account;
 import jakarta.ejb.Stateless;
 import service.AccountService;
 
-
-import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
+import jakarta.ejb.EJB;
+import jakarta.ejb.embeddable.EJBContainer;
 
 @Stateless
 @Path("/accounts")

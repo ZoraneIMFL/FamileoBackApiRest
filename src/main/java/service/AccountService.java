@@ -16,7 +16,7 @@ import java.util.List;
 @Stateless
 public class AccountService {
 
-    @Inject
+    @EJB
     private AccountDao dao;
 
     public List<Account> getAllAccount() {

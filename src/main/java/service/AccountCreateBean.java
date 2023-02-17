@@ -2,7 +2,8 @@ package service;
 import dao.AccountDao;
 
 import jakarta.ejb.Stateless;
-import jakarta.inject.Inject;
+import jakarta.ejb.EJB;
+import jakarta.ejb.embeddable.EJBContainer;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
