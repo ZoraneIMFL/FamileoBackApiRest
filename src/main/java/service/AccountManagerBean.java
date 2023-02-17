@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 public class AccountManagerBean /*implements AccountManager*/{
     private static final Logger LOGGER = Logger.getLogger(AccountManagerBean.class.getName());
 
-    @Inject
+    @EJB
     private AccountDao dao;
 
     //@Override

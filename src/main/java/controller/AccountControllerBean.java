@@ -14,7 +14,7 @@ import jakarta.ws.rs.core.Response;
 @Consumes({"application/json"})
 public class AccountControllerBean {
 
-    @Inject
+    @EJB
     private AccountService accountService;
 
     @POST

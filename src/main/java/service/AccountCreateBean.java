@@ -18,8 +18,9 @@ import java.util.logging.Logger;
 
 public class AccountCreateBean {
 
-    //@Inject
+    @EJB
     private AccountDao dao;
+    
     private static final Logger LOGGER = Logger.getLogger(AccountCreateBean.class.getName());
     @POST
     public String register(String formData){
