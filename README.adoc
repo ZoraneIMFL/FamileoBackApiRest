@@ -1,0 +1,36 @@
+= README
+:icons: font
+:source-highlighter: rouge
+
+== Objectifs
+
+Le but du TP va être de :
+
+- Tester les appels aux services REST de l'application
+- Implémenter de nouvelles API
+
+== Mise en place et démarrage
+
+[source,bash]
+----
+docker-compose up
+mvn clean package tomee:run
+----
+
+== Manipulez les apis
+
+== Découvrir le fonctionnement du projet
+
+=== Récupérer la liste des utilisateurs
+
+Pour cela, il faut appeler notre service.
+Vous pouvez  utiliser la commande curl
+
+[source,bash]
+----
+curl -v -X GET 'http://localhost:8080/ili/users'
+----
+
+=== Implémentation du CRUD d'un utilisateur
+
+Créer et implémenter les api de création, mise à jour et suppression d'un utilisateur. Aidez-vous du fichier swagger.

@@ -6,8 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Famileo" />
-        <module name="familio" />
+        <module name="jee-api-basic" />
       </profile>
     </annotationProcessing>
   </component>

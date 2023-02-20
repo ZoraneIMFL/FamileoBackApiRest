@@ -6,26 +6,136 @@ info:
   termsOfService: ""
   license:
     name: "Apache 2.0"
-    url: "https://www.apache.org/licenses/LICENSE-2.0.html"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 
 security:
   - bearerAuth: []
 
 servers:
-  - url: "http://{host-port}/Famileo/"
+  - url: "http://{host-port}/ili/"
     variables:
       host-port:
         enum:
           - localhost:8080
-          - staging:8080
+          - staging:8000
           - preprod
         default: localhost:8080
 
 tags:
-  - name: Account
-    description: Everything about Accounts
+  - name: User
+    description: Everything about Users
 
 paths:
+  /users:
+    get:
+      summary: Get all users
+      tags:
+        - User
+      responses:
+        200:
+          description: List of all users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+                example:
+                  - login: alice
+                    firstname: Alice
+                    lastname: Casablanca
+                  - login: bob
+                    firstname: Bob
+                    lastname: Kotin
+    post:
+      summary: Create a user
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+            # examples (plural) doesn't works yet: https://github.com/swagger-api/swagger-ui/issues/2651
+            example:
+              login: alice
+              firstname: Alice
+              lastname: Casablanca
+      responses:
+        200:
+          description: The user newly created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        500:
+          description: The server is unable to delete the user
+
+  /users/{id}:
+    get:
+      summary: Get the user with the given id
+      tags:
+        - User
+      responses:
+        200:
+          description: The user with the given id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        404:
+          $ref: '#/components/responses/EntityNotFound'
+    put:
+      summary: Update the user with the given id
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+            # examples (plural) doesn't works yet: https://github.com/swagger-api/swagger-ui/issues/2651
+            example:
+              login: alice
+              firstname: Alice
+              lastname: Casablanca
+      responses:
+        200:
+          description: The updated user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              example:
+                login: alice
+                firstname: Alice
+                lastname: Casablanca
+        400:
+          description: Provided user is invalid
+        403:
+          $ref: '#/components/responses/NotAllowed'
+        500:
+          description: The server is unable to update the user
+    delete:
+      summary: Delete the user with the given id
+      tags:
+        - User
+      responses:
+        204:
+          description: User successfully deleted
+        403:
+          $ref: '#/components/responses/NotAllowed'
+        500:
+          description: The server is unable to delete the user
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: integer
+        description: login of user to use
+        required: true
+        # example: bob
+
   /accounts:
     get:
       summary: Get all accounts
@@ -72,13 +182,30 @@ paths:
                 $ref: '#/components/schemas/Account'
         500:
           description: The server is unable to create the account
+
 components:
   securitySchemes:
+    # security is not shown in current swagger UI: https://github.com/swagger-api/swagger-ui/issues/1108
     bearerAuth:
       type: http
       scheme: bearer
       bearerFormat: JWT
   schemas:
+    User:
+      type: object
+      required:
+        - login
+      properties:
+        login:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+      example:
+        login: jdoe
+        firstname: John
+        lastname: Doe
     Account:
       type: object
       required:

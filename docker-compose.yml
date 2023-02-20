@@ -1,22 +1,22 @@
 version: '3'
 
 services:
-  postgres2:
+  postgres:
     command: [ "postgres" ]
-    container_name: 'postgres_ili2'
+    container_name: 'postgres_ili'
     image: 'postgres:latest'
     ports:
-      - "5432:5432"
+      - "5433:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: ili
 
-  swagger2:
-    container_name: 'swagger2'
+  swagger:
+    container_name: 'swagger'
     image: 'swaggerapi/swagger-ui'
     ports:
-      - "8000:8080"
+      - "80:8080"
     volumes:
       - ./src/main/webapp/doc:/docs
     environment:
