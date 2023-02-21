@@ -24,7 +24,98 @@ servers:
 
 
 paths:
+  /publication:
+    get:
+      summary: Get all publication
+      tags:
+        - Publication
+      responses:
+        200:
+          description: List of all publications
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Publication'
+    post:
+      summary: Create a Publication
+      tags:
+        - Publication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Publication'
+  /publications/{id}:
+    get:
+      summary: Get the publication with the given id
+      tags:
+        - Publication
+      responses:
+        200:
+          description: The publication with the given id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Publication'
+        404:
+          $ref: '#/components/responses/EntityNotFound'
+    put:
+      summary: Update the publication with the given id
+      tags:
+        - Publication
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Publication'
+      responses:
+        200:
+          description: The publication profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Publication'
+        400:
+          description: Provided publication is invalid
+        403:
+          $ref: '#/components/responses/NotAllowed'
+        500:
+          description: The server is unable to update the publication
+    delete:
+      summary: Delete the publication with the given id
+      tags:
+        - Publication
+      responses:
+        204:
+          description: Publication successfully deleted
+        403:
+          $ref: '#/components/responses/NotAllowed'
+        500:
+          description: The server is unable to delete the publication
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: integer
+        description: login of publication to use
+        required: true
+
   /profiles:
+    get:
+      summary: Get all profiles
+      tags:
+        - Profile
+      responses:
+        200:
+          description: List of all profiles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Profile'
     post:
       summary: Create a Profile
       tags:
@@ -44,6 +135,60 @@ paths:
                 $ref: '#/components/schemas/Profile'
         500:
           description: The server is unable to create the Profile
+  /profiles/{id}:
+    get:
+      summary: Get the profile with the given id
+      tags:
+        - Profile
+      responses:
+        200:
+          description: The profile with the given id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+        404:
+          $ref: '#/components/responses/EntityNotFound'
+    put:
+      summary: Update the user with the given id
+      tags:
+        - Profile
+      requestBody:
+         content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Profile'
+      responses:
+        200:
+          description: The updated profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+        400:
+          description: Provided profile is invalid
+        403:
+           $ref: '#/components/responses/NotAllowed'
+        500:
+          description: The server is unable to update the profile
+    delete:
+      summary: Delete the profile with the given id
+      tags:
+        - Profile
+      responses:
+        204:
+          description: Profile successfully deleted
+        403:
+          $ref: '#/components/responses/NotAllowed'
+        500:
+          description: The server is unable to delete the profile
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: integer
+        description: login of profile to use
+        required: true
 
 
   /accounts:
@@ -93,6 +238,63 @@ paths:
         500:
           description: The server is unable to create the account
 
+  /accounts/{id}:
+    get:
+      summary: Get the account with the given id
+      tags:
+        - Account
+      responses:
+        200:
+          description: The account with the given id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        404:
+          $ref: '#/components/responses/EntityNotFound'
+    put:
+      summary: Update the account with the given id
+      tags:
+        - Account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+            # examples (plural) doesn't works yet: https://github.com/swagger-api/swagger-ui/issues/2651
+      responses:
+        200:
+          description: The updated account
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        400:
+          description: Provided account is invalid
+        403:
+          $ref: '#/components/responses/NotAllowed'
+        500:
+          description: The server is unable to update the account
+    delete:
+      summary: Delete the account with the given id
+      tags:
+        - Account
+      responses:
+        204:
+          description: Account successfully deleted
+        403:
+          $ref: '#/components/responses/NotAllowed'
+        500:
+          description: The server is unable to delete the account
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: integer
+        description: login of account to use
+        required: true
+        # example: bob
+
 components:
   securitySchemes:
     # security is not shown in current swagger UI: https://github.com/swagger-api/swagger-ui/issues/1108
@@ -101,7 +303,6 @@ components:
       scheme: bearer
       bearerFormat: JWT
   schemas:
-
     Profile:
       type: object
       required:
@@ -110,7 +311,8 @@ components:
         - acc_id
       properties:
         acc_id:
-          type: integer
+          type: object
+          $ref: '#/components/schemas/Account'
         name:
           type: string
         password:
@@ -141,6 +343,32 @@ components:
         email: alice@gmail.com
         password: Sli56@ppp
         status: 0
+
+    Publication:
+      type: object
+      required:
+        - description
+        - latitude
+        - longitude
+        - profile
+      properties:
+        description:
+          type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
+        publishDate:
+          type: string
+          format: date-time
+        profile:
+          type: object
+          $ref: '#/components/schemas/Profile'
+        account:
+          type: object
+          $ref: '#/components/schemas/Account'
+
+
 
   responses:
     EntityNotFound:

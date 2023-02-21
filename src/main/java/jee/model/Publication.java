@@ -10,7 +10,7 @@ import java.util.Set;
 public class Publication {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE,generator = "PublicationGen")
-    int id;
+    long id;
 
 
 
@@ -52,11 +52,11 @@ public class Publication {
 
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
