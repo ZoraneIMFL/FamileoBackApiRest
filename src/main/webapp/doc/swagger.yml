@@ -21,120 +21,30 @@ servers:
           - preprod
         default: localhost:8080
 
-tags:
-  - name: User
-    description: Everything about Users
+
 
 paths:
-  /users:
-    get:
-      summary: Get all users
-      tags:
-        - User
-      responses:
-        200:
-          description: List of all users
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/User'
-                example:
-                  - login: alice
-                    firstname: Alice
-                    lastname: Casablanca
-                  - login: bob
-                    firstname: Bob
-                    lastname: Kotin
+  /profiles:
     post:
-      summary: Create a user
+      summary: Create a Profile
       tags:
-        - User
+        - Profile
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
-            # examples (plural) doesn't works yet: https://github.com/swagger-api/swagger-ui/issues/2651
-            example:
-              login: alice
-              firstname: Alice
-              lastname: Casablanca
-      responses:
-        200:
-          description: The user newly created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-        500:
-          description: The server is unable to delete the user
+              $ref: '#/components/schemas/Profile'
 
-  /users/{id}:
-    get:
-      summary: Get the user with the given id
-      tags:
-        - User
       responses:
         200:
-          description: The user with the given id
+          description: The profile newly created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
-        404:
-          $ref: '#/components/responses/EntityNotFound'
-    put:
-      summary: Update the user with the given id
-      tags:
-        - User
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-            # examples (plural) doesn't works yet: https://github.com/swagger-api/swagger-ui/issues/2651
-            example:
-              login: alice
-              firstname: Alice
-              lastname: Casablanca
-      responses:
-        200:
-          description: The updated user
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-              example:
-                login: alice
-                firstname: Alice
-                lastname: Casablanca
-        400:
-          description: Provided user is invalid
-        403:
-          $ref: '#/components/responses/NotAllowed'
+                $ref: '#/components/schemas/Profile'
         500:
-          description: The server is unable to update the user
-    delete:
-      summary: Delete the user with the given id
-      tags:
-        - User
-      responses:
-        204:
-          description: User successfully deleted
-        403:
-          $ref: '#/components/responses/NotAllowed'
-        500:
-          description: The server is unable to delete the user
-    parameters:
-      - name: id
-        in: path
-        schema:
-          type: integer
-        description: login of user to use
-        required: true
-        # example: bob
+          description: The server is unable to create the Profile
+
 
   /accounts:
     get:
@@ -191,21 +101,26 @@ components:
       scheme: bearer
       bearerFormat: JWT
   schemas:
-    User:
+
+    Profile:
       type: object
       required:
-        - login
+        - name
+        - type
+        - acc_id
       properties:
-        login:
+        acc_id:
+          type: integer
+        name:
           type: string
-        firstname:
+        password:
           type: string
-        lastname:
-          type: string
-      example:
-        login: jdoe
-        firstname: John
-        lastname: Doe
+        type:
+          type: integer
+        profileimage:
+          type: integer
+
+
     Account:
       type: object
       required:

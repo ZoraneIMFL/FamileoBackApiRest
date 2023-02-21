@@ -22,7 +22,6 @@ public class AccountService {
    public List<Account> getAllAccount() {
         return dao.findAllAccount();
     }
-    //@Override
     public Account createAccount(final Account newAccount) {
         if (PasswordValidator.isValid(newAccount.getPassword()) && EmailValidator.isValid(newAccount.getEmail())){
             //LOGGER.log(Level.INFO, "Account Created");
@@ -33,12 +32,10 @@ public class AccountService {
         return null;
     }
 
-    //@Override
     public Account findAccount(final long id) {
         return dao.read(Account.class, id);
     }
 
-    //@Override
     public Account updateAccount(final Account account) {
         final Account oldAccount = findAccount(account.getId());
         if (oldAccount == null) {
@@ -49,7 +46,6 @@ public class AccountService {
         return dao.update(account);
     }
 
-    //@Override
     public void deleteAccount(final Long id) {
         //LOGGER.log(Level.INFO, "Account Deleted");
         dao.delete(Account.class, id);
