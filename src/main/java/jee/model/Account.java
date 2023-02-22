@@ -2,16 +2,26 @@ package jee.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 /**
  * This class represents an account that can be created on the application.
  */
-@Entity
+@Entity(name = "Account")
 //@TableGenerator(name="AccountGen", table = "SEQ_TABLE", allocationSize = 1000)
 @Table(name="Account")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "AccountGen")
+
     private long id = 0L;
+
+    /*@OneToMany(targetEntity = Profile.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "acc_fk", referencedColumnName = "id")
+    private List<Profile> profiles;
+
+     */
+
 
     private String name;
 
@@ -21,7 +31,7 @@ public class Account {
 
     private int status;
 
-    private byte[] salt;
+    //private byte[] salt;
 
     public Account(){
 
@@ -73,13 +83,15 @@ public class Account {
         this.status = status;
     }
 
-    public byte[] getSalt() {
+    /*public byte[] getSalt() {
         return salt;
     }
 
     public void setSalt(byte[] salt) {
         this.salt = salt;
     }
+
+     */
 
     @Override
     public String toString() {
