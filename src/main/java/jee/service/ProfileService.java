@@ -4,7 +4,6 @@ package jee.service;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 import jee.dao.ProfileDao;
-import jee.model.Account;
 import jee.model.Profile;
 
 import java.util.List;
@@ -23,7 +22,7 @@ public class ProfileService {
         return dao.create(newProfile);
     }
     public Profile updateProfile(Profile profile) {
-        final Profile oldProfile = findProfile(profile.getId());
+        final var oldProfile = findProfile(profile.getId());
         if (oldProfile == null) {
             return null;
         }

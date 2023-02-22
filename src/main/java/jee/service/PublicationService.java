@@ -18,7 +18,7 @@ public class PublicationService {
     }
 
     public Publication updatePublication(Publication publication) {
-        final Publication oldpub = findPublication(publication.getId());
+        final var oldpub = findPublication(publication.getId());
         if(oldpub == null){
             return null;
         }

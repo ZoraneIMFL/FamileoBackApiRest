@@ -33,7 +33,7 @@ public class PublicationController {
         if (id < 0) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
-        final Publication publication = publicationService.findPublication(id);
+        final var publication = publicationService.findPublication(id);
         if (publication != null) {
             return Response.ok(publication).build();
         } else {
@@ -48,7 +48,7 @@ public class PublicationController {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
         newPublication.setId(id);
-        final Publication publication = publicationService.updatePublication(newPublication);
+        final var publication = publicationService.updatePublication(newPublication);
         if (publication != null) {
             return Response.ok(publication).build();
         } else {

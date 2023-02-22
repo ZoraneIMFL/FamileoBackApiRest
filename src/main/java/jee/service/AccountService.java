@@ -25,8 +25,8 @@ public class AccountService {
     public Account createAccount(final Account newAccount) {
         if (PasswordValidator.isValid(newAccount.getPassword()) && EmailValidator.isValid(newAccount.getEmail())){
             //LOGGER.log(Level.INFO, "Account Created");
-            //newAccount.setSalt(PasswordEncryption.generateSalt());
-            //newAccount.setPassword(PasswordEncryption.encryptPassword(newAccount.getPassword(), newAccount.getSalt()));
+            newAccount.setSalt(PasswordEncryption.generateSalt());
+            newAccount.setPassword(PasswordEncryption.encryptPassword(newAccount.getPassword(), newAccount.getSalt()));
             return dao.create(newAccount);
         }
         return null;

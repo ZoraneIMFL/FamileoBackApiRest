@@ -22,7 +22,6 @@ servers:
         default: localhost:8080
 
 
-
 paths:
   /publication:
     get:
@@ -155,7 +154,7 @@ paths:
       tags:
         - Profile
       requestBody:
-         content:
+        content:
           application/json:
             schema:
               $ref: '#/components/schemas/Profile'
@@ -169,7 +168,7 @@ paths:
         400:
           description: Provided profile is invalid
         403:
-           $ref: '#/components/responses/NotAllowed'
+          $ref: '#/components/responses/NotAllowed'
         500:
           description: The server is unable to update the profile
     delete:
@@ -262,7 +261,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Account'
-            # examples (plural) doesn't works yet: https://github.com/swagger-api/swagger-ui/issues/2651
       responses:
         200:
           description: The updated account
@@ -298,7 +296,6 @@ paths:
 
 components:
   securitySchemes:
-    # security is not shown in current swagger UI: https://github.com/swagger-api/swagger-ui/issues/1108
     bearerAuth:
       type: http
       scheme: bearer
@@ -366,7 +363,6 @@ components:
           $ref: '#/components/schemas/Profile'
         account:
           $ref: '#/components/schemas/Account'
-
 
 
   responses:
