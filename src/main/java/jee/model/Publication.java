@@ -3,7 +3,6 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Entity(name = "Publication")
 @TableGenerator(name = "PublicationGen",table = "SEQ_TABLE",allocationSize = 1000)
@@ -12,9 +11,9 @@ public class Publication {
     @GeneratedValue(strategy = GenerationType.TABLE,generator = "PublicationGen")
     long id;
 
-
-
     private String description;
+
+    private Date date;
 
     private double latitude;
 
@@ -45,6 +44,7 @@ public class Publication {
     public Publication(){}
     public Publication(String description, Date date, double latitude,double longitude, Profile profile , Account acc ){
         this.description=description;
+        this.date = date;
         this.latitude = latitude;
         this.longitude = longitude;
         this.profile = profile;

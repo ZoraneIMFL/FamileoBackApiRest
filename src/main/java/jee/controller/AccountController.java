@@ -6,8 +6,6 @@ import jee.service.AccountService;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
-import jakarta.ejb.EJB;
-import jakarta.ejb.embeddable.EJBContainer;
 
 @Stateless
 @Path("/accounts")
@@ -36,7 +34,7 @@ public class AccountController {
         if (id < 0) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
-        final Account account = accountService.findAccount(id);
+        final var account = accountService.findAccount(id);
         if (account != null) {
             return Response.ok(account).build();
         } else {
@@ -51,7 +49,7 @@ public class AccountController {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
         newAccount.setId(id);
-        final Account account = accountService.updateAccount(newAccount);
+        final var account = accountService.updateAccount(newAccount);
         if (account != null) {
             return Response.ok(account).build();
         } else {

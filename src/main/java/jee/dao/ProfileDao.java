@@ -21,10 +21,9 @@ public class ProfileDao extends DAO<Profile> implements CRUD<Profile>{
 
 
     public List<Profile> findProfileAccount(Account account){
-        Query query = em.createNamedQuery("findProfileByAcconutId");
+        var query = em.createNamedQuery("findProfileByAcconutId");
         query.setParameter("account", account);
-        List<Profile> profiles = query.getResultList();
-        return profiles;
+        return query.getResultList();
     }
 
     public List<Profile> findAllProfile() {

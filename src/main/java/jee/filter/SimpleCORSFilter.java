@@ -49,7 +49,6 @@ public class SimpleCORSFilter implements Filter {
     ) throws IOException, ServletException {
         if ((request instanceof HttpServletRequest) && (response instanceof HttpServletResponse)) {
             final HttpServletResponse httpResponse = (HttpServletResponse) response;
-            final HttpServletRequest httpResquest = (HttpServletRequest) request;
 
             httpResponse.setHeader("Access-Control-Allow-Origin", "*");
             httpResponse.setHeader("Access-Control-Allow-Credentials", "true");
@@ -69,6 +68,6 @@ public class SimpleCORSFilter implements Filter {
 
     @Override
     public void destroy() {
-
+        //TODO
     }
 }

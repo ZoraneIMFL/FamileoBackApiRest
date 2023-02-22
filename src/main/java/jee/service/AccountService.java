@@ -6,10 +6,7 @@ import security.PasswordEncryption;
 import jee.validator.EmailValidator;
 import jee.validator.PasswordValidator;
 
-import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
-import jakarta.enterprise.inject.Any;
-import jakarta.enterprise.inject.Default;
 import jakarta.inject.Inject;
 import java.util.List;
 
@@ -24,7 +21,6 @@ public class AccountService {
     }
     public Account createAccount(final Account newAccount) {
         if (PasswordValidator.isValid(newAccount.getPassword()) && EmailValidator.isValid(newAccount.getEmail())){
-            //LOGGER.log(Level.INFO, "Account Created");
             newAccount.setSalt(PasswordEncryption.generateSalt());
             newAccount.setPassword(PasswordEncryption.encryptPassword(newAccount.getPassword(), newAccount.getSalt()));
             return dao.create(newAccount);
@@ -37,17 +33,15 @@ public class AccountService {
     }
 
     public Account updateAccount(final Account account) {
-        final Account oldAccount = findAccount(account.getId());
+        final var oldAccount = findAccount(account.getId());
         if (oldAccount == null) {
             return null;
         }
         account.setId(oldAccount.getId());
-        //LOGGER.log(Level.INFO, "Account Updated");
         return dao.update(account);
     }
 
     public void deleteAccount(final Long id) {
-        //LOGGER.log(Level.INFO, "Account Deleted");
         dao.delete(Account.class, id);
     }
 }

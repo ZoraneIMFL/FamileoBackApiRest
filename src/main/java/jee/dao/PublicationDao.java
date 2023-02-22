@@ -18,9 +18,8 @@ public class PublicationDao extends DAO<Publication> implements CRUD<Publication
     }
 
     public List<Publication> findPublicationProfile(Profile profile){
-        Query query = em.createNamedQuery("findPublicationByProfile");
+        var query = em.createNamedQuery("findPublicationByProfile");
         query.setParameter("profile", profile);
-        List<Publication> Publications = query.getResultList();
-        return Publications;
+        return query.getResultList();
     }
 }

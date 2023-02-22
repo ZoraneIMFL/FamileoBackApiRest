@@ -35,7 +35,7 @@ public class ProfileController {
         if (id < 0) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
-        final Profile profile = profileService.findProfile(id);
+        final var profile = profileService.findProfile(id);
         if (profile != null) {
             return Response.ok(profile).build();
         } else {
@@ -50,7 +50,7 @@ public class ProfileController {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
         newProfile.setId(id);
-        final Profile profile = profileService.updateProfile(newProfile);
+        final var profile = profileService.updateProfile(newProfile);
         if (profile != null) {
             return Response.ok(profile).build();
         } else {
