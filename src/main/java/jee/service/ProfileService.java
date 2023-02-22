@@ -1,6 +1,5 @@
 package jee.service;
 
-
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 import jee.dao.ProfileDao;

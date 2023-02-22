@@ -2,8 +2,6 @@ package jee.model;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 /**
  * This class represents an account that can be created on the application.
  */
@@ -15,12 +13,6 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "AccountGen")
 
     private long id = 0L;
-
-    /*@OneToMany(targetEntity = Profile.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "acc_fk", referencedColumnName = "id")
-    private List<Profile> profiles;
-
-     */
 
     private String name;
 

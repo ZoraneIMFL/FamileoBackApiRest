@@ -7,10 +7,6 @@ import jee.model.Profile;
 import org.junit.Assert;
 import org.junit.Test;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.util.Properties;
 import junit.framework.TestCase;
 

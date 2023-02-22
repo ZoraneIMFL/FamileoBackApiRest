@@ -2,14 +2,10 @@ package jee.service;
 
 import jee.dao.AccountDao;
 import jee.model.Account;
-import security.PasswordEncryption;
 import jee.validator.EmailValidator;
 import jee.validator.PasswordValidator;
 
-import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
-import jakarta.enterprise.inject.Any;
-import jakarta.enterprise.inject.Default;
 import jakarta.inject.Inject;
 import java.util.List;
 

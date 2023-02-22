@@ -4,7 +4,6 @@ import jakarta.ejb.Lock;
 import jakarta.ejb.LockType;
 
 import jakarta.persistence.*;
-import java.util.List;
 
 /**
  * Simply maps the entitymanager.

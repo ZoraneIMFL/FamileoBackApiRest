@@ -1,12 +1,7 @@
 package jee.dao;
 
-
-
-
-
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
-import jakarta.persistence.Query;
 import jee.model.Account;
 import jee.model.Profile;
 

@@ -3,7 +3,6 @@ package jee.service;
 import jakarta.ejb.EJB;
 import jakarta.ejb.embeddable.EJBContainer;
 import jee.model.Account;
-import jee.validator.PasswordValidator;
 import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Test;
