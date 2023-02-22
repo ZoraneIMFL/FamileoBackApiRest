@@ -22,7 +22,6 @@ public class Account {
 
      */
 
-
     private String name;
 
     private String email;
@@ -30,8 +29,6 @@ public class Account {
     private String password;
 
     private int status;
-
-    //private byte[] salt;
 
     public Account(){
 
@@ -82,16 +79,6 @@ public class Account {
     public void setStatus(int status) {
         this.status = status;
     }
-
-    /*public byte[] getSalt() {
-        return salt;
-    }
-
-    public void setSalt(byte[] salt) {
-        this.salt = salt;
-    }
-
-     */
 
     @Override
     public String toString() {
