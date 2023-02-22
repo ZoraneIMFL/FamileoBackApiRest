@@ -4,6 +4,7 @@ package jee.service;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 import jee.dao.ProfileDao;
+import jee.model.Account;
 import jee.model.Profile;
 
 import java.util.List;
@@ -17,6 +18,8 @@ public class ProfileService {
     public List<Profile> getAllProfile() {
         return dao.findAllProfile();
     }
+
+    public List<Profile> getAllProfileOfAccount(Account account) {return dao.findProfileAccount(account);}
 
     public Profile createProfile(final Profile newProfile) {
         return dao.create(newProfile);

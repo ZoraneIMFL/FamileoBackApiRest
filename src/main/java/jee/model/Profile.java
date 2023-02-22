@@ -78,4 +78,14 @@ public class Profile {
     public void setProfileImage(byte[] profileImage) {
         this.profileImage = profileImage;
     }
+
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "id=" + id +
+                ", acc=" + acc +
+                ", name='" + name + '\'' +
+                ", type=" + type +
+                '}';
+    }
 }

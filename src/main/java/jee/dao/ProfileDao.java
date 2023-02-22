@@ -12,7 +12,7 @@ import jee.model.Profile;
 
 import java.util.List;
 @NamedQueries(value = {
-        @NamedQuery(name = "findProfileByAcconutId",query = "select p from Profile p where p.account=:account")
+        @NamedQuery(name = "findProfileByAccountId",query = "select p from Profile p where p.account=:account")
 })
 
 public class ProfileDao extends DAO<Profile> implements CRUD<Profile>{
@@ -21,7 +21,7 @@ public class ProfileDao extends DAO<Profile> implements CRUD<Profile>{
 
 
     public List<Profile> findProfileAccount(Account account){
-        var query = em.createNamedQuery("findProfileByAcconutId");
+        var query = em.createNamedQuery("findProfileByAccountId");
         query.setParameter("account", account);
         return query.getResultList();
     }

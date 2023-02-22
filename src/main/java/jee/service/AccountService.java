@@ -18,15 +18,15 @@ public class AccountService {
 
    public List<Account> getAllAccount() {
         return dao.findAllAccount();
-    }
-    public Account createAccount(final Account newAccount) {
+   }
+   public Account createAccount(final Account newAccount) {
         if (PasswordValidator.isValid(newAccount.getPassword()) && EmailValidator.isValid(newAccount.getEmail())){
             newAccount.setSalt(PasswordEncryption.generateSalt());
             newAccount.setPassword(PasswordEncryption.encryptPassword(newAccount.getPassword(), newAccount.getSalt()));
             return dao.create(newAccount);
         }
         return null;
-    }
+   }
 
     public Account findAccount(final long id) {
         return dao.read(Account.class, id);

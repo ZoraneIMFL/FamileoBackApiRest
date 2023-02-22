@@ -40,22 +40,4 @@ public abstract class DAO<E> implements CRUD<E> {
     public E read(final Class<E> clazz, final long id) {
         return em.find(clazz, id);
     }
-
-    public List<E> find(final Class<E> clazz, final String query, final int min, final int max) {
-        return queryRange(em.createQuery(query, clazz), min, max).getResultList();
-    }
-
-    public List<E> namedFind(final Class<E> clazz, final String query, final int min, final int max) {
-        return queryRange(em.createNamedQuery(query, clazz), min, max).getResultList();
-    }
-
-    private static <E> TypedQuery<E> queryRange(final TypedQuery<E> query, final int min, final int max) {
-        if (max >= 0) {
-            query.setMaxResults(max);
-        }
-        if (min >= 0) {
-            query.setFirstResult(min);
-        }
-        return query;
-    }
 }
