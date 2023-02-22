@@ -42,6 +42,7 @@ paths:
       summary: Create a Publication
       tags:
         - Publication
+      responses:
       requestBody:
         content:
           application/json:
@@ -362,10 +363,8 @@ components:
           type: string
           format: date-time
         profile:
-          type: object
           $ref: '#/components/schemas/Profile'
         account:
-          type: object
           $ref: '#/components/schemas/Account'
 
 
