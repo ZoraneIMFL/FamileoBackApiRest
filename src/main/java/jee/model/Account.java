@@ -14,6 +14,9 @@ public class Account {
 
     private long id = 0L;
 
+    @OneToMany(mappedBy = "acc")
+    private List<Profile> profiles;
+
     private String name;
 
     private String email;
