@@ -309,7 +309,6 @@ components:
         - acc_id
       properties:
         acc_id:
-          type: object
           $ref: '#/components/schemas/Account'
         name:
           type: string
