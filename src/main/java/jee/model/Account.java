@@ -9,7 +9,7 @@ import java.util.List;
  */
 @Entity(name = "Account")
 //@TableGenerator(name="AccountGen", table = "SEQ_TABLE", allocationSize = 1000)
-@Table(name="Account")
+//@Table(name="Account")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "AccountGen")
@@ -17,7 +17,6 @@ public class Account {
     private long id = 0L;
 
     @OneToMany(mappedBy = "acc",cascade = CascadeType.ALL,orphanRemoval = true)
-
     private List<Profile> profiles;
 
     private String name;
@@ -78,13 +77,15 @@ public class Account {
         this.status = status;
     }
 
-    public List<Profile> getProfiles() {
+    /*public List<Profile> getProfiles() {
         return profiles;
     }
 
     public void setProfiles(List<Profile> profiles) {
         this.profiles = profiles;
     }
+
+     */
 
     @Override
     public String toString() {

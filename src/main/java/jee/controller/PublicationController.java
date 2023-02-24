@@ -8,7 +8,7 @@ import jee.model.Publication;
 import jee.service.PublicationService;
 
 @Stateless
-@Path("/accounts")
+@Path("/publications")
 @Produces({"application/json"})
 @Consumes({"application/json"})
 public class PublicationController {

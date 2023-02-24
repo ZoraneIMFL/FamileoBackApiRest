@@ -5,6 +5,7 @@ import jakarta.inject.Inject;
 import jee.dao.ProfileDao;
 import jee.model.Account;
 import jee.model.Profile;
+import org.hibernate.Hibernate;
 
 import java.util.List;
 
@@ -15,7 +16,17 @@ public class ProfileService {
     private ProfileDao dao;
 
     public List<Profile> getAllProfile() {
-        return dao.findAllProfile();
+        List<Profile> profiles = dao.findAllProfile();
+        for (Profile profile : profiles) {
+            Hibernate.initialize(profile.getAcc());
+        }
+        return profiles;
+
+
+
+
+
+        //return dao.findAllProfile();
     }
 
     public List<Profile> getAllProfileOfAccount(Account account) {return dao.findProfileAccount(account);}

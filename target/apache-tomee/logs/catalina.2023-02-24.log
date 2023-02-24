@@ -1,0 +1,254 @@
+24-Feb-2023 23:15:08.841 INFOS [main] jdk.internal.reflect.NativeMethodAccessorImpl.invoke Nom version serveur :              Apache Tomcat (TomEE)/10.0.27 (9.0.0)
+24-Feb-2023 23:15:08.842 INFOS [main] jdk.internal.reflect.NativeMethodAccessorImpl.invoke Serveur compilé :                  Oct 3 2022 14:18:31 UTC
+24-Feb-2023 23:15:08.842 INFOS [main] jdk.internal.reflect.NativeMethodAccessorImpl.invoke Version du serveur :               10.0.27.0
+24-Feb-2023 23:15:08.842 INFOS [main] jdk.internal.reflect.NativeMethodAccessorImpl.invoke Nom de l'OS :                      Mac OS X
+24-Feb-2023 23:15:08.842 INFOS [main] jdk.internal.reflect.NativeMethodAccessorImpl.invoke Version OS :                       13.2.1
+24-Feb-2023 23:15:08.843 INFOS [main] jdk.internal.reflect.NativeMethodAccessorImpl.invoke Architecture :                     x86_64
+24-Feb-2023 23:15:08.843 INFOS [main] jdk.internal.reflect.NativeMethodAccessorImpl.invoke Java Home :                        /Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+24-Feb-2023 23:15:08.843 INFOS [main] jdk.internal.reflect.NativeMethodAccessorImpl.invoke Version JVM :                      17.0.2+8-LTS
+24-Feb-2023 23:15:08.843 INFOS [main] jdk.internal.reflect.NativeMethodAccessorImpl.invoke Fournisseur de la JVM :            Azul Systems, Inc.
+24-Feb-2023 23:15:08.843 INFOS [main] jdk.internal.reflect.NativeMethodAccessorImpl.invoke CATALINA_BASE :                    /Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee
+24-Feb-2023 23:15:08.843 INFOS [main] jdk.internal.reflect.NativeMethodAccessorImpl.invoke CATALINA_HOME :                    /Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee
+24-Feb-2023 23:15:08.867 INFOS [main] jdk.internal.reflect.NativeMethodAccessorImpl.invoke Argument de la ligne de commande : -XX:+HeapDumpOnOutOfMemoryError
+24-Feb-2023 23:15:08.867 INFOS [main] jdk.internal.reflect.NativeMethodAccessorImpl.invoke Argument de la ligne de commande : -Dorg.apache.catalina.STRICT_SERVLET_COMPLIANCE=false
+24-Feb-2023 23:15:08.867 INFOS [main] jdk.internal.reflect.NativeMethodAccessorImpl.invoke Argument de la ligne de commande : -Dopenejb.session.manager=org.apache.tomee.catalina.session.QuickSessionManager
+24-Feb-2023 23:15:08.867 INFOS [main] jdk.internal.reflect.NativeMethodAccessorImpl.invoke Argument de la ligne de commande : -Dtomee.remote.support=true
+24-Feb-2023 23:15:08.868 INFOS [main] jdk.internal.reflect.NativeMethodAccessorImpl.invoke Argument de la ligne de commande : -Dopenejb.system.apps=false
+24-Feb-2023 23:15:08.868 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Argument de la ligne de commande : -Dtomee.jsp-development=true
+24-Feb-2023 23:15:08.868 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Argument de la ligne de commande : -Djava.util.logging.config.file=/Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee/conf/logging.properties
+24-Feb-2023 23:15:08.868 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Argument de la ligne de commande : -javaagent:/Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee/lib/openejb-javaagent.jar
+24-Feb-2023 23:15:08.868 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Argument de la ligne de commande : -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+24-Feb-2023 23:15:08.868 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Argument de la ligne de commande : -Djava.io.tmpdir=/Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee/temp
+24-Feb-2023 23:15:08.868 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Argument de la ligne de commande : -Dcatalina.base=/Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee
+24-Feb-2023 23:15:08.868 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Argument de la ligne de commande : -Dcatalina.home=/Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee
+24-Feb-2023 23:15:08.868 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Argument de la ligne de commande : -Dcatalina.ext.dirs=/Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee/lib
+24-Feb-2023 23:15:08.868 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Argument de la ligne de commande : -Dorg.apache.tomcat.util.http.ServerCookie.ALLOW_HTTP_SEPARATORS_IN_V0=true
+24-Feb-2023 23:15:08.869 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Argument de la ligne de commande : -ea
+24-Feb-2023 23:15:08.912 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke La librairie Apache Tomcat Native basée sur APR qui permet des performances optimales dans les environnements de production n'a pas été trouvée sur le java.library.path : [/Users/thekingzeineddine/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+24-Feb-2023 23:15:09.249 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Initialisation du gestionnaire de protocole ["http-nio-8080"]
+24-Feb-2023 23:15:09.407 INFOS [main] org.apache.openejb.util.OptionsLog.info Using 'tomee.remote.support=true'
+24-Feb-2023 23:15:09.414 INFOS [main] org.apache.openejb.util.OptionsLog.info Using 'openejb.jdbc.datasource-creator=org.apache.tomee.jdbc.TomEEDataSourceCreator'
+24-Feb-2023 23:15:09.496 INFOS [main] org.apache.openejb.OpenEJB$Instance.<init> ********************************************************************************
+24-Feb-2023 23:15:09.496 INFOS [main] org.apache.openejb.OpenEJB$Instance.<init> OpenEJB http://tomee.apache.org/
+24-Feb-2023 23:15:09.496 INFOS [main] org.apache.openejb.OpenEJB$Instance.<init> Startup: Fri Feb 24 23:15:09 CET 2023
+24-Feb-2023 23:15:09.496 INFOS [main] org.apache.openejb.OpenEJB$Instance.<init> Copyright 1999-2021 (C) Apache TomEE Project, All Rights Reserved.
+24-Feb-2023 23:15:09.497 INFOS [main] org.apache.openejb.OpenEJB$Instance.<init> Version: 9.0.0
+24-Feb-2023 23:15:09.497 INFOS [main] org.apache.openejb.OpenEJB$Instance.<init> Build date: 20230103
+24-Feb-2023 23:15:09.497 INFOS [main] org.apache.openejb.OpenEJB$Instance.<init> Build time: 09:35
+24-Feb-2023 23:15:09.497 INFOS [main] org.apache.openejb.OpenEJB$Instance.<init> ********************************************************************************
+24-Feb-2023 23:15:09.497 INFOS [main] org.apache.openejb.OpenEJB$Instance.<init> openejb.home = /Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee
+24-Feb-2023 23:15:09.497 INFOS [main] org.apache.openejb.OpenEJB$Instance.<init> openejb.base = /Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee
+24-Feb-2023 23:15:09.498 INFOS [main] org.apache.openejb.cdi.CdiBuilder.initializeOWB Created new singletonService org.apache.openejb.cdi.ThreadSingletonServiceImpl@95e33cc
+24-Feb-2023 23:15:09.500 INFOS [main] org.apache.openejb.cdi.CdiBuilder.initializeOWB Succeeded in installing singleton service
+24-Feb-2023 23:15:09.525 INFOS [main] org.apache.openejb.config.ConfigurationFactory.init TomEE configuration file is '/Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee/conf/tomee.xml'
+24-Feb-2023 23:15:09.549 INFOS [main] org.apache.openejb.config.ConfigurationFactory.configureService Configuring Service(id=Tomcat Security Service, type=SecurityService, provider-id=Tomcat Security Service)
+24-Feb-2023 23:15:09.550 INFOS [main] org.apache.openejb.config.ConfigurationFactory.configureService Configuring Service(id=Default Transaction Manager, type=TransactionManager, provider-id=Default Transaction Manager)
+24-Feb-2023 23:15:09.551 INFOS [main] org.apache.openejb.util.OptionsLog.info Using 'openejb.system.apps=false'
+24-Feb-2023 23:15:09.551 INFOS [main] org.apache.openejb.util.OptionsLog.info Using 'openejb.deployments.classpath=false'
+24-Feb-2023 23:15:09.569 INFOS [main] org.apache.openejb.assembler.classic.Assembler.createRecipe Creating TransactionManager(id=Default Transaction Manager)
+24-Feb-2023 23:15:09.613 INFOS [main] org.apache.openejb.assembler.classic.Assembler.createRecipe Creating SecurityService(id=Tomcat Security Service)
+24-Feb-2023 23:15:09.711 INFOS [main] org.apache.openejb.server.ServiceManager.initServer Creating ServerService(id=cxf)
+24-Feb-2023 23:15:09.948 INFOS [main] org.apache.openejb.server.ServiceManager.initServer Creating ServerService(id=cxf-rs)
+24-Feb-2023 23:15:09.971 INFOS [main] org.apache.openejb.server.SimpleServiceManager.start   ** Bound Services **
+24-Feb-2023 23:15:09.972 INFOS [main] org.apache.openejb.server.SimpleServiceManager.printRow   NAME                 IP              PORT  
+24-Feb-2023 23:15:09.972 INFOS [main] org.apache.openejb.server.SimpleServiceManager.start -------
+24-Feb-2023 23:15:09.972 INFOS [main] org.apache.openejb.server.SimpleServiceManager.start Ready!
+24-Feb-2023 23:15:09.972 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke L'initialisation du serveur a pris [1436] millisecondes
+24-Feb-2023 23:15:10.001 INFOS [main] org.apache.tomee.catalina.OpenEJBNamingContextListener.bindResource Importing a Tomcat Resource with id 'UserDatabase' of type 'org.apache.catalina.UserDatabase'.
+24-Feb-2023 23:15:10.001 INFOS [main] org.apache.openejb.assembler.classic.Assembler.createRecipe Creating Resource(id=UserDatabase)
+24-Feb-2023 23:15:10.012 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Démarrage du service [Catalina]
+24-Feb-2023 23:15:10.012 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Démarrage du moteur de Servlets : [Apache Tomcat (TomEE)/10.0.27 (9.0.0)]
+24-Feb-2023 23:15:10.023 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Déploiement de l'archive [/Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee/webapps/ili.war] de l'application web
+24-Feb-2023 23:15:10.029 INFOS [main] org.apache.tomee.catalina.TomcatWebAppBuilder.init ------------------------- localhost -> /ili
+24-Feb-2023 23:15:10.031 INFOS [main] org.apache.openejb.util.JarExtractor.extract Extracting jar: /Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee/webapps/ili.war
+24-Feb-2023 23:15:10.280 INFOS [main] org.apache.openejb.util.JarExtractor.extract Extracted path: /Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee/webapps/ili
+24-Feb-2023 23:15:10.281 INFOS [main] org.apache.openejb.util.OptionsLog.info Using 'openejb.session.manager=org.apache.tomee.catalina.session.QuickSessionManager'
+24-Feb-2023 23:15:11.404 INFOS [main] org.apache.openejb.config.ConfigurationFactory.configureApplication Configuring enterprise application: /Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee/webapps/ili
+24-Feb-2023 23:15:11.584 INFOS [main] org.apache.openejb.config.InitEjbDeployments.deploy Auto-deploying ejb PublicationController: EjbDeployment(deployment-id=PublicationController)
+24-Feb-2023 23:15:11.584 INFOS [main] org.apache.openejb.config.InitEjbDeployments.deploy Auto-deploying ejb AccountService: EjbDeployment(deployment-id=AccountService)
+24-Feb-2023 23:15:11.584 INFOS [main] org.apache.openejb.config.InitEjbDeployments.deploy Auto-deploying ejb InfoController: EjbDeployment(deployment-id=InfoController)
+24-Feb-2023 23:15:11.584 INFOS [main] org.apache.openejb.config.InitEjbDeployments.deploy Auto-deploying ejb PublicationService: EjbDeployment(deployment-id=PublicationService)
+24-Feb-2023 23:15:11.584 INFOS [main] org.apache.openejb.config.InitEjbDeployments.deploy Auto-deploying ejb AccountController: EjbDeployment(deployment-id=AccountController)
+24-Feb-2023 23:15:11.585 INFOS [main] org.apache.openejb.config.InitEjbDeployments.deploy Auto-deploying ejb ProfileService: EjbDeployment(deployment-id=ProfileService)
+24-Feb-2023 23:15:11.585 INFOS [main] org.apache.openejb.config.InitEjbDeployments.deploy Auto-deploying ejb ProfileController: EjbDeployment(deployment-id=ProfileController)
+24-Feb-2023 23:15:11.589 INFOS [main] org.apache.openejb.config.ConfigurationFactory.configureService Configuring Service(id=ili/projet, type=Resource, provider-id=Default JDBC Database)
+24-Feb-2023 23:15:11.590 INFOS [main] org.apache.openejb.assembler.classic.Assembler.createRecipe Creating Resource(id=ili/projet)
+24-Feb-2023 23:15:12.307 INFOS [main] org.apache.openejb.config.ConfigurationFactory.configureService Configuring Service(id=Default Stateless Container, type=Container, provider-id=Default Stateless Container)
+24-Feb-2023 23:15:12.307 INFOS [main] org.apache.openejb.config.AutoConfig.createContainer Auto-creating a container for bean PublicationController: Container(type=STATELESS, id=Default Stateless Container)
+24-Feb-2023 23:15:12.307 INFOS [main] org.apache.openejb.assembler.classic.Assembler.createRecipe Creating Container(id=Default Stateless Container)
+24-Feb-2023 23:15:12.316 INFOS [main] org.apache.openejb.config.AutoConfig.processResourceRef Auto-linking resource-ref 'openejb/Resource/ili/projet' in bean PublicationController to Resource(id=ili/projet)
+24-Feb-2023 23:15:12.317 INFOS [main] org.apache.openejb.config.AutoConfig.processResourceRef Auto-linking resource-ref 'openejb/Resource/projet' in bean PublicationController to Resource(id=ili/projet)
+24-Feb-2023 23:15:12.317 INFOS [main] org.apache.openejb.config.AutoConfig.processResourceRef Auto-linking resource-ref 'openejb/Resource/ili/projet' in bean AccountService to Resource(id=ili/projet)
+24-Feb-2023 23:15:12.317 INFOS [main] org.apache.openejb.config.AutoConfig.processResourceRef Auto-linking resource-ref 'openejb/Resource/projet' in bean AccountService to Resource(id=ili/projet)
+24-Feb-2023 23:15:12.317 INFOS [main] org.apache.openejb.config.AutoConfig.processResourceRef Auto-linking resource-ref 'openejb/Resource/ili/projet' in bean InfoController to Resource(id=ili/projet)
+24-Feb-2023 23:15:12.318 INFOS [main] org.apache.openejb.config.AutoConfig.processResourceRef Auto-linking resource-ref 'openejb/Resource/projet' in bean InfoController to Resource(id=ili/projet)
+24-Feb-2023 23:15:12.318 INFOS [main] org.apache.openejb.config.AutoConfig.processResourceRef Auto-linking resource-ref 'openejb/Resource/ili/projet' in bean PublicationService to Resource(id=ili/projet)
+24-Feb-2023 23:15:12.318 INFOS [main] org.apache.openejb.config.AutoConfig.processResourceRef Auto-linking resource-ref 'openejb/Resource/projet' in bean PublicationService to Resource(id=ili/projet)
+24-Feb-2023 23:15:12.318 INFOS [main] org.apache.openejb.config.AutoConfig.processResourceRef Auto-linking resource-ref 'openejb/Resource/ili/projet' in bean AccountController to Resource(id=ili/projet)
+24-Feb-2023 23:15:12.318 INFOS [main] org.apache.openejb.config.AutoConfig.processResourceRef Auto-linking resource-ref 'openejb/Resource/projet' in bean AccountController to Resource(id=ili/projet)
+24-Feb-2023 23:15:12.319 INFOS [main] org.apache.openejb.config.AutoConfig.processResourceRef Auto-linking resource-ref 'openejb/Resource/ili/projet' in bean ProfileService to Resource(id=ili/projet)
+24-Feb-2023 23:15:12.319 INFOS [main] org.apache.openejb.config.AutoConfig.processResourceRef Auto-linking resource-ref 'openejb/Resource/projet' in bean ProfileService to Resource(id=ili/projet)
+24-Feb-2023 23:15:12.319 INFOS [main] org.apache.openejb.config.AutoConfig.processResourceRef Auto-linking resource-ref 'openejb/Resource/ili/projet' in bean ProfileController to Resource(id=ili/projet)
+24-Feb-2023 23:15:12.319 INFOS [main] org.apache.openejb.config.AutoConfig.processResourceRef Auto-linking resource-ref 'openejb/Resource/projet' in bean ProfileController to Resource(id=ili/projet)
+24-Feb-2023 23:15:12.319 INFOS [main] org.apache.openejb.config.ConfigurationFactory.configureService Configuring Service(id=Default Managed Container, type=Container, provider-id=Default Managed Container)
+24-Feb-2023 23:15:12.320 INFOS [main] org.apache.openejb.config.AutoConfig.createContainer Auto-creating a container for bean ili.Comp973844160: Container(type=MANAGED, id=Default Managed Container)
+24-Feb-2023 23:15:12.320 INFOS [main] org.apache.openejb.assembler.classic.Assembler.createRecipe Creating Container(id=Default Managed Container)
+24-Feb-2023 23:15:12.325 INFOS [main] org.apache.openejb.core.managed.SimplePassivater.init Using directory /Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee/temp for stateful session passivation
+24-Feb-2023 23:15:12.334 INFOS [main] org.apache.openejb.config.AutoConfig.processResourceRef Auto-linking resource-ref 'openejb/Resource/ili/projet' in bean ili.Comp973844160 to Resource(id=ili/projet)
+24-Feb-2023 23:15:12.334 INFOS [main] org.apache.openejb.config.AutoConfig.processResourceRef Auto-linking resource-ref 'openejb/Resource/projet' in bean ili.Comp973844160 to Resource(id=ili/projet)
+24-Feb-2023 23:15:12.335 INFOS [main] org.apache.openejb.config.AutoConfig.deploy Configuring PersistenceUnit(name=projet, provider=org.hibernate.jpa.HibernatePersistenceProvider)
+24-Feb-2023 23:15:12.336 INFOS [main] org.apache.openejb.config.AutoConfig.logAutoCreateResource Auto-creating a Resource with id 'ili/projetNonJta' of type 'DataSource' for 'projet'.
+24-Feb-2023 23:15:12.336 INFOS [main] org.apache.openejb.config.AutoConfig.deploy Configuring Service(id=ili/projetNonJta, type=Resource, provider-id=ili/projet)
+24-Feb-2023 23:15:12.336 INFOS [main] org.apache.openejb.assembler.classic.Assembler.createRecipe Creating Resource(id=ili/projetNonJta)
+24-Feb-2023 23:15:12.645 INFOS [main] org.apache.openejb.config.AutoConfig.setJtaDataSource Adjusting PersistenceUnit projet <jta-data-source> to Resource ID 'projet' from 'jdbc/projet'
+24-Feb-2023 23:15:12.645 INFOS [main] org.apache.openejb.config.AutoConfig.setNonJtaDataSource Adjusting PersistenceUnit projet <non-jta-data-source> to Resource ID 'ili/projetNonJta' from 'null'
+24-Feb-2023 23:15:12.678 INFOS [main] org.apache.openejb.config.AppInfoBuilder.build Enterprise application "/Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee/webapps/ili" loaded.
+24-Feb-2023 23:15:12.683 INFOS [main] org.apache.openejb.assembler.classic.Assembler.createApplication Assembling app: /Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee/webapps/ili
+24-Feb-2023 23:15:12.761 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=PublicationControllerLocalBean) --> Ejb(deployment-id=PublicationController)
+24-Feb-2023 23:15:12.762 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=global/ili/PublicationController!jee.controller.PublicationController) --> Ejb(deployment-id=PublicationController)
+24-Feb-2023 23:15:12.762 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=global/ili/PublicationController) --> Ejb(deployment-id=PublicationController)
+24-Feb-2023 23:15:12.763 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=AccountServiceLocalBean) --> Ejb(deployment-id=AccountService)
+24-Feb-2023 23:15:12.763 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=global/ili/AccountService!jee.service.AccountService) --> Ejb(deployment-id=AccountService)
+24-Feb-2023 23:15:12.763 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=global/ili/AccountService) --> Ejb(deployment-id=AccountService)
+24-Feb-2023 23:15:12.763 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=InfoControllerLocalBean) --> Ejb(deployment-id=InfoController)
+24-Feb-2023 23:15:12.764 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=global/ili/InfoController!jee.controller.InfoController) --> Ejb(deployment-id=InfoController)
+24-Feb-2023 23:15:12.764 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=global/ili/InfoController) --> Ejb(deployment-id=InfoController)
+24-Feb-2023 23:15:12.764 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=PublicationServiceLocalBean) --> Ejb(deployment-id=PublicationService)
+24-Feb-2023 23:15:12.764 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=global/ili/PublicationService!jee.service.PublicationService) --> Ejb(deployment-id=PublicationService)
+24-Feb-2023 23:15:12.765 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=global/ili/PublicationService) --> Ejb(deployment-id=PublicationService)
+24-Feb-2023 23:15:12.765 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=AccountControllerLocalBean) --> Ejb(deployment-id=AccountController)
+24-Feb-2023 23:15:12.765 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=global/ili/AccountController!jee.controller.AccountController) --> Ejb(deployment-id=AccountController)
+24-Feb-2023 23:15:12.766 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=global/ili/AccountController) --> Ejb(deployment-id=AccountController)
+24-Feb-2023 23:15:12.766 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=ProfileServiceLocalBean) --> Ejb(deployment-id=ProfileService)
+24-Feb-2023 23:15:12.766 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=global/ili/ProfileService!jee.service.ProfileService) --> Ejb(deployment-id=ProfileService)
+24-Feb-2023 23:15:12.767 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=global/ili/ProfileService) --> Ejb(deployment-id=ProfileService)
+24-Feb-2023 23:15:12.767 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=ProfileControllerLocalBean) --> Ejb(deployment-id=ProfileController)
+24-Feb-2023 23:15:12.767 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=global/ili/ProfileController!jee.controller.ProfileController) --> Ejb(deployment-id=ProfileController)
+24-Feb-2023 23:15:12.768 INFOS [main] org.apache.openejb.assembler.classic.JndiBuilder.bind Jndi(name=global/ili/ProfileController) --> Ejb(deployment-id=ProfileController)
+24-Feb-2023 23:15:12.810 INFOS [main] org.apache.openejb.cdi.CdiBuilder.initSingleton Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@95e33cc
+24-Feb-2023 23:15:12.898 INFOS [main] org.apache.openejb.cdi.OpenEJBLifecycle.startApplication OpenWebBeans Container is starting...
+24-Feb-2023 23:15:12.905 INFOS [main] org.apache.webbeans.plugins.PluginLoader.startUp Adding OpenWebBeansPlugin : [CdiPlugin]
+24-Feb-2023 23:15:13.361 INFOS [main] org.apache.webbeans.config.BeansDeployer.validateInjectionPoints All injection points were validated successfully.
+24-Feb-2023 23:15:13.468 INFOS [main] org.apache.openejb.cdi.OpenEJBLifecycle.startApplication OpenWebBeans Container has started, it took 569 ms.
+24-Feb-2023 23:15:13.470 INFOS [main] org.apache.openejb.assembler.classic.ValidatorBuilder.getConfig Ignoring XML Configuration for validator org.apache.bval.jsr.ConfigurationImpl
+24-Feb-2023 23:15:13.488 INFOS [main] org.apache.openejb.assembler.classic.Assembler.startEjbs Created Ejb(deployment-id=ProfileController, ejb-name=ProfileController, container=Default Stateless Container)
+24-Feb-2023 23:15:13.490 INFOS [main] org.apache.openejb.assembler.classic.Assembler.startEjbs Created Ejb(deployment-id=PublicationController, ejb-name=PublicationController, container=Default Stateless Container)
+24-Feb-2023 23:15:13.490 INFOS [main] org.apache.openejb.assembler.classic.Assembler.startEjbs Created Ejb(deployment-id=ProfileService, ejb-name=ProfileService, container=Default Stateless Container)
+24-Feb-2023 23:15:13.490 INFOS [main] org.apache.openejb.assembler.classic.Assembler.startEjbs Created Ejb(deployment-id=PublicationService, ejb-name=PublicationService, container=Default Stateless Container)
+24-Feb-2023 23:15:13.490 INFOS [main] org.apache.openejb.assembler.classic.Assembler.startEjbs Created Ejb(deployment-id=InfoController, ejb-name=InfoController, container=Default Stateless Container)
+24-Feb-2023 23:15:13.490 INFOS [main] org.apache.openejb.assembler.classic.Assembler.startEjbs Created Ejb(deployment-id=AccountService, ejb-name=AccountService, container=Default Stateless Container)
+24-Feb-2023 23:15:13.490 INFOS [main] org.apache.openejb.assembler.classic.Assembler.startEjbs Created Ejb(deployment-id=AccountController, ejb-name=AccountController, container=Default Stateless Container)
+24-Feb-2023 23:15:13.500 INFOS [main] org.apache.openejb.assembler.classic.Assembler.startEjbs Started Ejb(deployment-id=ProfileController, ejb-name=ProfileController, container=Default Stateless Container)
+24-Feb-2023 23:15:13.505 INFOS [main] org.apache.openejb.assembler.classic.Assembler.startEjbs Started Ejb(deployment-id=PublicationController, ejb-name=PublicationController, container=Default Stateless Container)
+24-Feb-2023 23:15:13.508 INFOS [main] org.apache.openejb.assembler.classic.Assembler.startEjbs Started Ejb(deployment-id=ProfileService, ejb-name=ProfileService, container=Default Stateless Container)
+24-Feb-2023 23:15:13.513 INFOS [main] org.apache.openejb.assembler.classic.Assembler.startEjbs Started Ejb(deployment-id=PublicationService, ejb-name=PublicationService, container=Default Stateless Container)
+24-Feb-2023 23:15:13.517 INFOS [main] org.apache.openejb.assembler.classic.Assembler.startEjbs Started Ejb(deployment-id=InfoController, ejb-name=InfoController, container=Default Stateless Container)
+24-Feb-2023 23:15:13.520 INFOS [main] org.apache.openejb.assembler.classic.Assembler.startEjbs Started Ejb(deployment-id=AccountService, ejb-name=AccountService, container=Default Stateless Container)
+24-Feb-2023 23:15:13.524 INFOS [main] org.apache.openejb.assembler.classic.Assembler.startEjbs Started Ejb(deployment-id=AccountController, ejb-name=AccountController, container=Default Stateless Container)
+24-Feb-2023 23:15:13.531 AVERTISSEMENT [main] org.apache.batchee.container.services.ServicesManager.init You didn't specify org.apache.batchee.jmx.application and JMX is already registered, skipping
+24-Feb-2023 23:15:13.532 INFOS [main] org.apache.openejb.assembler.classic.Assembler.createApplication Deployed Application(path=/Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee/webapps/ili)
+24-Feb-2023 23:15:13.690 INFOS [main] org.apache.myfaces.ee.MyFacesContainerInitializer.onStartup Using org.apache.myfaces.ee.MyFacesContainerInitializer
+24-Feb-2023 23:15:13.719 INFOS [main] org.apache.myfaces.ee.MyFacesContainerInitializer.onStartup Added FacesServlet with mappings=[/faces/*, *.jsf, *.faces, *.xhtml]
+24-Feb-2023 23:15:13.742 INFOS [main] org.apache.tomee.microprofile.openapi.MicroProfileOpenApiRegistration.onStartup Registering OpenAPI servlet on /openapi for application /ili
+24-Feb-2023 23:15:13.805 INFOS [main] org.apache.jasper.servlet.TldScanner.scanJars Au moins un fichier JAR a été analysé pour trouver des TLDs mais il n'en contenait pas, le mode "debug" du journal peut être activé pour obtenir une liste complète de JAR scannés sans succès ; éviter d'analyser des JARs inutilement peut améliorer sensiblement le temps de démarrage et le temps de compilation des JSPs
+24-Feb-2023 23:15:13.812 INFOS [main] org.apache.tomee.myfaces.TomEEMyFacesContainerInitializer.addListener Installing <listener>org.apache.myfaces.webapp.StartupServletContextListener</listener>
+24-Feb-2023 23:15:13.870 INFOS [main] org.apache.myfaces.config.DefaultFacesConfigurationProvider.getStandardFacesConfig Reading standard config META-INF/standard-faces-config.xml
+24-Feb-2023 23:15:14.087 INFOS [main] org.apache.myfaces.config.DefaultFacesConfigurationProvider.getClassloaderFacesConfig Reading config : jar:file:/Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee/lib/openwebbeans-jsf-2.0.27-jakarta.jar!/META-INF/faces-config.xml
+24-Feb-2023 23:15:14.090 INFOS [main] org.apache.myfaces.config.DefaultFacesConfigurationProvider.getClassloaderFacesConfig Reading config : jar:file:/Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee/lib/openwebbeans-el22-2.0.27-jakarta.jar!/META-INF/faces-config.xml
+24-Feb-2023 23:15:14.191 INFOS [main] org.apache.myfaces.config.LogMetaInfUtils.logArtifact Artifact 'myfaces-api' was found in version '3.0.2' from path 'file:/Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee/lib/myfaces-api-3.0.2.jar'
+24-Feb-2023 23:15:14.191 INFOS [main] org.apache.myfaces.config.LogMetaInfUtils.logArtifact Artifact 'myfaces-impl' was found in version '3.0.2' from path 'file:/Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee/lib/myfaces-impl-3.0.2.jar'
+24-Feb-2023 23:15:14.200 INFOS [main] org.apache.myfaces.util.ExternalSpecifications.lambda$static$1 MyFaces Core CDI support enabled
+24-Feb-2023 23:15:14.201 INFOS [main] org.apache.myfaces.spi.impl.DefaultInjectionProviderFactory.getInjectionProvider Using InjectionProvider org.apache.myfaces.spi.impl.CDIAnnotationDelegateInjectionProvider
+24-Feb-2023 23:15:14.239 INFOS [main] org.apache.myfaces.util.ExternalSpecifications.lambda$static$0 MyFaces Core Bean Validation support enabled
+24-Feb-2023 23:15:14.271 INFOS [main] org.apache.myfaces.application.ApplicationImpl.getProjectStage Couldn't discover the current project stage, using Production
+24-Feb-2023 23:15:14.272 INFOS [main] org.apache.myfaces.config.FacesConfigurator.handleSerialFactory Serialization provider : class org.apache.myfaces.shared_impl.util.serial.DefaultSerialFactory
+24-Feb-2023 23:15:14.276 INFOS [main] org.apache.myfaces.config.annotation.DefaultLifecycleProviderFactory.getLifecycleProvider Using LifecycleProvider org.apache.myfaces.config.annotation.Tomcat7AnnotationLifecycleProvider
+24-Feb-2023 23:15:14.291 INFOS [main] org.apache.myfaces.webapp.AbstractFacesInitializer.initFaces ServletContext initialized.
+24-Feb-2023 23:15:14.294 INFOS [main] org.apache.myfaces.view.facelets.ViewPoolProcessor.initialize org.apache.myfaces.CACHE_EL_EXPRESSIONS web config parameter is set to "noCache". To enable view pooling this param must be set to "alwaysRecompile". View Pooling disabled.
+24-Feb-2023 23:15:14.303 INFOS [main] org.apache.myfaces.webapp.StartupServletContextListener.contextInitialized MyFaces Core has started, it took [485] ms.
+24-Feb-2023 23:15:14.334 INFOS [main] jee.filter.SimpleCORSFilter.init Cors filter enabled
+24-Feb-2023 23:15:15.626 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logApplication Application{path='http://localhost:8080/ili/', class=org.apache.openejb.server.rest.InternalApplication, resources=4, providers=0, invalids=0}
+24-Feb-2023 23:15:15.628 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logApplication Resource{clazz=jee.controller.AccountController, discovered=false, singleton=false}
+24-Feb-2023 23:15:15.628 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logApplication Resource{clazz=jee.controller.ProfileController, discovered=false, singleton=false}
+24-Feb-2023 23:15:15.628 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logApplication Resource{clazz=jee.controller.InfoController, discovered=false, singleton=false}
+24-Feb-2023 23:15:15.628 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logApplication Resource{clazz=jee.controller.PublicationController, discovered=false, singleton=false}
+24-Feb-2023 23:15:15.820 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication Using readers:
+24-Feb-2023 23:15:15.821 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.provider.PrimitiveTextProvider@74be475d
+24-Feb-2023 23:15:15.821 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.provider.FormEncodingProvider@6dea6ab6
+24-Feb-2023 23:15:15.821 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.provider.MultipartProvider@4360b933
+24-Feb-2023 23:15:15.821 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.provider.SourceProvider@6ec66df6
+24-Feb-2023 23:15:15.821 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.provider.JAXBElementTypedProvider@4e923d54
+24-Feb-2023 23:15:15.821 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.provider.JAXBElementProvider@709351ea
+24-Feb-2023 23:15:15.821 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.openejb.server.cxf.rs.johnzon.TomEEJsonpProvider@5f33cf4c
+24-Feb-2023 23:15:15.821 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.openejb.server.cxf.rs.johnzon.TomEEJsonbProvider@36fcc7ea
+24-Feb-2023 23:15:15.821 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.provider.StringTextProvider@12d67b88
+24-Feb-2023 23:15:15.821 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.provider.BinaryDataProvider@7ca3eb5f
+24-Feb-2023 23:15:15.821 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.provider.DataSourceProvider@7a21df39
+24-Feb-2023 23:15:15.822 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication Using writers:
+24-Feb-2023 23:15:15.822 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.provider.JAXBElementTypedProvider@4e923d54
+24-Feb-2023 23:15:15.822 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.openejb.server.cxf.rs.johnzon.TomEEJsonpProvider@5f33cf4c
+24-Feb-2023 23:15:15.822 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.johnzon.jaxrs.WadlDocumentMessageBodyWriter@3b29269e
+24-Feb-2023 23:15:15.822 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.nio.NioMessageBodyWriter@1a820048
+24-Feb-2023 23:15:15.822 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.provider.StringTextProvider@12d67b88
+24-Feb-2023 23:15:15.822 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.provider.PrimitiveTextProvider@74be475d
+24-Feb-2023 23:15:15.822 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.provider.FormEncodingProvider@6dea6ab6
+24-Feb-2023 23:15:15.822 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.provider.MultipartProvider@4360b933
+24-Feb-2023 23:15:15.822 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.provider.JAXBElementProvider@709351ea
+24-Feb-2023 23:15:15.822 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.provider.SourceProvider@6ec66df6
+24-Feb-2023 23:15:15.822 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.openejb.server.cxf.rs.johnzon.TomEEJsonbProvider@36fcc7ea
+24-Feb-2023 23:15:15.822 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.provider.BinaryDataProvider@7ca3eb5f
+24-Feb-2023 23:15:15.822 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.provider.DataSourceProvider@7a21df39
+24-Feb-2023 23:15:15.823 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication Using exception mappers:
+24-Feb-2023 23:15:15.823 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.impl.WebApplicationExceptionMapper@3f14882b
+24-Feb-2023 23:15:15.823 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.openejb.server.cxf.rs.EJBExceptionMapper@55fec68d
+24-Feb-2023 23:15:15.823 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.cxf.jaxrs.validation.ValidationExceptionMapper@41d1fbca
+24-Feb-2023 23:15:15.823 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.deployApplication      org.apache.tomee.microprofile.opentracing.MicroProfileOpenTracingExceptionMapper@5b5a646f
+24-Feb-2023 23:15:15.825 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints REST Application: http://localhost:8080/ili/                  -> org.apache.openejb.server.rest.InternalApplication@50bdd9b1
+24-Feb-2023 23:15:15.827 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints      Service URI: http://localhost:8080/ili/accounts          ->  EJB jee.controller.AccountController    
+24-Feb-2023 23:15:15.827 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints            DELETE http://localhost:8080/ili/accounts/{id}     ->      Response deleteAccount(Long)         
+24-Feb-2023 23:15:15.827 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints               GET http://localhost:8080/ili/accounts          ->      Response getAllAccount()             
+24-Feb-2023 23:15:15.827 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints               GET http://localhost:8080/ili/accounts/{id}     ->      Response findAccount(Long)           
+24-Feb-2023 23:15:15.827 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints              POST http://localhost:8080/ili/accounts          ->      Response createAccount(Account)      
+24-Feb-2023 23:15:15.827 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints               PUT http://localhost:8080/ili/accounts/{id}     ->      Response updateAccount(Long, Account)
+24-Feb-2023 23:15:15.827 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints      Service URI: http://localhost:8080/ili/info              ->  EJB jee.controller.InfoController       
+24-Feb-2023 23:15:15.827 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints               GET http://localhost:8080/ili/info/ip           ->      Response getIp(HttpServletRequest)
+24-Feb-2023 23:15:15.828 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints      Service URI: http://localhost:8080/ili/profiles          ->  EJB jee.controller.ProfileController    
+24-Feb-2023 23:15:15.828 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints            DELETE http://localhost:8080/ili/profiles/{id}     ->      Response deleteProfile(Long)         
+24-Feb-2023 23:15:15.828 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints               GET http://localhost:8080/ili/profiles          ->      Response getAllProfile()             
+24-Feb-2023 23:15:15.828 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints               GET http://localhost:8080/ili/profiles/{id}     ->      Response findProfile(Long)           
+24-Feb-2023 23:15:15.828 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints              POST http://localhost:8080/ili/profiles          ->      Response createProfile(Profile)      
+24-Feb-2023 23:15:15.828 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints               PUT http://localhost:8080/ili/profiles/{id}     ->      Response updateProfile(Long, Profile)
+24-Feb-2023 23:15:15.828 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints      Service URI: http://localhost:8080/ili/publications      ->  EJB jee.controller.PublicationController
+24-Feb-2023 23:15:15.828 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints            DELETE http://localhost:8080/ili/publications/{id} ->      Response deletePublication(Long)             
+24-Feb-2023 23:15:15.828 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints               GET http://localhost:8080/ili/publications      ->      Response getAllPublication()                 
+24-Feb-2023 23:15:15.828 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints               GET http://localhost:8080/ili/publications/{id} ->      Response findAccount(Long)                   
+24-Feb-2023 23:15:15.828 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints              POST http://localhost:8080/ili/publications      ->      Response createPublication(Publication)      
+24-Feb-2023 23:15:15.829 INFOS [main] org.apache.openejb.server.cxf.rs.CxfRsHttpListener.logEndpoints               PUT http://localhost:8080/ili/publications/{id} ->      Response updatePublication(Long, Publication)
+24-Feb-2023 23:15:15.856 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Le déploiement de l'archive de l'application web [/Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee/webapps/ili.war] s'est terminé en [5 833] ms
+24-Feb-2023 23:15:15.882 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Démarrage du gestionnaire de protocole ["http-nio-8080"]
+24-Feb-2023 23:15:15.897 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Le démarrage du serveur a pris [5924] millisecondes
+24-Feb-2023 23:15:30.344 INFO [http-nio-8080-exec-3] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: projet]
+24-Feb-2023 23:15:30.549 INFO [http-nio-8080-exec-3] org.hibernate.Version.logVersion HHH000412: Hibernate ORM core version 6.1.6.Final
+24-Feb-2023 23:15:31.040 WARN [http-nio-8080-exec-3] org.hibernate.boot.internal.MetadataBuilderImpl$MetadataBuildingOptionsImpl.lambda$new$1 HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+24-Feb-2023 23:15:31.576 INFO [http-nio-8080-exec-3] org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.logSelectedDialect HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+24-Feb-2023 23:15:31.577 WARN [http-nio-8080-exec-3] org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.logSelectedDialect HHH90000026: PostgreSQL95Dialect has been deprecated; use org.hibernate.dialect.PostgreSQLDialect instead
+24-Feb-2023 23:15:32.029 INFO [http-nio-8080-exec-3] org.hibernate.id.enhanced.TableGenerator.determineDefaultSegmentValue HHH000398: Explicit segment value for id generator [SEQ_TABLE.sequence_name] suggested; using default [Photo]
+24-Feb-2023 23:15:32.043 INFO [http-nio-8080-exec-3] org.hibernate.id.enhanced.TableGenerator.determineDefaultSegmentValue HHH000398: Explicit segment value for id generator [AccountGen.sequence_name] suggested; using default [Profile]
+24-Feb-2023 23:15:32.043 INFO [http-nio-8080-exec-3] org.hibernate.id.enhanced.TableGenerator.determineDefaultSegmentValue HHH000398: Explicit segment value for id generator [AccountGen.sequence_name] suggested; using default [Account]
+24-Feb-2023 23:15:32.043 INFO [http-nio-8080-exec-3] org.hibernate.id.enhanced.TableGenerator.determineDefaultSegmentValue HHH000398: Explicit segment value for id generator [SEQ_TABLE.sequence_name] suggested; using default [Publication]
+24-Feb-2023 23:15:32.359 INFO [http-nio-8080-exec-3] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.apache.openejb.hibernate.OpenEJBJtaPlatform2]
+24-Feb-2023 23:15:33.714 INFOS [http-nio-8080-exec-3] org.apache.openejb.assembler.classic.ReloadableEntityManagerFactory.createDelegate PersistenceUnit(name=projet, provider=org.hibernate.jpa.HibernatePersistenceProvider) - provider time 3454ms
+24-Feb-2023 23:18:40.042 INFOS [Thread-22] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Le gestionnaire de protocole ["http-nio-8080"] est mis en pause
+24-Feb-2023 23:18:40.079 INFOS [main] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Une commande d'arrêt valide a été reçue sur le port d'arrêt, arrêt de l'instance du serveur
+24-Feb-2023 23:18:40.090 INFOS [Thread-22] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Arrêt du service [Catalina]
+24-Feb-2023 23:18:40.381 INFOS [Thread-22] org.apache.openejb.assembler.classic.Assembler.destroyApplication Undeploying app: /Users/thekingzeineddine/eclipse-workspace/familio/target/apache-tomee/webapps/ili
+24-Feb-2023 23:18:40.508 INFO [Thread-22] org.hibernate.resource.beans.container.spi.AbstractCdiBeanContainer.stop HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerImmediateAccessImpl@13b0859e
+24-Feb-2023 23:18:40.517 INFOS [Thread-22] org.apache.openejb.assembler.classic.Assembler.doResourceDestruction Closing DataSource: ili/projet
+24-Feb-2023 23:18:40.900 AVERTISSEMENT [Thread-22] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc L'application web [ili] a enregistré un pilote JDBC [org.postgresql.Driver], mais ne l'a pas désenregistré avant l'arrêt de l'application.  Pour éviter une fuite de mémoire, le pilote JDBC a été désenregistré de force.
+24-Feb-2023 23:18:40.902 AVERTISSEMENT [Thread-22] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesObjectStreamClassCaches Lorsque Java 9 ou ultérieur est utilisé, "--add-opens=java.base/java.io=ALL-UNNAMED" doit être ajouté aux arguments de la ligne de commande de la JVM pour activer la protection contre les fuites de mémoire du cache de ObjectStream; cet avertissement peut aussi être supprimé en désactivant cette protection
+24-Feb-2023 23:18:40.902 AVERTISSEMENT [Thread-22] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks Quand Java 9 est utilisé, il faut utiliser "--add-opens=java.base/java.lang=ALL-UNNAMED" sur la ligne de commande de la JVM pour activer la détection de fuites de mémoire des ThreadLocal ; sinon cet avertissement peut être supprimé en désactivant cette détection
+24-Feb-2023 23:18:40.906 AVERTISSEMENT [Thread-22] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesRmiTargets Quand Java 9 est utilisé, il faut utiliser "--add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED" sur la ligne de commande de la JVM pour activer la détection de fuites de mémoire des cibles RMI ; sinon cet avertissement peut être supprimé en désactivant cette détection
+24-Feb-2023 23:18:40.909 INFOS [Thread-22] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Arrêt du gestionnaire de protocole ["http-nio-8080"]
+24-Feb-2023 23:18:40.927 INFOS [Thread-22] org.apache.openejb.server.SimpleServiceManager.stop Stopping server services
+24-Feb-2023 23:18:40.940 INFOS [Thread-22] org.apache.openejb.assembler.classic.Assembler.doResourceDestruction Closing DataSource: ili/projetNonJta
+24-Feb-2023 23:18:40.946 INFOS [Thread-22] jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke Destruction du gestionnaire de protocole ["http-nio-8080"]

@@ -11,7 +11,7 @@ public class Profile {
     private long id;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="acc_id")
     private Account acc;
     private String name;
