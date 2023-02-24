@@ -2,6 +2,8 @@ package jee.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 /**
  * This class represents an account that can be created on the application.
  */
@@ -14,7 +16,8 @@ public class Account {
 
     private long id = 0L;
 
-    @OneToMany(mappedBy = "acc")
+    @OneToMany(mappedBy = "acc",cascade = CascadeType.ALL,orphanRemoval = true)
+
     private List<Profile> profiles;
 
     private String name;
@@ -73,6 +76,14 @@ public class Account {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public List<Profile> getProfiles() {
+        return profiles;
+    }
+
+    public void setProfiles(List<Profile> profiles) {
+        this.profiles = profiles;
     }
 
     @Override

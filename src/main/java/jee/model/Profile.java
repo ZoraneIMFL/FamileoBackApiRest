@@ -10,8 +10,9 @@ public class Profile {
     @GeneratedValue(strategy = GenerationType.TABLE,generator = "AccountGen")
     private long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="acc_fk", referencedColumnName = "id")
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="acc_id")
     private Account acc;
     private String name;
     private String password;
@@ -79,6 +80,7 @@ public class Profile {
     public void setProfileImage(byte[] profileImage) {
         this.profileImage = profileImage;
     }
+
 
     @Override
     public String toString() {

@@ -125,6 +125,17 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/Profile'
+      example:
+        acc: {
+        id: 1,
+        name: alice,
+        email: alice@gmail.com,
+        password: Sli56@ppp,
+        status: 0}
+        "name": "string"
+        "password": "string"
+        "type": 0
+        "profileimage": 0
 
       responses:
         200:
@@ -308,7 +319,7 @@ components:
         - type
         - acc_id
       properties:
-        acc_id:
+        acc:
           $ref: '#/components/schemas/Account'
         name:
           type: string
