@@ -1,10 +1,13 @@
 jee/dao/PublicationDao.class
+jee/service/PhotoService.class
 jee/dao/CRUD.class
 jee/controller/ProfileController.class
 jee/model/Publication.class
+jee/dao/PhotoDao.class
 security/PasswordEncryption.class
 jee/service/PublicationService.class
 jee/validator/EmailValidator.class
+jee/controller/PhotoController.class
 jee/controller/PublicationController.class
 jee/service/AccountService.class
 jee/dao/AccountDao.class

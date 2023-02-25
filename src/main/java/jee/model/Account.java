@@ -19,6 +19,9 @@ public class Account {
     @OneToMany(mappedBy = "acc",cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Profile> profiles;
 
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    private List<Publication> publications;
+
     private String name;
 
     private String email;

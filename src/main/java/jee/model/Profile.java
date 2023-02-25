@@ -2,6 +2,8 @@ package jee.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity(name = "Profile")
 @TableGenerator(name="ProfileGen", table = "SEQ_TABLE", allocationSize = 1000)
 
@@ -9,6 +11,9 @@ public class Profile {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE,generator = "AccountGen")
     private long id;
+
+    @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL)
+    private List<Publication> publications;
 
 
     @ManyToOne(fetch = FetchType.EAGER)

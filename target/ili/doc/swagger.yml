@@ -23,7 +23,35 @@ servers:
 
 
 paths:
-  /publication:
+
+
+  /photos:
+    get:
+      summary: Get all photos
+      tags:
+        - Photo
+      responses:
+        200:
+          description: List of all photos
+          content:
+           application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Photo'
+
+    post:
+      summary: Create a Publication
+      tags:
+        - Publication
+      responses:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Photo'
+
+  /publications:
     get:
       summary: Get all publication
       tags:
@@ -347,6 +375,26 @@ components:
         password: Sli56@ppp
         status: 0
 
+
+    Photo:
+      type: object
+      required:
+        - name
+        - latitude
+        - longitude
+        - date
+      properties:
+        name:
+          type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
+        date:
+          type: string
+          format: date-time
+
+
     Publication:
       type: object
       required:
@@ -368,6 +416,11 @@ components:
           $ref: '#/components/schemas/Profile'
         account:
           $ref: '#/components/schemas/Account'
+        photos:
+            type: array
+            items:
+              $ref: '#/components/schemas/Photo'
+
 
 
   responses:

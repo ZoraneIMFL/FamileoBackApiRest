@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Profile.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Famileo</a> &gt; <a href="index.source.html" class="el_package">jee.model</a> &gt; <span class="el_source">Profile.java</span></div><h1>Profile.java</h1><pre class="source lang-java linenums">package jee.model;
+
+import jakarta.persistence.*;
+
+import java.util.List;
+
+@Entity(name = &quot;Profile&quot;)
+@TableGenerator(name=&quot;ProfileGen&quot;, table = &quot;SEQ_TABLE&quot;, allocationSize = 1000)
+
+public class Profile {
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE,generator = &quot;AccountGen&quot;)
+    private long id;
+
+    @OneToMany(mappedBy = &quot;profile&quot;, cascade = CascadeType.ALL)
+    private List&lt;Publication&gt; publications;
+
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name=&quot;acc_id&quot;)
+    private Account acc;
+    private String name;
+    private String password;
+    private int type;
+    private byte[] profileImage;
+
+<span class="fc" id="L27">    public Profile(){}</span>
+<span class="fc" id="L28">    public Profile(Account acc ,String name,String password,int type,byte[] profileImage){</span>
+<span class="fc" id="L29">        this.acc = acc;</span>
+<span class="fc" id="L30">        this.name=name;</span>
+<span class="fc" id="L31">        this.password=password;</span>
+<span class="fc" id="L32">        this.type=type;</span>
+<span class="fc" id="L33">        this.profileImage=profileImage;</span>
+<span class="fc" id="L34">    }</span>
+
+
+
+
+
+    public Account getAcc() {
+<span class="fc" id="L41">        return acc;</span>
+    }
+
+    public void setAcc(Account acc) {
+<span class="nc" id="L45">        this.acc = acc;</span>
+<span class="nc" id="L46">    }</span>
+
+    public long getId() {
+<span class="fc" id="L49">        return id;</span>
+    }
+
+    public void setId(long id) {
+<span class="fc" id="L53">        this.id = id;</span>
+<span class="fc" id="L54">    }</span>
+
+
+    public String getName() {
+<span class="fc" id="L58">        return name;</span>
+    }
+
+    public void setName(String name) {
+<span class="fc" id="L62">        this.name = name;</span>
+<span class="fc" id="L63">    }</span>
+
+    public String getPassword() {
+<span class="nc" id="L66">        return password;</span>
+    }
+
+    public void setPassword(String password) {
+<span class="nc" id="L70">        this.password = password;</span>
+<span class="nc" id="L71">    }</span>
+
+    public int getType() {
+<span class="fc" id="L74">        return type;</span>
+    }
+
+    public void setType(int type) {
+<span class="fc" id="L78">        this.type = type;</span>
+<span class="fc" id="L79">    }</span>
+
+    public byte[] getProfileImage() {
+<span class="nc" id="L82">        return profileImage;</span>
+    }
+
+    public void setProfileImage(byte[] profileImage) {
+<span class="nc" id="L86">        this.profileImage = profileImage;</span>
+<span class="nc" id="L87">    }</span>
+
+
+    @Override
+    public String toString() {
+<span class="fc" id="L92">        return &quot;Profile{&quot; +</span>
+                &quot;id=&quot; + id +
+                &quot;, acc=&quot; + acc +
+                &quot;, name='&quot; + name + '\'' +
+                &quot;, type=&quot; + type +
+                '}';
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

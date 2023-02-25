@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Publication.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Famileo</a> &gt; <a href="index.source.html" class="el_package">jee.model</a> &gt; <span class="el_source">Publication.java</span></div><h1>Publication.java</h1><pre class="source lang-java linenums">package jee.model;
+import jakarta.persistence.*;
+
+import java.util.Date;
+import java.util.List;
+
+@Entity(name = &quot;Publication&quot;)
+@TableGenerator(name = &quot;PublicationGen&quot;,table = &quot;SEQ_TABLE&quot;,allocationSize = 1000)
+public class Publication {
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE,generator = &quot;PublicationGen&quot;)
+    long id;
+
+    private String description;
+
+
+    private double latitude;
+
+    private double longitude;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date publishDate;
+
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name=&quot;profile_id&quot;)
+    private Profile profile;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name=&quot;account_id&quot;)
+    private Account account;
+
+
+    @ManyToMany
+    @JoinTable(name = &quot;publication_photo&quot;,
+            joinColumns = @JoinColumn(name = &quot;publication_id&quot;),
+            inverseJoinColumns = @JoinColumn(name = &quot;photo_id&quot;)
+    )
+    private List&lt;Photo&gt; photos;
+
+
+<span class="fc" id="L42">    public Publication(){}</span>
+<span class="nc" id="L43">    public Publication(String description, Date date, double latitude,double longitude, Profile profile , Account acc ){</span>
+<span class="nc" id="L44">        this.description=description;</span>
+<span class="nc" id="L45">        this.publishDate = date;</span>
+<span class="nc" id="L46">        this.latitude = latitude;</span>
+<span class="nc" id="L47">        this.longitude = longitude;</span>
+<span class="nc" id="L48">        this.profile = profile;</span>
+<span class="nc" id="L49">        this.account = acc;</span>
+
+<span class="nc" id="L51">    }</span>
+
+    public long getId() {
+<span class="nc" id="L54">        return id;</span>
+    }
+
+    public void setId(long id) {
+<span class="nc" id="L58">        this.id = id;</span>
+<span class="nc" id="L59">    }</span>
+
+    public String getDescription() {
+<span class="nc" id="L62">        return description;</span>
+    }
+
+    public void setDescription(String description) {
+<span class="nc" id="L66">        this.description = description;</span>
+<span class="nc" id="L67">    }</span>
+
+    public double getLatitude() {
+<span class="nc" id="L70">        return latitude;</span>
+    }
+
+    public void setLatitude(double latitude) {
+<span class="nc" id="L74">        this.latitude = latitude;</span>
+<span class="nc" id="L75">    }</span>
+
+    public double getLongitude() {
+<span class="nc" id="L78">        return longitude;</span>
+    }
+
+    public void setLongitude(double longitude) {
+<span class="nc" id="L82">        this.longitude = longitude;</span>
+<span class="nc" id="L83">    }</span>
+
+    public Date getPublishDate() {
+<span class="nc" id="L86">        return publishDate;</span>
+    }
+
+    public void setPublishDate(Date publishDate) {
+<span class="nc" id="L90">        this.publishDate = publishDate;</span>
+<span class="nc" id="L91">    }</span>
+
+    public Profile getProfile() {
+<span class="nc" id="L94">        return profile;</span>
+    }
+
+    public void setProfile(Profile profile) {
+<span class="nc" id="L98">        this.profile = profile;</span>
+<span class="nc" id="L99">    }</span>
+
+    public Account getAccount() {
+<span class="nc" id="L102">        return account;</span>
+    }
+
+    public void setAccount(Account account) {
+<span class="nc" id="L106">        this.account = account;</span>
+<span class="nc" id="L107">    }</span>
+
+
+
+
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

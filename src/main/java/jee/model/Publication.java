@@ -13,7 +13,6 @@ public class Publication {
 
     private String description;
 
-    private Date date;
 
     private double latitude;
 
@@ -24,16 +23,15 @@ public class Publication {
 
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="profile_id")
     private Profile profile;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="account_id")
     private Account account;
 
 
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
+    @ManyToMany
     @JoinTable(name = "publication_photo",
             joinColumns = @JoinColumn(name = "publication_id"),
             inverseJoinColumns = @JoinColumn(name = "photo_id")
@@ -44,7 +42,7 @@ public class Publication {
     public Publication(){}
     public Publication(String description, Date date, double latitude,double longitude, Profile profile , Account acc ){
         this.description=description;
-        this.date = date;
+        this.publishDate = date;
         this.latitude = latitude;
         this.longitude = longitude;
         this.profile = profile;

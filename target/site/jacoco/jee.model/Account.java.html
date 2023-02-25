@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Account.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Famileo</a> &gt; <a href="index.source.html" class="el_package">jee.model</a> &gt; <span class="el_source">Account.java</span></div><h1>Account.java</h1><pre class="source lang-java linenums">package jee.model;
+
+import jakarta.persistence.*;
+
+import java.util.List;
+
+/**
+ * This class represents an account that can be created on the application.
+ */
+@Entity(name = &quot;Account&quot;)
+//@TableGenerator(name=&quot;AccountGen&quot;, table = &quot;SEQ_TABLE&quot;, allocationSize = 1000)
+//@Table(name=&quot;Account&quot;)
+public class Account {
+<span class="fc" id="L14">    @Id</span>
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = &quot;AccountGen&quot;)
+
+    private long id = 0L;
+
+    @OneToMany(mappedBy = &quot;acc&quot;,cascade = CascadeType.ALL,orphanRemoval = true)
+    private List&lt;Profile&gt; profiles;
+
+    @OneToMany(mappedBy = &quot;account&quot;, cascade = CascadeType.ALL)
+    private List&lt;Publication&gt; publications;
+
+    private String name;
+
+    private String email;
+
+    private String password;
+
+    private int status;
+
+<span class="fc" id="L33">    public Account(){</span>
+
+<span class="fc" id="L35">    }</span>
+<span class="fc" id="L36">    public Account(String name, String email, String password, int status){</span>
+<span class="fc" id="L37">        this.name = name;</span>
+<span class="fc" id="L38">        this.email = email;</span>
+<span class="fc" id="L39">        this.password = password;</span>
+<span class="fc" id="L40">        this.status = status;</span>
+<span class="fc" id="L41">    }</span>
+
+    public long getId() {
+<span class="fc" id="L44">        return id;</span>
+    }
+
+    public void setId(long id) {
+<span class="nc" id="L48">        this.id = id;</span>
+<span class="nc" id="L49">    }</span>
+
+    public String getName() {
+<span class="fc" id="L52">        return name;</span>
+    }
+
+    public void setName(String name) {
+<span class="nc" id="L56">        this.name = name;</span>
+<span class="nc" id="L57">    }</span>
+
+    public String getEmail() {
+<span class="fc" id="L60">        return email;</span>
+    }
+
+    public void setEmail(String email) {
+<span class="nc" id="L64">        this.email = email;</span>
+<span class="nc" id="L65">    }</span>
+
+    public String getPassword() {
+<span class="fc" id="L68">        return password;</span>
+    }
+
+    public void setPassword(String password) {
+<span class="nc" id="L72">        this.password = password;</span>
+<span class="nc" id="L73">    }</span>
+
+    public int getStatus() {
+<span class="fc" id="L76">        return status;</span>
+    }
+
+    public void setStatus(int status) {
+<span class="nc" id="L80">        this.status = status;</span>
+<span class="nc" id="L81">    }</span>
+
+    /*public List&lt;Profile&gt; getProfiles() {
+        return profiles;
+    }
+
+    public void setProfiles(List&lt;Profile&gt; profiles) {
+        this.profiles = profiles;
+    }
+
+     */
+
+    @Override
+    public String toString() {
+<span class="nc" id="L95">        return &quot;Account{&quot; +</span>
+                &quot;name='&quot; + name + '\'' +
+                &quot;, email='&quot; + email + '\'' +
+                &quot;, status=&quot; + status +
+                '}';
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

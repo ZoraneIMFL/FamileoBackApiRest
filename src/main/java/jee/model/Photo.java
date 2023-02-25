@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 @TableGenerator(name = "PhotoGen",table = "SEQ_TABLE",allocationSize = 1000)
 public class Photo {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE, generator = "PhotoGen")
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "AccountGen")
     private long id;
     private String name;
 
