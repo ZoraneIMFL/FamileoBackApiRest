@@ -99,6 +99,6 @@ public class ProfileServiceTests extends TestCase {
         Assert.assertNotNull("Profile creation failed", testP);
         ps.deleteProfile(testP.getId());
 
-        Assert.assertNotEquals("Delete failed", ps.findProfile(testP.getId()));
+        Assert.assertNotEquals("Delete failed", ps.findProfile(testP.getId()), testP);
     }
 }

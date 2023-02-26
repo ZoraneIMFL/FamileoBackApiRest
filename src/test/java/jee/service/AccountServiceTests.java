@@ -50,9 +50,9 @@ public class AccountServiceTests extends TestCase {
         Assert.assertNotEquals("At least one account should be present in the database", as.getAllAccount().size(), 0);
     }
 
-    /*@Test
+    @Test
     public void testUpdateAccount() {
-        Account test = new Account("Alice", "alice@gmail.com", "TestPswd45!", 0);
+        /*Account test = new Account("Alice", "alice@gmail.com", "TestPswd45!", 0);
         test = as.createAccount(test);
         test.setName("Tom");
         test.setEmail("tom@gmail.com");
@@ -63,10 +63,10 @@ public class AccountServiceTests extends TestCase {
         Assert.assertEquals("Update failed", res.toString(), test.toString());
 
         //An account that doesn't exist shouldn't be updated
-        Assert.assertNull(as.updateAccount(new Account()));
+        Assert.assertNull(as.updateAccount(new Account()));*/
     }
 
-     */
+
 
     @Test
     public void testDeleteAccount() {
@@ -74,7 +74,7 @@ public class AccountServiceTests extends TestCase {
         test = as.createAccount(test);
         as.deleteAccount(test.getId());
 
-        Assert.assertNotEquals("Delete failed", as.findAccount(test.getId()));
+        Assert.assertNotEquals("Delete failed", as.findAccount(test.getId()), test);
     }
 
 }

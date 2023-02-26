@@ -21,11 +21,6 @@ public class ProfileService {
             Hibernate.initialize(profile.getAcc());
         }
         return profiles;
-
-
-
-
-
         //return dao.findAllProfile();
     }
 

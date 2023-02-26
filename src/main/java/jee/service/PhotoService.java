@@ -1,5 +1,6 @@
 package jee.service;
 
+import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 import jee.dao.AccountDao;
 import jee.dao.PhotoDao;
@@ -11,6 +12,7 @@ import jee.validator.PasswordValidator;
 
 import java.util.List;
 
+@Stateless
 public class PhotoService {
 
     @Inject
@@ -20,7 +22,7 @@ public class PhotoService {
     public List<Photo> getAllPhoto() {
         return dao.findAllPhoto();
     }
-    public Photo createAccount(final Photo newPhoto) {
+    public Photo createPhoto(final Photo newPhoto) {
         return dao.create(newPhoto);
 
     }
@@ -29,18 +31,16 @@ public class PhotoService {
         return dao.read(Photo.class, id);
     }
 
-    public Photo updateAccount(final Photo photo) {
+    public Photo updatePhoto(final Photo photo) {
         final Photo oldPhoto = findPhoto(photo.getId());
         if (oldPhoto == null) {
             return null;
         }
         photo.setId(oldPhoto.getId());
-        //LOGGER.log(Level.INFO, "Photo Updated");
         return dao.update(photo);
     }
 
-    public void deleteAccount(final Long id) {
-        //LOGGER.log(Level.INFO, "Account Deleted");
+    public void deletePhoto(final Long id) {
         dao.delete(Photo.class, id);
     }
 
