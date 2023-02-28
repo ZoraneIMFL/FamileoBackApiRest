@@ -427,8 +427,8 @@ components:
           type: string
         type:
           type: integer
-        profileimage:
-          type: integer
+        profileImage:
+          type: byte[]
 
 
     Account:
@@ -437,6 +437,7 @@ components:
         - name
         - email
         - password
+        - status
       properties:
         name:
           type: string
@@ -446,6 +447,8 @@ components:
           type: string
         status:
           type: integer
+        salt:
+          type: byte[]
       example:
         name: alice
         email: alice@gmail.com

@@ -1,5 +1,6 @@
 package jee.model;
 
+import jakarta.ejb.Schedule;
 import jakarta.persistence.*;
 import jee.validator.EmailValidator;
 import jee.validator.PasswordValidator;
@@ -7,13 +8,12 @@ import security.PasswordEncryption;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * This class represents an account that can be created on the application.
  */
 @Entity(name = "Account")
-//@TableGenerator(name="AccountGen", table = "SEQ_TABLE", allocationSize = 1000)
-//@Table(name="Account")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "AccountGen")
@@ -41,10 +41,9 @@ public class Account {
     }
     public Account(String name, String email, String password, int status){
         this.name = name;
-        this.email = email;
         this.status = status;
-        this.profiles = new ArrayList<>();
-        this.changePassword(password);
+        this.profiles = new ArrayList<Profile>();
+        this.setPassword(password);
         this.setEmail(email);
     }
 
@@ -71,20 +70,21 @@ public class Account {
     public void setEmail(String email) {
         if (EmailValidator.isValid(email)) {
             this.email = email;
-        } else
+        } else {
             this.email = null;
+        }
     }
+
+    /*public void addProfile(Profile p) {
+        p.setAcc(this);
+    }
+
+    public void removeProfile(Profile p) {
+        p.setAcc(null);
+    }*/
 
     public String getPassword() {
         return password;
-    }
-
-    public void changePassword(String password) {
-        if(PasswordValidator.isValid(password)) {
-            this.salt = PasswordEncryption.generateSalt();
-            this.password = PasswordEncryption.encryptPassword(password, this.salt);
-        } else
-            this.password = null;
     }
 
     public int getStatus() {
@@ -95,26 +95,21 @@ public class Account {
         this.status = status;
     }
 
-    public List<Profile> getProfiles() {
-        return profiles;
-    }
-
-    public void addProfile(Profile p) {
-        this.profiles.add(p);
-        p.setAcc(this);
-    }
-
-    public void removeProfile(Profile p) {
-        this.profiles.remove(p);
-        p.setAcc(null);
+    public void setPassword(String password) {
+        if(PasswordValidator.isValid(password)) {
+            this.salt = PasswordEncryption.generateSalt();
+            this.password = PasswordEncryption.encryptPassword(password, this.salt);
+        } else {
+            this.password = null;
+        }
     }
 
     @Override
     public String toString() {
         return "Account{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", status=" + status +
+                "name='" + getName() + '\'' +
+                ", email='" + getEmail() + '\'' +
+                ", status=" + getStatus() +
                 '}';
     }
 

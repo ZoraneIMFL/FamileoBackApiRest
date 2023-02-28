@@ -46,11 +46,8 @@ public class PublicationServiceTests extends TestCase {
         p = publicationService.createPublication(p);
         Assert.assertNotNull("Publication creation failed", p);
         Assert.assertNotNull("Publication creation failed", publicationService.findPublication(p.getId()));
-        Assert.assertEquals("Publication not added to profile", testP.getPublications().size(), 1);
-        testP.removePublication(p);
-        Assert.assertEquals("Publication not removed from profile", testP.getPublications().size(), 0);
-        Assert.assertEquals("Publication not removed from profile", p.getProfile(), null);
-        Assert.assertNotEquals("At least one publication should be present in the database", publicationService.getAllPublication().size(), 0);
+        Assert.assertNotEquals("At least one publication should be present in the database", 0, publicationService.getAllPublication().size());
+        //Assert.assertEquals("No publication should be present in the profile", 0, publicationService.getAllPublicationOfProfile(testP).size());
     }
 
     @Test

@@ -55,12 +55,12 @@ public class PhotoServiceTests extends TestCase {
         Assert.assertNotEquals("At least one photo should be present in the database", photoServices.getAllPhoto().size(), 0);
         Assert.assertEquals( pub.getPhotos().size(), 0);
         pub.addPhoto(pho);
-        Assert.assertEquals("Add to publication failed", pub.getPhotos().size(), 1);
-        Assert.assertEquals("Add to publication failed", pub.getPhotos().get(0), pho);
-        Assert.assertEquals("Add to publication failed", pho.getPublications().size(), 1);
+        Assert.assertEquals("Add to publication failed", 1, pub.getPhotos().size());
+        Assert.assertEquals("Add to publication failed", pho, pub.getPhotos().get(0));
+        Assert.assertEquals("Add to publication failed", 1, pho.getPublications().size());
         pub.removePhoto(pho);
-        Assert.assertEquals("Removed from publication failed", pub.getPhotos().size(), 0);
-        Assert.assertEquals("Removed from publication failed", pho.getPublications().size(), 0);
+        Assert.assertEquals("Removed from publication failed", 0, pub.getPhotos().size());
+        Assert.assertEquals("Removed from publication failed", 0, pho.getPublications().size());
     }
 
     @Test

@@ -27,12 +27,11 @@ public class Profile {
 
     public Profile(){}
     public Profile(Account acc ,String name,String password,int type,byte[] profileImage){
-        acc.addProfile(this);
+        this.acc = acc;
         this.name = name;
         this.password = password;
         this.type = type;
         this.profileImage = profileImage;
-        this.publications = new ArrayList<>();
     }
 
     public Account getAcc() {
@@ -83,23 +82,6 @@ public class Profile {
     public void setProfileImage(byte[] profileImage) {
         this.profileImage = profileImage;
     }
-
-    public List<Publication> getPublications() {
-        return this.publications;
-    }
-
-    public void addPublication(Publication p) {
-        this.publications.add(p);
-        p.setProfile(this);
-        p.setAccount(this.acc);
-    }
-
-    public void removePublication(Publication p) {
-        this.publications.remove(p);
-        p.setProfile(null);
-        p.setAccount(null);
-    }
-
 
     @Override
     public String toString() {

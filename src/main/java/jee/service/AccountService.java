@@ -8,6 +8,7 @@ import jee.validator.PasswordValidator;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Stateless
 public class AccountService {
@@ -21,7 +22,6 @@ public class AccountService {
    public Account createAccount(final Account newAccount) {
        if(newAccount.isValidAccount())
         {
-            //LOGGER.log(Level.INFO, "Account Created");
             return dao.create(newAccount);
         }
         return null;

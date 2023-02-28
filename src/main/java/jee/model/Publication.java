@@ -46,7 +46,8 @@ public class Publication {
         this.publishDate = date;
         this.latitude = latitude;
         this.longitude = longitude;
-        profile.addPublication(this);
+        this.account = acc;
+        this.profile = profile;
         this.photos = new ArrayList<>();
     }
 
@@ -119,9 +120,4 @@ public class Publication {
         this.photos.remove(p);
         p.removePublication(this);
     }
-
-
-
-
-
 }
