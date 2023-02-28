@@ -48,7 +48,6 @@ public class Publication {
         this.longitude = longitude;
         this.account = acc;
         this.profile = profile;
-        this.photos = new ArrayList<>();
     }
 
     public long getId() {
@@ -105,19 +104,5 @@ public class Publication {
 
     public void setAccount(Account account) {
         this.account = account;
-    }
-
-    public List<Photo> getPhotos() {
-        return this.photos;
-    }
-
-    public void addPhoto(Photo p) {
-        this.photos.add(p);
-        p.addPublication(this);
-    }
-
-    public void removePhoto(Photo p) {
-        this.photos.remove(p);
-        p.removePublication(this);
     }
 }

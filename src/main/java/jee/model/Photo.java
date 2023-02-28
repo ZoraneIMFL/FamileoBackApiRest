@@ -1,5 +1,6 @@
 package jee.model;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -30,7 +31,6 @@ public class Photo {
         this.date=date;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.publications = new ArrayList<>();
     }
 
     public long getId() {
@@ -74,16 +74,15 @@ public class Photo {
         this.longitude = longitude;
     }
 
-    public List<Publication> getPublications() {
-        return this.publications;
+    @Override
+    public String toString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        return "Photo{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", date=" + sdf.format(date) +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                '}';
     }
-
-    public void addPublication(Publication p) {
-        this.publications.add(p);
-    }
-
-    public void removePublication(Publication p) {
-        this.publications.remove(p);
-    }
-
 }
