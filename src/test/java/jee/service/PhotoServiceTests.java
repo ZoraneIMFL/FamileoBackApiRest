@@ -2,7 +2,10 @@ package jee.service;
 
 import jakarta.ejb.EJB;
 import jakarta.ejb.embeddable.EJBContainer;
+import jee.model.Account;
 import jee.model.Photo;
+import jee.model.Profile;
+import jee.model.Publication;
 import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,6 +14,15 @@ import java.util.Date;
 import java.util.Properties;
 
 public class PhotoServiceTests extends TestCase {
+    @EJB
+    private AccountService accountService;
+
+    @EJB
+    private ProfileService profileService;
+
+    @EJB
+    private PublicationService publicationService;
+
     @EJB
     private PhotoService photoServices;
 
@@ -30,11 +42,25 @@ public class PhotoServiceTests extends TestCase {
 
     @Test
     public void testPhotoCreation() {
-        Photo p = new Photo("Test", new Date(), 0.0, 0.0);
-        p = photoServices.createPhoto(p);
-        Assert.assertNotNull("Photo creation failed", p);
-        Assert.assertNotNull("Photo creation failed", photoServices.findPhoto(p.getId()));
+        Account testA = new Account("Alice", "alice@gmail.com", "TestPswd45!", 0);
+        testA = accountService.createAccount(testA);
+        Profile testP = new Profile(testA, "Enfant1", "EnfantPswd1!", 0, null);
+        testP = profileService.createProfile(testP);
+        Publication pub = new Publication("Test", new Date(), 0.0, 0.0, testP, testA);
+        pub = publicationService.createPublication(pub);
+        Photo pho = new Photo("Test", new Date(), 0.0, 0.0);
+        pho = photoServices.createPhoto(pho);
+        Assert.assertNotNull("Photo creation failed", pho);
+        Assert.assertNotNull("Photo creation failed", photoServices.findPhoto(pho.getId()));
         Assert.assertNotEquals("At least one photo should be present in the database", photoServices.getAllPhoto().size(), 0);
+        Assert.assertEquals( pub.getPhotos().size(), 0);
+        pub.addPhoto(pho);
+        Assert.assertEquals("Add to publication failed", pub.getPhotos().size(), 1);
+        Assert.assertEquals("Add to publication failed", pub.getPhotos().get(0), pho);
+        Assert.assertEquals("Add to publication failed", pho.getPublications().size(), 1);
+        pub.removePhoto(pho);
+        Assert.assertEquals("Removed from publication failed", pub.getPhotos().size(), 0);
+        Assert.assertEquals("Removed from publication failed", pho.getPublications().size(), 0);
     }
 
     @Test

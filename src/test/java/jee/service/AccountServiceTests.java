@@ -3,9 +3,11 @@ package jee.service;
 import jakarta.ejb.EJB;
 import jakarta.ejb.embeddable.EJBContainer;
 import jee.model.Account;
+import jee.validator.PasswordValidator;
 import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Test;
+import security.PasswordEncryption;
 
 import java.util.Properties;
 
@@ -30,6 +32,7 @@ public class AccountServiceTests extends TestCase {
     @Test
     public void testAccountCreation() {
         Account test = new Account("Alice", "alice@gmail.com", "TestPswd45!", 0);
+        Assert.assertTrue("Incorrect email or password", test.isValidAccount());
         test = as.createAccount(test);
         Assert.assertNotNull("Account creation failed", test);
         Assert.assertNotNull("Account creation failed", as.findAccount(test.getId()));
@@ -43,7 +46,7 @@ public class AccountServiceTests extends TestCase {
         Assert.assertNull("An Account can be created with an invalid password", test);
 
         //An account shouldn't be created with an invalid email :
-        test = new Account("Alice", "alicegmail.com", "TestPswd", 0);
+        test = new Account("Alice", "alicegmail.com", "TestPswd45!", 0);
         test = as.createAccount(test);
         Assert.assertNull("An Account can be created with an invalid email", test);
 
@@ -52,18 +55,19 @@ public class AccountServiceTests extends TestCase {
 
     @Test
     public void testUpdateAccount() {
-        /*Account test = new Account("Alice", "alice@gmail.com", "TestPswd45!", 0);
+        Account test = new Account("Alice", "alice@gmail.com", "TestPswd45!", 0);
         test = as.createAccount(test);
         test.setName("Tom");
         test.setEmail("tom@gmail.com");
         test.setStatus(1);
+        test.changePassword("NewPasswd41!");
         test = as.updateAccount(test);
 
         Account res = as.findAccount(test.getId());
         Assert.assertEquals("Update failed", res.toString(), test.toString());
 
         //An account that doesn't exist shouldn't be updated
-        Assert.assertNull(as.updateAccount(new Account()));*/
+        Assert.assertNull(as.updateAccount(new Account()));
     }
 
 

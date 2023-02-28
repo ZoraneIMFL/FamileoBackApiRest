@@ -47,9 +47,15 @@ public class ProfileServiceTests extends TestCase {
         }*/
         Profile testP = new Profile(testA, "Enfant1", "EnfantPswd1!", 0, data);
         testP = ps.createProfile(testP);
+        testA.addProfile(testP);
         Assert.assertNotNull("Profile creation failed", testP);
         Assert.assertNotNull("Profile creation failed", ps.findProfile(testP.getId()));
         Assert.assertNotNull("Account creation failed", testP.getAcc());
+        int size = testA.getProfiles().size();
+        testA.addProfile(testP);
+        Assert.assertEquals("Problem when adding profile to account", testA.getProfiles().size(), size+1);
+        testA.removeProfile(testP);
+        Assert.assertEquals("Problem when deleting a profile", testA.getProfiles().size(), size);
         Profile fetch = ps.findProfile(testP.getId());
         Assert.assertEquals(fetch.getName(), "Enfant1");
         Assert.assertEquals(fetch.getType(), 0);
@@ -60,6 +66,8 @@ public class ProfileServiceTests extends TestCase {
 
     @Test
     public void testUpdateProfile() {
+        Account testA = new Account("Alice", "alice@gmail.com", "TestPswd45!", 0);
+        testA = as.createAccount(testA);
         byte[] data = null;
         /*try {
             BufferedImage bImage = ImageIO.read(new File("Enfant1.jpg"));
@@ -69,7 +77,7 @@ public class ProfileServiceTests extends TestCase {
         } catch (java.io.IOException e) {
             data = null;
         }*/
-        Profile testP = new Profile(null, "Enfant1", "EnfantPswd1!", 0, data);
+        Profile testP = new Profile(testA, "Enfant1", "EnfantPswd1!", 0, data);
         testP = ps.createProfile(testP);
         Assert.assertNotNull("Profile creation failed", testP);
         testP.setName("Enfant2");
@@ -85,6 +93,8 @@ public class ProfileServiceTests extends TestCase {
 
     @Test
     public void testDeleteProfile() {
+        Account testA = new Account("Alice", "alice@gmail.com", "TestPswd45!", 0);
+        testA = as.createAccount(testA);
         byte[] data = null;
         /*try {
             BufferedImage bImage = ImageIO.read(new File("Enfant1.jpg"));
@@ -94,7 +104,7 @@ public class ProfileServiceTests extends TestCase {
         } catch (java.io.IOException e) {
             data = null;
         }*/
-        Profile testP = new Profile(null, "Enfant1", "EnfantPswd1!", 0, data);
+        Profile testP = new Profile(testA, "Enfant1", "EnfantPswd1!", 0, data);
         testP = ps.createProfile(testP);
         Assert.assertNotNull("Profile creation failed", testP);
         ps.deleteProfile(testP.getId());

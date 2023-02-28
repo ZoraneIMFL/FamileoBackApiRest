@@ -1,6 +1,7 @@
 package jee.model;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -41,13 +42,12 @@ public class Publication {
 
     public Publication(){}
     public Publication(String description, Date date, double latitude,double longitude, Profile profile , Account acc ){
-        this.description=description;
+        this.description = description;
         this.publishDate = date;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.profile = profile;
-        this.account = acc;
-
+        profile.addPublication(this);
+        this.photos = new ArrayList<>();
     }
 
     public long getId() {
@@ -106,7 +106,19 @@ public class Publication {
         this.account = account;
     }
 
+    public List<Photo> getPhotos() {
+        return this.photos;
+    }
 
+    public void addPhoto(Photo p) {
+        this.photos.add(p);
+        p.addPublication(this);
+    }
+
+    public void removePhoto(Photo p) {
+        this.photos.remove(p);
+        p.removePublication(this);
+    }
 
 
 
