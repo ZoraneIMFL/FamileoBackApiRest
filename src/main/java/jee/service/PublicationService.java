@@ -38,7 +38,7 @@ public class PublicationService {
         dao.delete(Publication.class,id);
     }
 
-    public List<Publication> getPublicationProfile(Profile profile) {
+    public List<Publication> getAllPublicationOfProfile(Profile profile) {
         return dao.findPublicationProfile(profile);
     }
 

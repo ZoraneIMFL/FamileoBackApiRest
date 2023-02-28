@@ -1,7 +1,11 @@
 package jee.model;
 
 import jakarta.persistence.*;
+import jee.validator.EmailValidator;
+import jee.validator.PasswordValidator;
+import security.PasswordEncryption;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,6 +32,8 @@ public class Account {
 
     private String password;
 
+    private byte[] salt;
+
     private int status;
 
     public Account(){
@@ -36,8 +42,10 @@ public class Account {
     public Account(String name, String email, String password, int status){
         this.name = name;
         this.email = email;
-        this.password = password;
         this.status = status;
+        this.profiles = new ArrayList<>();
+        this.changePassword(password);
+        this.setEmail(email);
     }
 
     public long getId() {
@@ -61,15 +69,22 @@ public class Account {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        if (EmailValidator.isValid(email)) {
+            this.email = email;
+        } else
+            this.email = null;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void changePassword(String password) {
+        if(PasswordValidator.isValid(password)) {
+            this.salt = PasswordEncryption.generateSalt();
+            this.password = PasswordEncryption.encryptPassword(password, this.salt);
+        } else
+            this.password = null;
     }
 
     public int getStatus() {
@@ -80,15 +95,19 @@ public class Account {
         this.status = status;
     }
 
-    /*public List<Profile> getProfiles() {
+    public List<Profile> getProfiles() {
         return profiles;
     }
 
-    public void setProfiles(List<Profile> profiles) {
-        this.profiles = profiles;
+    public void addProfile(Profile p) {
+        this.profiles.add(p);
+        p.setAcc(this);
     }
 
-     */
+    public void removeProfile(Profile p) {
+        this.profiles.remove(p);
+        p.setAcc(null);
+    }
 
     @Override
     public String toString() {
@@ -97,5 +116,9 @@ public class Account {
                 ", email='" + email + '\'' +
                 ", status=" + status +
                 '}';
+    }
+
+    public boolean isValidAccount() {
+        return email != null && password != null;
     }
 }

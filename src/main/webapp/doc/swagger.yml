@@ -43,7 +43,7 @@ paths:
     post:
       summary: Create a Publication
       tags:
-        - Publication
+        - Photo
       responses:
       requestBody:
         content:

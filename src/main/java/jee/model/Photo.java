@@ -1,5 +1,6 @@
 package jee.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import jakarta.persistence.*;
@@ -29,6 +30,7 @@ public class Photo {
         this.date=date;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.publications = new ArrayList<>();
     }
 
     public long getId() {
@@ -70,6 +72,18 @@ public class Photo {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+    public List<Publication> getPublications() {
+        return this.publications;
+    }
+
+    public void addPublication(Publication p) {
+        this.publications.add(p);
+    }
+
+    public void removePublication(Publication p) {
+        this.publications.remove(p);
     }
 
 }

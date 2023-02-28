@@ -19,7 +19,8 @@ public class AccountService {
         return dao.findAllAccount();
    }
    public Account createAccount(final Account newAccount) {
-        if (PasswordValidator.isValid(newAccount.getPassword()) && EmailValidator.isValid(newAccount.getEmail())){
+       if(newAccount.isValidAccount())
+        {
             //LOGGER.log(Level.INFO, "Account Created");
             return dao.create(newAccount);
         }
