@@ -41,7 +41,7 @@ paths:
                 $ref: '#/components/schemas/Photo'
 
     post:
-      summary: Create a Publication
+      summary: Create a Photo
       tags:
         - Photo
       responses:
