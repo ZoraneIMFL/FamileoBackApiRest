@@ -2,10 +2,14 @@ package jee.controller;
 import jee.model.Account;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
+import jee.model.Profile;
 import jee.service.AccountService;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
+import jee.service.ProfileService;
+
+import java.util.List;
 
 @Stateless
 @Path("/accounts")
@@ -15,6 +19,9 @@ public class AccountController {
 
     @Inject
     private AccountService accountService;
+    @Inject
+    private ProfileService profileService;
+
 
     @POST
     @Path("/")
@@ -66,4 +73,20 @@ public class AccountController {
         accountService.deleteAccount(id);
         return Response.noContent().build();
     }
+
+    @Path("/{id}/profiles")
+    @GET
+    public Response findProfilesByAccountId(@PathParam("id") Long id) {
+        if (id < 0) {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+        Account account = accountService.findAccount(id);
+        if (account == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+        List<Profile> profiles = profileService.getAllProfileOfAccount(id);
+        return Response.ok(profiles).build();
+    }
+
+
 }

@@ -51,6 +51,61 @@ paths:
             schema:
               $ref: '#/components/schemas/Photo'
 
+  /photos/{id}:
+    get:
+      summary: Get the photo with the given id
+      tags:
+        - Photo
+      responses:
+        200:
+          description: The photo with the given id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Photo'
+        404:
+          $ref: '#/components/responses/EntityNotFound'
+    put:
+      summary: Update the photo with the given id
+      tags:
+        - Photo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Photo'
+      responses:
+        200:
+          description: The updated photo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Photo'
+        400:
+          description: Provided photo is invalid
+        403:
+          $ref: '#/components/responses/NotAllowed'
+        500:
+          description: The server is unable to update the profile
+    delete:
+      summary: Delete the photo with the given id
+      tags:
+        - Photo
+      responses:
+        204:
+          description: Photo successfully deleted
+        403:
+          $ref: '#/components/responses/NotAllowed'
+        500:
+          description: The server is unable to delete the photo
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: integer
+        description: login of photo to use
+        required: true
+
   /publications:
     get:
       summary: Get all publication
@@ -327,6 +382,28 @@ paths:
         description: login of account to use
         required: true
         # example: bob
+  /accounts/{id}/profiles:
+    get:
+      summary: Get the profiles account
+      tags:
+        - Account
+      responses:
+        200:
+          description: The profiles with the given id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profiles'
+        404:
+          $ref: '#/components/responses/EntityNotFound'
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: integer
+        description: login of account to use
+        required: true
+
 
 components:
   securitySchemes:

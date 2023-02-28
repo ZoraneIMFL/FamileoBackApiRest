@@ -24,7 +24,7 @@ public class ProfileService {
         //return dao.findAllProfile();
     }
 
-    public List<Profile> getAllProfileOfAccount(Account account) {return dao.findProfileAccount(account);}
+    public List<Profile> getAllProfileOfAccount(Long accountId) {return dao.findProfilesByAccountId(accountId);}
 
     public Profile createProfile(final Profile newProfile) {
         return dao.create(newProfile);
