@@ -22,15 +22,14 @@ public class PublicationController {
     @POST
     @Path("/")
     public Response createPublication(Publication publication) {
-        System.out.println(publication.getPhotos().size());
         return Response.ok(publicationService.createPublication(publication)).build();
     }
 
     @Path("/")
     @GET
     public Response getAllPublication() {
-        List<Publication> allPublication = publicationService.getAllPublication();
-        List<LitePublication> allLitePublications = new ArrayList<LitePublication>();
+        var allPublication = publicationService.getAllPublication();
+        var allLitePublications = new ArrayList<>();
         for(int i = 0; i < allPublication.size(); i++) {
             allLitePublications.add(new LitePublication(allPublication.get(i)));
         }

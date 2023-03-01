@@ -3,7 +3,6 @@ package jee.dao;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.TypedQuery;
-import jee.model.Account;
 import jee.model.Profile;
 
 import java.util.List;
@@ -23,7 +22,6 @@ public class ProfileDao extends DAO<Profile> implements CRUD<Profile> {
     }
 
     public List<Profile> findAllProfile() {
-        //return em.createQuery("SELECT p FROM Profile p JOIN FETCH p.account", Profile.class).getResultList();
         return em.createQuery("from Profile ", Profile.class).getResultList();
     }
 

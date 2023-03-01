@@ -3,7 +3,6 @@ package jee.service;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 import jee.dao.ProfileDao;
-import jee.model.Account;
 import jee.model.Profile;
 import org.hibernate.Hibernate;
 
@@ -21,7 +20,6 @@ public class ProfileService {
             Hibernate.initialize(profile.getAcc());
         }
         return profiles;
-        //return dao.findAllProfile();
     }
 
     public List<Profile> getAllProfileOfAccount(Long accountId) {

@@ -1,7 +1,5 @@
 package jee.dto;
 
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import jee.model.Photo;
 
 import java.util.Date;

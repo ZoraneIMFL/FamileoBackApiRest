@@ -81,7 +81,7 @@ public class AccountController {
         if (id < 0) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
-        Account account = accountService.findAccount(id);
+        var account = accountService.findAccount(id);
         if (account == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }

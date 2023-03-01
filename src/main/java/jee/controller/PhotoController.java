@@ -6,10 +6,7 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
 import jee.dto.LitePhoto;
-import jee.model.Account;
 import jee.model.Photo;
-import jee.model.Publication;
-import jee.service.AccountService;
 import jee.service.PhotoService;
 
 import java.util.ArrayList;
@@ -34,7 +31,7 @@ public class PhotoController {
     @GET
     public Response getAllPhoto() {
         List<Photo> allPhoto = photoService.getAllPhoto();
-        List<LitePhoto> allPhotoLite = new ArrayList<LitePhoto>();
+        List<LitePhoto> allPhotoLite = new ArrayList<>();
         for(var i = 0; i < allPhoto.size(); i++) {
             allPhotoLite.add(new LitePhoto(allPhoto.get(i)));
         }

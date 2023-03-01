@@ -2,13 +2,8 @@ package jee.service;
 
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
-import jee.dao.AccountDao;
 import jee.dao.PhotoDao;
-import jee.model.Account;
 import jee.model.Photo;
-import jee.model.Profile;
-import jee.validator.EmailValidator;
-import jee.validator.PasswordValidator;
 
 import java.util.List;
 
@@ -32,7 +27,7 @@ public class PhotoService {
     }
 
     public Photo updatePhoto(final Photo photo) {
-        final Photo oldPhoto = findPhoto(photo.getId());
+        final var oldPhoto = findPhoto(photo.getId());
         if (oldPhoto == null) {
             return null;
         }

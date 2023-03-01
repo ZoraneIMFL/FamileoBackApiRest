@@ -1,6 +1,5 @@
 package jee.model;
 import jakarta.persistence.*;
-import org.hibernate.engine.internal.Cascade;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ public class Publication {
         this.longitude = longitude;
         this.account = acc;
         this.profile = profile;
-        this.photos = new ArrayList<Photo>();
+        this.photos = new ArrayList<>();
     }
 
     public long getId() {
@@ -113,7 +112,7 @@ public class Publication {
 
     @Override
     public String toString() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        var sdf = new SimpleDateFormat("yyyy/MM/dd");
         return "Publication{" +
                 "id=" + id +
                 ", description='" + description + '\'' +

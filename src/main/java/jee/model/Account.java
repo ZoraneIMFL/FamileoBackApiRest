@@ -1,6 +1,5 @@
 package jee.model;
 
-import jakarta.ejb.Schedule;
 import jakarta.persistence.*;
 import jee.validator.EmailValidator;
 import jee.validator.PasswordValidator;
@@ -8,7 +7,6 @@ import security.PasswordEncryption;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
  * This class represents an account that can be created on the application.

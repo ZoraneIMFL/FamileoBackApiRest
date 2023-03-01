@@ -34,7 +34,7 @@ public class Photo {
         this.date = date;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.publications = new ArrayList<Publication>();
+        this.publications = new ArrayList<>();
     }
 
     public long getId() {
@@ -88,7 +88,7 @@ public class Photo {
 
     @Override
     public String toString() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        var sdf = new SimpleDateFormat("yyyy/MM/dd");
         return "Photo{" +
                 "id=" + id +
                 ", name='" + name + '\'' +

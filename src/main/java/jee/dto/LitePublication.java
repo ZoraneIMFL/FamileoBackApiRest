@@ -1,9 +1,5 @@
 package jee.dto;
 
-import jakarta.persistence.*;
-import jee.model.Account;
-import jee.model.Photo;
-import jee.model.Profile;
 import jee.model.Publication;
 
 import java.util.ArrayList;
@@ -38,7 +34,7 @@ public class LitePublication {
             this.profileId = publication.getProfile().getId();
         if(publication.getAccount() != null)
             this.accountId = publication.getAccount().getId();
-        this.photos = new ArrayList<LitePhoto>();
+        this.photos = new ArrayList<>();
         for(var i = 0; i < publication.getPhotos().size(); i++) {
             this.photos.add(new LitePhoto(publication.getPhotos().get(i)));
         }

@@ -36,8 +36,8 @@ public class AccountServiceTests extends TestCase {
         Assert.assertNotNull("Account creation failed", test);
         Assert.assertNotNull("Account creation failed", as.findAccount(test.getId()));
         Account fetch = as.findAccount(test.getId());
-        Assert.assertEquals(fetch.getName(), "Alice");
-        Assert.assertEquals(fetch.getStatus(), 0);
+        Assert.assertEquals("Alice", fetch.getName());
+        Assert.assertEquals(0, fetch.getStatus());
 
         test = new Account("Alice", "alice@gmail.com", "TestPswd", 0);
         test = as.createAccount(test);
