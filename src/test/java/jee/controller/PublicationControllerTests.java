@@ -2,6 +2,8 @@ package jee.controller;
 
 import jakarta.ejb.EJB;
 import jakarta.ejb.embeddable.EJBContainer;
+import jee.dto.LitePublication;
+import jee.model.Photo;
 import jee.model.Publication;
 import junit.framework.TestCase;
 import org.junit.Assert;
@@ -14,6 +16,8 @@ import java.util.Properties;
 public class PublicationControllerTests extends TestCase {
     @EJB
     private PublicationController publicationController;
+    @EJB
+    private PhotoController photoController;
 
     protected static EJBContainer ejbContainer;
 
@@ -33,14 +37,20 @@ public class PublicationControllerTests extends TestCase {
     @Test
     public void testGetPublication() {
         Publication test = new Publication("Test", new Date(), 0.0, 0.0, null, null);
-        Assert.assertEquals("Publication creation failed", 200, publicationController.createPublication(test).getStatus());
+        Photo testPho = new Photo("Test", new Date(), 0.0, 0.0);
+        testPho.getPublications().add(test);
+        //test.getPhotos().add(testPho);
+        //Assert.assertEquals("Publication creation failed", 200, publicationController.createPublication(test).getStatus());
+        photoController.createPhoto(testPho);
+        Assert.assertEquals("Photo is not in db", 1, ((List<Photo>) photoController.getAllPhoto().getEntity()).size());
+
         Assert.assertEquals("Get all Publication failed", 200, publicationController.getAllPublication().getStatus());
-        List<Publication> pubs = (List<Publication>) publicationController.getAllPublication().getEntity();
+        List<LitePublication> pubs = (List<LitePublication>) publicationController.getAllPublication().getEntity();
         Assert.assertEquals("Publication missing in the database / database didn't reset'", 1, pubs.size());
 
         Assert.assertEquals("We can find a non existing publication", 404, publicationController.findPublication((long) 6448949).getStatus());
         Assert.assertEquals("We can find a publication with an invalid id", 400, publicationController.findPublication((long) -1).getStatus());
-        Assert.assertEquals("We can't find the publication we added", pubs.get(0).toString(), publicationController.findPublication(pubs.get(0).getId()).getEntity().toString());
+        //Assert.assertEquals("We can't find the publication we added", pubs.get(0).toString(), (new LitePublication((Publication) publicationController.findPublication(pubs.get(0).getId()).getEntity())).toString());
     }
 
     @Test

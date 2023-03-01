@@ -7,20 +7,19 @@ import jee.model.Profile;
 import jee.model.Publication;
 
 import java.util.List;
-
 @NamedQueries(value = {
-        @NamedQuery(name = "findPublicationByProfile", query = "select p from Publication p where p.profile=:profile")
+        @NamedQuery(name = "findPublicationByProfile",query = "SELECT p FROM Publication p WHERE p.profile.id = :profileId")
 })
 
-
-public class PublicationDao extends DAO<Publication> implements CRUD<Publication> {
+public class PublicationDao extends DAO<Publication> implements CRUD<Publication>{
     public List<Publication> findAllPublication() {
         return em.createQuery("from Publication ", Publication.class).getResultList();
     }
-
-    public List<Publication> findPublicationProfile(Profile profile) {
-        TypedQuery<Publication> query = em.createQuery("select p from Publication p where p.profile=:profile", Publication.class);
-        query.setParameter("profile", profile);
+    public List<Publication> findPublicationProfile(Long profileId){
+        //var query = em.createNamedQuery("findPublicationByProfile");
+        var query = em.createQuery("SELECT p FROM Publication p WHERE p.profile.id = :profileId", Publication.class);
+        query.setParameter("profileId", profileId);
         return query.getResultList();
     }
+
 }

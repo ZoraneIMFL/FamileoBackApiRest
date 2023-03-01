@@ -40,7 +40,7 @@ public class PublicationService {
     }
 
     public List<Publication> getAllPublicationOfProfile(Profile profile) {
-        return dao.findPublicationProfile(profile);
+        return dao.findPublicationProfile(profile.getId());
     }
 
 }

@@ -1,5 +1,6 @@
 package jee.model;
 import jakarta.persistence.*;
+import org.hibernate.engine.internal.Cascade;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -25,19 +26,13 @@ public class Publication {
 
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="profile_id")
     private Profile profile;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="account_id")
     private Account account;
 
 
-    @ManyToMany
-    @JoinTable(name = "publication_photo",
-            joinColumns = @JoinColumn(name = "publication_id"),
-            inverseJoinColumns = @JoinColumn(name = "photo_id")
-    )
+    @ManyToMany(cascade = CascadeType.PERSIST)
     private List<Photo> photos;
 
 
@@ -49,6 +44,7 @@ public class Publication {
         this.longitude = longitude;
         this.account = acc;
         this.profile = profile;
+        this.photos = new ArrayList<Photo>();
     }
 
     public long getId() {
@@ -101,6 +97,14 @@ public class Publication {
 
     public Account getAccount() {
         return account;
+    }
+
+    public List<Photo> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(List<Photo> photos) {
+        this.photos = photos;
     }
 
     public void setAccount(Account account) {

@@ -23,7 +23,7 @@ public class Photo {
 
     private double longitude;
 
-    @ManyToMany(mappedBy = "photos")
+    @ManyToMany(mappedBy = "photos", cascade = CascadeType.PERSIST)
     private List<Publication> publications;
 
     public Photo() {
@@ -34,6 +34,7 @@ public class Photo {
         this.date = date;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.publications = new ArrayList<Publication>();
     }
 
     public long getId() {
@@ -75,6 +76,14 @@ public class Photo {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+    public List<Publication> getPublications() {
+        return publications;
+    }
+
+    public void setPublications(List<Publication> publications) {
+        this.publications = publications;
     }
 
     @Override

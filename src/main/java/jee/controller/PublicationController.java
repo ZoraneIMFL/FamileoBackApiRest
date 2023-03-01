@@ -4,8 +4,12 @@ import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
+import jee.dto.LitePublication;
 import jee.model.Publication;
 import jee.service.PublicationService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Stateless
 @Path("/publications")
@@ -18,13 +22,19 @@ public class PublicationController {
     @POST
     @Path("/")
     public Response createPublication(Publication publication) {
+        System.out.println(publication.getPhotos().size());
         return Response.ok(publicationService.createPublication(publication)).build();
     }
 
     @Path("/")
     @GET
     public Response getAllPublication() {
-        return Response.ok(publicationService.getAllPublication()).build();
+        List<Publication> allPublication = publicationService.getAllPublication();
+        List<LitePublication> allLitePublications = new ArrayList<LitePublication>();
+        for(int i = 0; i < allPublication.size(); i++) {
+            allLitePublications.add(new LitePublication(allPublication.get(i)));
+        }
+        return Response.ok(allLitePublications).build();
     }
 
     @Path("/{id}")

@@ -18,7 +18,7 @@ public class Profile {
 
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "acc_id")
+    //@JoinColumn(name = "acc_id")
     private Account acc;
     private String name;
     private String password;

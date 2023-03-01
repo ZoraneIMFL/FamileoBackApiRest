@@ -22,7 +22,9 @@ public class AccountService {
     }
 
     public Account createAccount(final Account newAccount) {
+        System.out.println(newAccount);
         if (newAccount.isValidAccount()) {
+            System.out.println("Is valid");
             return dao.create(newAccount);
         }
         return null;

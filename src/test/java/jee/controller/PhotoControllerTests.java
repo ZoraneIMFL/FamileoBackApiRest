@@ -2,6 +2,7 @@ package jee.controller;
 
 import jakarta.ejb.EJB;
 import jakarta.ejb.embeddable.EJBContainer;
+import jee.dto.LitePhoto;
 import jee.model.Account;
 import jee.model.Photo;
 import junit.framework.TestCase;
@@ -37,12 +38,12 @@ public class PhotoControllerTests extends TestCase {
         Photo test = new Photo("Test", new Date(), 0.0, 0.0);
         Assert.assertEquals("Photo creation failed", 200, photoController.createPhoto(test).getStatus());
         Assert.assertEquals("Get all photos failed", 200, photoController.getAllPhoto().getStatus());
-        List<Photo> photos = (List<Photo>) photoController.getAllPhoto().getEntity();
+        List<LitePhoto> photos = (List<LitePhoto>) photoController.getAllPhoto().getEntity();
         Assert.assertEquals("Photo missing in the database / database didn't reset'", 1, photos.size());
 
         Assert.assertEquals("We can find a non existing photo", 404, photoController.findPhoto((long) 6448949).getStatus());
         Assert.assertEquals("We can find an photo with an invalid id", 400, photoController.findPhoto((long) -1).getStatus());
-        Assert.assertEquals("We can't find the photo we added", photos.get(0).toString(), photoController.findPhoto(photos.get(0).getId()).getEntity().toString());
+        Assert.assertEquals("We can't find the photo we added", photos.get(0).toString(), (new LitePhoto((Photo) photoController.findPhoto(photos.get(0).getId()).getEntity())).toString());
     }
 
     @Test

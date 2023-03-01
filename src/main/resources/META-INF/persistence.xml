@@ -32,13 +32,13 @@
 
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL95Dialect" />
-            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.hbm2ddl.auto" value="create" />
 
             <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
         </properties>
     </persistence-unit>
 
-    <persistence-unit name="test">
+    <!--<persistence-unit name="test">
         <description>Persitence Unit de test</description>
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <properties>
@@ -46,6 +46,6 @@
             <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
         </properties>
-    </persistence-unit>
+    </persistence-unit>-->
 
 </persistence>
