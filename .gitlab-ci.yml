@@ -55,8 +55,7 @@ sonarqube:
     paths:
       - .sonar/cache
   script:
-    - mkdir test
-    - mvn test sonar:sonar $SONAR -Dsonar.qualitygate.wait=true
+    - mvn verify sonar:sonar $SONAR -Dsonar.qualitygate.wait=true
   tags:
     - docker2
   rules:
