@@ -33,7 +33,6 @@ test:
     #- docker-compose up -d
     - mkdir -p target/site/jacoco/
     - mvn -B test
-    - mvn verify sonar:sonar $SONAR -Dsonar.qualitygate.wait=true -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/*.xml
     
   tags:
     - docker2
@@ -57,7 +56,7 @@ sonarqube:
       - .sonar/cache
   script:
     - mkdir test
-    #- mvn test sonar:sonar $SONAR -Dsonar.qualitygate.wait=true -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/*.xml
+    - mvn test sonar:sonar $SONAR -Dsonar.qualitygate.wait=true
   tags:
     - docker2
   rules:
