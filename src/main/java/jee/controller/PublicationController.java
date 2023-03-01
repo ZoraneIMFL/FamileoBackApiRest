@@ -17,7 +17,7 @@ public class PublicationController {
 
     @POST
     @Path("/")
-    public Response createPublication(Publication publication){
+    public Response createPublication(Publication publication) {
         return Response.ok(publicationService.createPublication(publication)).build();
     }
 
@@ -29,7 +29,7 @@ public class PublicationController {
 
     @Path("/{id}")
     @GET
-    public Response findAccount(@PathParam("id") Long id) {
+    public Response findPublication(@PathParam("id") Long id) {
         if (id < 0) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }

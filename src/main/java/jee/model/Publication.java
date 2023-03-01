@@ -1,6 +1,7 @@
 package jee.model;
 import jakarta.persistence.*;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -104,5 +105,17 @@ public class Publication {
 
     public void setAccount(Account account) {
         this.account = account;
+    }
+
+    @Override
+    public String toString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        return "Publication{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", publishDate=" + sdf.format(publishDate) +
+                '}';
     }
 }

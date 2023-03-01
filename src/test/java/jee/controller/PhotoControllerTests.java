@@ -8,7 +8,6 @@ import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
@@ -19,6 +18,7 @@ public class PhotoControllerTests extends TestCase {
     private PhotoController photoController;
 
     protected static EJBContainer ejbContainer;
+
     public void setUp() throws Exception {
         Properties p = new Properties();
         p.put("test", "new://Resource?type=DataSource");

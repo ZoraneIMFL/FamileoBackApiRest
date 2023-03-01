@@ -7,6 +7,7 @@ import jee.validator.PasswordValidator;
 
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
+
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -16,16 +17,16 @@ public class AccountService {
     @Inject
     private AccountDao dao;
 
-   public List<Account> getAllAccount() {
+    public List<Account> getAllAccount() {
         return dao.findAllAccount();
-   }
-   public Account createAccount(final Account newAccount) {
-       if(newAccount.isValidAccount())
-        {
+    }
+
+    public Account createAccount(final Account newAccount) {
+        if (newAccount.isValidAccount()) {
             return dao.create(newAccount);
         }
         return null;
-   }
+    }
 
     public Account findAccount(final long id) {
         return dao.read(Account.class, id);

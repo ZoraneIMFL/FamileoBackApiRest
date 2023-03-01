@@ -20,7 +20,7 @@ public class Account {
 
     private long id = 0L;
 
-    @OneToMany(mappedBy = "acc",cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "acc", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Profile> profiles;
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
@@ -36,10 +36,11 @@ public class Account {
 
     private int status;
 
-    public Account(){
+    public Account() {
 
     }
-    public Account(String name, String email, String password, int status){
+
+    public Account(String name, String email, String password, int status) {
         this.name = name;
         this.status = status;
         this.profiles = new ArrayList<Profile>();
@@ -75,14 +76,6 @@ public class Account {
         }
     }
 
-    /*public void addProfile(Profile p) {
-        p.setAcc(this);
-    }
-
-    public void removeProfile(Profile p) {
-        p.setAcc(null);
-    }*/
-
     public String getPassword() {
         return password;
     }
@@ -96,7 +89,7 @@ public class Account {
     }
 
     public void setPassword(String password) {
-        if(PasswordValidator.isValid(password)) {
+        if (PasswordValidator.isValid(password)) {
             this.salt = PasswordEncryption.generateSalt();
             this.password = PasswordEncryption.encryptPassword(password, this.salt);
         } else {

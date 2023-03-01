@@ -11,7 +11,7 @@ import jakarta.persistence.*;
  */
 @Lock(LockType.READ)
 public abstract class DAO<E> implements CRUD<E> {
-    @PersistenceContext(unitName = "projet")
+    @PersistenceContext(unitName = "test")
     protected EntityManager em;
 
     @Override

@@ -1,4 +1,5 @@
 package jee.controller;
+
 import jee.model.Account;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
@@ -25,7 +26,7 @@ public class AccountController {
 
     @POST
     @Path("/")
-    public Response createAccount(Account account){
+    public Response createAccount(Account account) {
         return Response.ok(accountService.createAccount(account)).build();
     }
 

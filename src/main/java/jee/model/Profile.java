@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "Profile")
-@TableGenerator(name="ProfileGen", table = "SEQ_TABLE", allocationSize = 1000)
+@TableGenerator(name = "ProfileGen", table = "SEQ_TABLE", allocationSize = 1000)
 
 public class Profile {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE,generator = "AccountGen")
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "AccountGen")
     private long id;
 
     @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL)
@@ -18,15 +18,17 @@ public class Profile {
 
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="acc_id")
+    @JoinColumn(name = "acc_id")
     private Account acc;
     private String name;
     private String password;
     private int type;
     private byte[] profileImage;
 
-    public Profile(){}
-    public Profile(Account acc ,String name,String password,int type,byte[] profileImage){
+    public Profile() {
+    }
+
+    public Profile(Account acc, String name, String password, int type, byte[] profileImage) {
         this.acc = acc;
         this.name = name;
         this.password = password;

@@ -4,10 +4,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity(name = "Photo")
-@TableGenerator(name = "PhotoGen",table = "SEQ_TABLE",allocationSize = 1000)
+@TableGenerator(name = "PhotoGen", table = "SEQ_TABLE", allocationSize = 1000)
 public class Photo {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "AccountGen")
@@ -25,10 +26,12 @@ public class Photo {
     @ManyToMany(mappedBy = "photos")
     private List<Publication> publications;
 
-    public Photo(){}
-    public Photo(String name,Date date, double latitude, double longitude ){
-        this.name=name;
-        this.date=date;
+    public Photo() {
+    }
+
+    public Photo(String name, Date date, double latitude, double longitude) {
+        this.name = name;
+        this.date = date;
         this.latitude = latitude;
         this.longitude = longitude;
     }

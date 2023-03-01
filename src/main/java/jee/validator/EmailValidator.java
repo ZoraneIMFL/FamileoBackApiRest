@@ -8,6 +8,7 @@ public class EmailValidator {
     private EmailValidator() {
         throw new IllegalStateException("Utility class");
     }
+
     public static boolean isValid(String email) {
         var pattern = Pattern.compile(EMAIL_PATTERN, Pattern.CASE_INSENSITIVE);
         var matcher = pattern.matcher(email);

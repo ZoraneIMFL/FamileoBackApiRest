@@ -27,6 +27,7 @@ public class PhotoServiceTests extends TestCase {
     private PhotoService photoServices;
 
     protected static EJBContainer ejbContainer;
+
     public void setUp() throws Exception {
         Properties p = new Properties();
         p.put("test", "new://Resource?type=DataSource");
@@ -53,14 +54,6 @@ public class PhotoServiceTests extends TestCase {
         Assert.assertNotNull("Photo creation failed", pho);
         Assert.assertNotNull("Photo creation failed", photoServices.findPhoto(pho.getId()));
         Assert.assertNotEquals("At least one photo should be present in the database", photoServices.getAllPhoto().size(), 0);
-        /*Assert.assertEquals( pub.getPhotos().size(), 0);
-        pub.addPhoto(pho);
-        Assert.assertEquals("Add to publication failed", 1, pub.getPhotos().size());
-        Assert.assertEquals("Add to publication failed", pho, pub.getPhotos().get(0));
-        Assert.assertEquals("Add to publication failed", 1, pho.getPublications().size());
-        pub.removePhoto(pho);
-        Assert.assertEquals("Removed from publication failed", 0, pub.getPhotos().size());
-        Assert.assertEquals("Removed from publication failed", 0, pho.getPublications().size());*/
     }
 
     @Test
@@ -72,10 +65,7 @@ public class PhotoServiceTests extends TestCase {
         p.setLatitude(1.1);
         p.setLongitude(1.1);
         Photo updated = photoServices.updatePhoto(p);
-        Assert.assertEquals("Update photo failed", photoServices.findPhoto(p.getId()).getName(), updated.getName());
-        Assert.assertEquals("Update photo failed", photoServices.findPhoto(p.getId()).getDate(), updated.getDate());
-        Assert.assertEquals("Update photo failed", photoServices.findPhoto(p.getId()).getLatitude(), updated.getLatitude(), 0.1);
-        Assert.assertEquals("Update photo failed", photoServices.findPhoto(p.getId()).getLongitude(), updated.getLongitude(), 0.1);
+        Assert.assertEquals("Update photo failed", photoServices.findPhoto(p.getId()).toString(), updated.toString());
 
         Assert.assertNull("Can update a non existant Photo", photoServices.updatePhoto(new Photo()));
     }

@@ -24,11 +24,14 @@ public class ProfileService {
         //return dao.findAllProfile();
     }
 
-    public List<Profile> getAllProfileOfAccount(Long accountId) {return dao.findProfilesByAccountId(accountId);}
+    public List<Profile> getAllProfileOfAccount(Long accountId) {
+        return dao.findProfilesByAccountId(accountId);
+    }
 
     public Profile createProfile(final Profile newProfile) {
         return dao.create(newProfile);
     }
+
     public Profile updateProfile(Profile profile) {
         final var oldProfile = findProfile(profile.getId());
         if (oldProfile == null) {

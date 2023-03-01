@@ -8,6 +8,7 @@ public class PasswordValidator {
     private PasswordValidator() {
         throw new IllegalStateException("Utility class");
     }
+
     public static boolean isValid(String password) {
         var pattern = Pattern.compile(PASSWORD_PATTERN);
         var matcher = pattern.matcher(password);

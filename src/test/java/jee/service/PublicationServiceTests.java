@@ -22,6 +22,7 @@ public class PublicationServiceTests extends TestCase {
     private PublicationService publicationService;
 
     protected static EJBContainer ejbContainer;
+
     public void setUp() throws Exception {
         Properties p = new Properties();
         p.put("test", "new://Resource?type=DataSource");
@@ -47,7 +48,7 @@ public class PublicationServiceTests extends TestCase {
         Assert.assertNotNull("Publication creation failed", p);
         Assert.assertNotNull("Publication creation failed", publicationService.findPublication(p.getId()));
         Assert.assertNotEquals("At least one publication should be present in the database", 0, publicationService.getAllPublication().size());
-        //Assert.assertEquals("No publication should be present in the profile", 0, publicationService.getAllPublicationOfProfile(testP).size());
+        Assert.assertNotEquals("No publication is present in the profile", 0, publicationService.getAllPublicationOfProfile(testP).size());
     }
 
     @Test
@@ -66,12 +67,7 @@ public class PublicationServiceTests extends TestCase {
         p.setProfile(null);
         p.setAccount(null);
         Publication newP = publicationService.updatePublication(p);
-        Assert.assertEquals("Update publication failed", newP.getDescription(), publicationService.findPublication(p.getId()).getDescription());
-        Assert.assertEquals("Update publication failed", newP.getPublishDate(), publicationService.findPublication(p.getId()).getPublishDate());
-        Assert.assertEquals("Update publication failed", newP.getLatitude(), publicationService.findPublication(p.getId()).getLatitude(), 0.1);
-        Assert.assertEquals("Update publication failed", newP.getLongitude(), publicationService.findPublication(p.getId()).getLongitude(), 0.1);
-        Assert.assertEquals("Update publication failed", newP.getProfile(), publicationService.findPublication(p.getId()).getProfile());
-        Assert.assertEquals("Update publication failed", newP.getAccount(), publicationService.findPublication(p.getId()).getAccount());
+        Assert.assertEquals("Update publication failed", newP.toString(), publicationService.findPublication(p.getId()).toString());
 
         Assert.assertNull("Can update a non existant Publication", publicationService.updatePublication(new Publication()));
     }

@@ -22,7 +22,7 @@ public class PhotoController {
 
     @POST
     @Path("/")
-    public Response createPhoto(Photo photo){
+    public Response createPhoto(Photo photo) {
         return Response.ok(photoService.createPhoto(photo)).build();
     }
 

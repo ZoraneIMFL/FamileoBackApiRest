@@ -1,4 +1,5 @@
 package jee.controller;
+
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 import jee.model.Profile;
@@ -16,6 +17,7 @@ public class ProfileController {
 
     @Inject
     private ProfileService profileService;
+
     @Path("/")
     @GET
     public Response getAllProfile() {
@@ -25,7 +27,7 @@ public class ProfileController {
 
     @POST
     @Path("/")
-    public Response createProfile(Profile profile){
+    public Response createProfile(Profile profile) {
         return Response.ok(profileService.createProfile(profile)).build();
     }
 
@@ -68,16 +70,15 @@ public class ProfileController {
         return Response.noContent().build();
     }
 
-   /** @Path("/{id}/publications")
-    @GET
-    public Response getPublicationProfile(@PathParam("id") Long id, Profile profile){
-        if (id < 0) {
-            return Response.status(Response.Status.BAD_REQUEST).build();
-        }
-        return Response.ok(publicationManager.getPublicationProfile(profile)).build();
+    /** @Path("/{id}/publications")
+     @GET public Response getPublicationProfile(@PathParam("id") Long id, Profile profile){
+     if (id < 0) {
+     return Response.status(Response.Status.BAD_REQUEST).build();
+     }
+     return Response.ok(publicationManager.getPublicationProfile(profile)).build();
 
 
-    }**/
+     }**/
 
 
 }

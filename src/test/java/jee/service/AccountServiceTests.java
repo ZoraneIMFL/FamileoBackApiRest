@@ -3,11 +3,9 @@ package jee.service;
 import jakarta.ejb.EJB;
 import jakarta.ejb.embeddable.EJBContainer;
 import jee.model.Account;
-import jee.validator.PasswordValidator;
 import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Test;
-import security.PasswordEncryption;
 
 import java.util.Properties;
 
@@ -16,6 +14,7 @@ public class AccountServiceTests extends TestCase {
     private AccountService as;
 
     protected static EJBContainer ejbContainer;
+
     public void setUp() throws Exception {
         Properties p = new Properties();
         p.put("test", "new://Resource?type=DataSource");
@@ -40,12 +39,10 @@ public class AccountServiceTests extends TestCase {
         Assert.assertEquals(fetch.getName(), "Alice");
         Assert.assertEquals(fetch.getStatus(), 0);
 
-        //An account shouldn't be created with an invalid password :
         test = new Account("Alice", "alice@gmail.com", "TestPswd", 0);
         test = as.createAccount(test);
         Assert.assertNull("An Account can be created with an invalid password", test);
 
-        //An account shouldn't be created with an invalid email :
         test = new Account("Alice", "", "TestPswd45!", 0);
         test = as.createAccount(test);
         Assert.assertNull("An Account can be created with an invalid email", test);
@@ -70,8 +67,6 @@ public class AccountServiceTests extends TestCase {
         //An account that doesn't exist shouldn't be updated
         Assert.assertNull(as.updateAccount(new Account()));
     }
-
-
 
     @Test
     public void testDeleteAccount() {

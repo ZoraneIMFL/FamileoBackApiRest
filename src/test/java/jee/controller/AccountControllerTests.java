@@ -13,11 +13,11 @@ import java.util.List;
 import java.util.Properties;
 
 public class AccountControllerTests extends TestCase {
-
     @EJB
     private AccountController accountController;
 
     protected static EJBContainer ejbContainer;
+
     public void setUp() throws Exception {
         Properties p = new Properties();
         p.put("test", "new://Resource?type=DataSource");

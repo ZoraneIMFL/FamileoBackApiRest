@@ -22,9 +22,9 @@ public class PhotoService {
     public List<Photo> getAllPhoto() {
         return dao.findAllPhoto();
     }
+
     public Photo createPhoto(final Photo newPhoto) {
         return dao.create(newPhoto);
-
     }
 
     public Photo findPhoto(final long id) {
@@ -43,7 +43,6 @@ public class PhotoService {
     public void deletePhoto(final Long id) {
         dao.delete(Photo.class, id);
     }
-
 
 
 }

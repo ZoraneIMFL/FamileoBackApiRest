@@ -7,6 +7,7 @@ import jee.model.Profile;
 import jee.model.Publication;
 
 import java.util.List;
+
 @Stateless
 public class PublicationService {
 
@@ -19,15 +20,15 @@ public class PublicationService {
 
     public Publication updatePublication(Publication publication) {
         final var oldpub = findPublication(publication.getId());
-        if(oldpub == null){
+        if (oldpub == null) {
             return null;
         }
         publication.setId(oldpub.getId());
-        return  dao.update(publication);
+        return dao.update(publication);
     }
 
     public Publication findPublication(long id) {
-        return dao.read(Publication.class,id);
+        return dao.read(Publication.class, id);
     }
 
     public List<Publication> getAllPublication() {
@@ -35,7 +36,7 @@ public class PublicationService {
     }
 
     public void deletePublication(long id) {
-        dao.delete(Publication.class,id);
+        dao.delete(Publication.class, id);
     }
 
     public List<Publication> getAllPublicationOfProfile(Profile profile) {

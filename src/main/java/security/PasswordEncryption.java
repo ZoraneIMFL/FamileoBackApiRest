@@ -1,11 +1,14 @@
 package security;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-public class PasswordEncryption  {
 
-    private PasswordEncryption(){}
+public class PasswordEncryption {
+
+    private PasswordEncryption() {
+    }
 
     public static String encryptPassword(String password, byte[] salt) {
         try {
@@ -18,6 +21,7 @@ public class PasswordEncryption  {
             throw new RuntimeException(e);
         }
     }
+
     public static byte[] generateSalt() {
         var secureRandom = new SecureRandom();
         var salt = new byte[16];
