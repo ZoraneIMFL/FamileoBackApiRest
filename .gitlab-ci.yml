@@ -39,7 +39,7 @@ test:
   artifacts:
     when: always
     paths:
-      - target/site/jacoco/
+      - target/site/jacoco/jacoco.xml
     expire_in: 30 days
 
 
